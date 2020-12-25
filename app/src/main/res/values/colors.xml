@@ -3,4 +3,9 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="purple_1">#9768D1</color>
+    <color name="purple_2">#7F7ED9</color>
+    <color name="google">#FF1957</color>
+    <color name="facebook">#4F66DB</color>
 </resources>
