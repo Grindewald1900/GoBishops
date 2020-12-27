@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">GoBishop</string>
+
+    <!-- Main Page -->
+    <string name="bottom_bar_1">Home</string>
+    <string name="bottom_bar_2">Market</string>
+    <string name="bottom_bar_3">Appointment</string>
+    <string name="bottom_bar_4">Group</string>
+
+    <!-- Tags -->
+    <string name="tag_main">tag_main</string>
 </resources>
