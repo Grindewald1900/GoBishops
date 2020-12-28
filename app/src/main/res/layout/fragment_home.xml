@@ -1,14 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_red_light">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bottom_bar_1"
-        android:textSize="@dimen/logo_text_size"
-        android:layout_centerInParent="true"/>
 
-</RelativeLayout>
+
+<!--    <ImageButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/app_name"-->
+<!--        android:background="@android:color/holo_red_light"-->
+<!--        android:src="@drawable/ic_baseline_home_48"-->
+<!--        android:layout_marginTop="@dimen/dimen_10"-->
+<!--        android:layout_marginLeft="@dimen/dimen_20"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        />-->
+
+    <com.example.gobishop.myview.mButtonView
+        android:id="@+id/btn_home_homepage"
+        android:layout_width="@dimen/button_width_small"
+        android:layout_height="@dimen/button_length_small"
+        android:background="@android:color/holo_red_light"
+        android:text="@string/home_page"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginLeft="@dimen/dimen_10"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.example.gobishop.myview.mButtonView
+        android:id="@+id/btn_home_chat"
+        android:layout_width="@dimen/button_width_small"
+        android:layout_height="@dimen/button_length_small"
+        android:background="@android:color/holo_red_light"
+        android:text="@string/chat"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginRight="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:sriv_left_top_corner_radius="16dip"
+        app:sriv_right_top_corner_radius="0dip"
+        app:sriv_left_bottom_corner_radius="48dip"
+        app:sriv_right_bottom_corner_radius="16dip"
+        />
+
+    <com.joooonho.SelectableRoundedImageView
+        android:id="@+id/iv_home_portrait"
+        android:layout_width="@dimen/button_width_small"
+        android:layout_height="@dimen/button_width_small"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:sriv_border_width="2dip"
+        app:sriv_border_color="@color/black"
+        app:sriv_oval="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_home_username"
+        android:layout_width="@dimen/button_width_small"
+        android:layout_height="@dimen/button_length_small"
+        android:layout_marginRight="@dimen/dimen_10"
+        android:gravity="center"
+        android:text="@string/f_user_name"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_home_portrait"
+        app:layout_constraintRight_toLeftOf="@+id/iv_home_portrait"
+        />
+
+    <TextView
+        android:id="@+id/tv_home_major"
+        android:layout_width="@dimen/button_width_small"
+        android:layout_height="@dimen/button_length_small"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:gravity="center"
+        android:text="@string/f_major"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_home_portrait"
+        app:layout_constraintLeft_toRightOf="@+id/iv_home_portrait"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

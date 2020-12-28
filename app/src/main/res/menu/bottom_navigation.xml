@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/nav_activity"
+        android:icon="@drawable/ic_baseline_local_activity_24"
         android:title="@string/bottom_bar_1"/>
     <item
         android:id="@+id/nav_market"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
         android:title="@string/bottom_bar_2"/>
     <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/bottom_bar_3"/>
+
+    <item
         android:id="@+id/nav_appointment"
         android:icon="@drawable/ic_baseline_assignment_24"
-        android:title="@string/bottom_bar_2"/>
+        android:title="@string/bottom_bar_4"/>
     <item
         android:id="@+id/nav_group"
         android:icon="@drawable/ic_baseline_group_24"
-        android:title="@string/bottom_bar_2"/>
+        android:title="@string/bottom_bar_5"/>
 
 
 </menu>

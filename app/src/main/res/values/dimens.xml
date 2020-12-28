@@ -21,8 +21,13 @@
     <dimen name="dimen_240">240dp</dimen>
     <dimen name="dimen_260">260dp</dimen>
 
-
-
+    <!--Button size -->
+    <dimen name="button_width_small">100dp</dimen>
+    <dimen name="button_width_middle">150dp</dimen>
+    <dimen name="button_width_large">200dp</dimen>
+    <dimen name="button_length_small">40dp</dimen>
+    <dimen name="button_length_middle">60dp</dimen>
+    <dimen name="button_length_large">80dp</dimen>
 
     <!--Text font size -->
     <dimen name="logo_text_size">36sp</dimen>

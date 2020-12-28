@@ -12,10 +12,10 @@ import com.example.gobishop.R
  * Github: Grindewald1900
  * Email: grindewald1504@gmail.com
  */
-class AppointmentFragment : Fragment() {
+class ReservationFragment : Fragment() {
     companion object{
-        fun newInstance(): AppointmentFragment{
-            return AppointmentFragment()
+        fun newInstance(): ReservationFragment{
+            return ReservationFragment()
         }
     }
 

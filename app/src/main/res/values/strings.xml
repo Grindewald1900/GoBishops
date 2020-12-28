@@ -2,11 +2,23 @@
     <string name="app_name">GoBishop</string>
 
     <!-- Main Page -->
-    <string name="bottom_bar_1">Home</string>
-    <string name="bottom_bar_2">Market</string>
-    <string name="bottom_bar_3">Appointment</string>
-    <string name="bottom_bar_4">Group</string>
+    <string name="bottom_bar_1">Activity</string>
+    <string name="bottom_bar_2">Deal</string>
+    <string name="bottom_bar_3">Home</string>
+    <string name="bottom_bar_4">Reservation</string>
+    <string name="bottom_bar_5">Team</string>
+
+    <string name="home_page">Home page</string>
+    <string name="chat">Chat</string>
+
+
 
     <!-- Tags -->
     <string name="tag_main">tag_main</string>
+
+    <!-- Fake data -->
+    <string name="f_user_name">Grindewald</string>
+    <string name="f_major">Computer Science</string>
+
+
 </resources>
