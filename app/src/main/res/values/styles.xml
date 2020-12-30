@@ -7,4 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextHomePage" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@drawable/shape_board</item>
+        <item name="android:paddingStart">@dimen/dimen_10</item>
+        <item name="android:paddingEnd">@dimen/dimen_10</item>
+    </style>
+
 </resources>
