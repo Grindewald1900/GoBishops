@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/bottom_bar_4"
-        android:textSize="@dimen/logo_text_size"
+        android:textSize="@dimen/text_size_logo"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>

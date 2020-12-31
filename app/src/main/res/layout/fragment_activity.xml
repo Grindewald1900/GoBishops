@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/google">
-    <TextView
+    <ImageButton
+        android:id="@+id/btn_activity_back"
+        android:background="@drawable/ic_back_24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/bottom_bar_1"
-        android:textSize="@dimen/logo_text_size"
-        android:layout_centerInParent="true"/>
-
-</RelativeLayout>
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginStart="@dimen/dimen_20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <ImageButton
+        android:id="@+id/btn_activity_add"
+        android:background="@drawable/ic_baseline_add_circle_outline_24"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginEnd="@dimen/dimen_20"
+        app:layout_constraintTop_toTopOf="@+id/view_activity_search_box"
+        app:layout_constraintBottom_toBottomOf="@id/view_activity_search_box"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <View
+        android:id="@+id/view_activity_search_box"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_marginStart="@dimen/dimen_20"
+        android:layout_marginEnd="@dimen/dimen_20"
+        android:background="@drawable/shape_board"
+        app:layout_constraintTop_toTopOf="@+id/btn_activity_back"
+        app:layout_constraintLeft_toRightOf="@+id/btn_activity_back"
+        app:layout_constraintRight_toLeftOf="@+id/btn_activity_add" />
+    <ImageView
+        android:id="@+id/iv_activity_search"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_baseline_search_24"
+        android:layout_marginStart="@dimen/dimen_5"
+        app:layout_constraintTop_toTopOf="@+id/view_activity_search_box"
+        app:layout_constraintBottom_toBottomOf="@+id/view_activity_search_box"
+        app:layout_constraintLeft_toLeftOf="@+id/view_activity_search_box"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

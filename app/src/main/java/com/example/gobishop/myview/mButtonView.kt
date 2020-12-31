@@ -27,6 +27,7 @@ open class mButtonView(context: Context, attrs: AttributeSet?): androidx.appcomp
     private var start = 0f
     private var isDraw = false
     private val cornerRadius = 130f
+    private val bkColor = Color.WHITE
 
     init {
         initView()
@@ -45,7 +46,7 @@ open class mButtonView(context: Context, attrs: AttributeSet?): androidx.appcomp
 
         // Initialize button background scheme
         mGradientDrawable = GradientDrawable()
-        mGradientDrawable!!.setColor(Color.argb(100,0,0,255))
+        mGradientDrawable!!.setColor(bkColor)
         mGradientDrawable!!.cornerRadius = cornerRadius
         background = mGradientDrawable
     }

@@ -26,15 +26,15 @@
 
     <!--Button size -->
     <dimen name="button_radius_portrait">80dp</dimen>
-    <dimen name="button_width_small">100dp</dimen>
+    <dimen name="button_width_small">80dp</dimen>
     <dimen name="button_width_middle">150dp</dimen>
     <dimen name="button_width_large">200dp</dimen>
-    <dimen name="button_length_small">40dp</dimen>
+    <dimen name="button_length_small">30dp</dimen>
     <dimen name="button_length_middle">60dp</dimen>
     <dimen name="button_length_large">80dp</dimen>
 
     <!--Text font size -->
-    <dimen name="logo_text_size">36sp</dimen>
-    <dimen name="title_text_size">16sp</dimen>
-    <dimen name="sub_title_text_size">14sp</dimen>
+    <dimen name="text_size_logo">36sp</dimen>
+    <dimen name="text_size_title">16sp</dimen>
+    <dimen name="text_size_sub_title">12sp</dimen>
 </resources>

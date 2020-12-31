@@ -59,6 +59,7 @@ class HomeFragment : Fragment() {
         spannable.setSpan(StyleSpan(BOLD), index[0], index[1], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(StyleSpan(BOLD), index[1], index[2], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(StyleSpan(BOLD), index[3], index[4], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(StyleSpan(BOLD), index[5], index[6], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return spannable
     }
 }

@@ -84,7 +84,6 @@
         android:text="@string/f_major"
         android:textColor="@color/black"
         android:autoSizeMaxTextSize="@dimen/text_size_title"
-        android:autoSizeMinTextSize="@dimen/text_size_sub_title"
         app:layout_constraintBottom_toBottomOf="@+id/iv_home_portrait"
         app:layout_constraintLeft_toRightOf="@+id/iv_home_portrait"
         />
@@ -92,10 +91,10 @@
     <TextView
         android:id="@+id/tv_home_1"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen_10"
         style="@style/TextHomePage"
-        app:layout_constraintTop_toTopOf="@+id/tv_home_major"
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_major"
         app:layout_constraintLeft_toLeftOf="@+id/btn_home_homepage"
         app:layout_constraintRight_toRightOf="@+id/btn_home_chat"
         app:layout_constraintBottom_toTopOf="@id/tv_home_2"
@@ -103,8 +102,9 @@
     <TextView
         android:id="@+id/tv_home_2"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/dimen_10"
+        android:text="@string/f_home_activity"
         style="@style/TextHomePage"
         app:layout_constraintTop_toBottomOf="@+id/tv_home_1"
         app:layout_constraintLeft_toLeftOf="@+id/btn_home_homepage"
@@ -114,12 +114,14 @@
     <TextView
         android:id="@+id/tv_home_3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/dimen_10"
-        android:layout_marginBottom="@dimen/dimen_100"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:text="@string/f_home_activity"
         style="@style/TextHomePage"
         app:layout_constraintTop_toBottomOf="@+id/tv_home_2"
         app:layout_constraintLeft_toLeftOf="@+id/btn_home_homepage"
         app:layout_constraintRight_toRightOf="@+id/btn_home_chat"
+        app:layout_constraintBottom_toBottomOf="parent"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
