@@ -10,11 +10,14 @@
 
     <string name="home_page">Home page</string>
     <string name="chat">Chat</string>
+    <string name="join">join</string>
 
 
 
     <!-- Tags -->
     <string name="tag_main">tag_main</string>
+    <string name="tag_activity">tag_activity</string>
+
 
     <!-- Fake data -->
     <string name="f_user_name">Grindewald</string>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/dimen_10"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_item_activity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:layout_marginStart="@dimen/dimen_5"
+        android:gravity="center"
+        android:text="title 1"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <com.example.gobishop.myview.mButtonView
+        android:id="@+id/btn_item_activity_join"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_marginEnd="@dimen/dimen_5"
+        android:text="@string/join"
+        android:textSize="@dimen/text_size_sub_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_item_activity_title"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_activity_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:gravity="center"
+        android:text="2021.09.01  @Oxford"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_activity_title"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_item_activity_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_activity_content"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_60"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:gravity="center"
+        android:text="This is a description of our activity\nThis is a description of our activity"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_activity_subtitle"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_item_activity_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_activity_info"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_30"
+        android:gravity="center"
+        android:textColor="@color/gray_2"
+        android:text="Released at 7:05PM, Jan 1, 2021 by Grindewald1900 "
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_activity_content"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_item_activity_title"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

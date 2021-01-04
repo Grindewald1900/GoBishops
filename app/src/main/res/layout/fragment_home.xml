@@ -7,46 +7,27 @@
     android:background="@android:color/white">
 
 
-<!--    <ImageButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/app_name"-->
-<!--        android:background="@android:color/holo_red_light"-->
-<!--        android:src="@drawable/ic_baseline_home_48"-->
-<!--        android:layout_marginTop="@dimen/dimen_10"-->
-<!--        android:layout_marginLeft="@dimen/dimen_20"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        />-->
-
-    <com.example.gobishop.myview.mButtonView
+    <ImageButton
         android:id="@+id/btn_home_homepage"
-        android:layout_width="@dimen/button_width_small"
+        android:layout_width="@dimen/button_length_small"
         android:layout_height="@dimen/button_length_small"
-        android:background="@drawable/shape_board"
-        android:text="@string/home_page"
+        android:background="@drawable/ic_baseline_home_24"
         android:layout_marginTop="@dimen/dimen_10"
         android:layout_marginStart="@dimen/dimen_15"
         android:textSize="@dimen/text_size_sub_title"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.example.gobishop.myview.mButtonView
+    <ImageButton
         android:id="@+id/btn_home_chat"
-        android:layout_width="@dimen/button_width_small"
+        android:layout_width="@dimen/button_length_small"
         android:layout_height="@dimen/button_length_small"
-        android:background="@drawable/shape_board"
-        android:text="@string/chat"
+        android:background="@drawable/ic_baseline_chat_24"
         android:layout_marginTop="@dimen/dimen_10"
-        android:layout_marginRight="@dimen/dimen_15"
+        android:layout_marginEnd="@dimen/dimen_15"
         android:textSize="@dimen/text_size_sub_title"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:sriv_left_top_corner_radius="16dip"
-        app:sriv_right_top_corner_radius="0dip"
-        app:sriv_left_bottom_corner_radius="48dip"
-        app:sriv_right_bottom_corner_radius="16dip"
         />
 
     <com.joooonho.SelectableRoundedImageView
