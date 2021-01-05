@@ -1,10 +1,16 @@
 package com.example.gobishop.adapter
 
+import android.content.Intent
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gobishop.R
+import com.example.gobishop.activity.ActivityActivity
+import com.example.gobishop.entity.BuActivity
 
 
 /**
@@ -12,32 +18,46 @@ import androidx.recyclerview.widget.RecyclerView
  * Github: Grindewald1900
  * Email: grindewald1504@gmail.com
  */
-class ActivityAdapter: RecyclerView.Adapter<ActivityAdapter.ActivityHolder>(){
+class ActivityAdapter(var activities: ArrayList<BuActivity>): RecyclerView.Adapter<ActivityAdapter.ActivityHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityHolder {
-        TODO("Not yet implemented")
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_recycle_activity, parent, false)
+        return ActivityHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: ActivityHolder?, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ActivityHolder, position: Int) {
+        val activity = activities.get(position)
+        holder.title.text = activity.title
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return activities.size
     }
 
-    class ActivityHolder(v: View): RecyclerView.ViewHolder(v), View.OnClickListener{
-        private var view: View = v
-        private var title: TextView? = null
-        init {
-            v.setOnClickListener(this)
+    class ActivityHolder(view: View): RecyclerView.ViewHolder(view){
+        var title: TextView = view.findViewById(R.id.tv_item_activity_title)
+        var subtitle: TextView = view.findViewById(R.id.tv_item_activity_subtitle)
+        var content: TextView = view.findViewById(R.id.tv_item_activity_content)
+        init{
+            // Set listener for each element in the activity item
+            content.setOnClickListener {
+                Toast.makeText(it.context, "Content Clicked", Toast.LENGTH_SHORT).show()
+                Log.v("tag_activity", "Item Click")
+                var intent = Intent(it.context, ActivityActivity::class.java)
+                it.context.startActivity(intent)
+
+            }
+            subtitle.setOnClickListener {
+                Toast.makeText(it.context, "Subtitle Clicked", Toast.LENGTH_SHORT).show()
+                Log.v("tag_activity", "Item Click")
+            }
+            title.setOnClickListener {
+                Toast.makeText(it.context, "Title Clicked", Toast.LENGTH_SHORT).show()
+                Log.v("tag_activity", "Item Click")
+            }
         }
 
         companion object{
             private val ACTIVITY_KEY = "ACTIVITY"
         }
-        override fun onClick(v: View?) {
-            Log.d("tag_activity", "Click")
-        }
-
     }
 }

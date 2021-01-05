@@ -24,4 +24,12 @@
         <item name="android:paddingEnd">@dimen/dimen_10</item>
     </style>
 
+    <style name="BackButton">
+        <item name="android:background">@drawable/ic_back_24</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/dimen_20</item>
+        <item name="android:layout_marginTop">@dimen/dimen_20</item>
+    </style>
+
 </resources>

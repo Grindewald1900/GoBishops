@@ -26,7 +26,7 @@ open class mButtonView(context: Context, attrs: AttributeSet?): androidx.appcomp
     private var mRight = 0f
     private var start = 0f
     private var isDraw = false
-    private val cornerRadius = 130f
+    private val cornerRadius = 50f
     private val bkColor = Color.WHITE
 
     init {
@@ -41,7 +41,7 @@ open class mButtonView(context: Context, attrs: AttributeSet?): androidx.appcomp
         paint = Paint()
         paint!!.isAntiAlias = true
         paint!!.color = Color.parseColor("#ffffff")
-        paint!!.strokeWidth = 4f
+        paint!!.strokeWidth = 2f
         paint!!.style = Paint.Style.STROKE
 
         // Initialize button background scheme
@@ -126,7 +126,7 @@ open class mButtonView(context: Context, attrs: AttributeSet?): androidx.appcomp
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         if (isDraw){
-            val mRectF = RectF(mLeft+10,10f,mRight-10,height-10.toFloat())
+            val mRectF = RectF(mLeft+10,5f,mRight-10,height-10.toFloat())
             paint?.let { canvas!!.drawArc(mRectF,start,160f,false, it) } //画圆弧
         }
 

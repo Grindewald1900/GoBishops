@@ -13,7 +13,6 @@
     <string name="join">join</string>
 
 
-
     <!-- Tags -->
     <string name="tag_main">tag_main</string>
     <string name="tag_activity">tag_activity</string>
@@ -22,6 +21,9 @@
     <!-- Fake data -->
     <string name="f_user_name">Grindewald</string>
     <string name="f_major">Computer Science</string>
+    <string name="f_time">2021/01/02</string>
+
+    <string name="f_location">Oxford</string>
     <string name="f_home_activity"> My Activity \n activity1 \n July 9, 2021, Oxford \n activity2 \n July 10, 2021, Oxford \n activity3 \n July 12, 2021, Oxford</string>
 
 
