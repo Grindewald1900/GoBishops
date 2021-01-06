@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/dimen_10"
+    android:padding="@dimen/dimen_20"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -24,12 +24,9 @@
 
     <com.example.gobishop.myview.mButtonView
         android:id="@+id/btn_item_activity_join"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimen_30"
         android:layout_marginEnd="@dimen/dimen_5"
         android:text="@string/join"
-        android:padding="0dp"
-        android:textSize="@dimen/text_size_sub_title"
+        style="@style/SmallButton"
         app:layout_constraintTop_toTopOf="@+id/tv_item_activity_title"
         app:layout_constraintRight_toRightOf="parent"
         />

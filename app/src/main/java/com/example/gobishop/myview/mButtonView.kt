@@ -26,7 +26,7 @@ open class mButtonView(context: Context, attrs: AttributeSet?): androidx.appcomp
     private var mRight = 0f
     private var start = 0f
     private var isDraw = false
-    private val cornerRadius = 50f
+    private val cornerRadius = 10f
     private val bkColor = Color.WHITE
 
     init {

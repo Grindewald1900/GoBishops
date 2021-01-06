@@ -13,6 +13,24 @@
     <string name="join">join</string>
 
 
+    <!-- Activity Page -->
+    <string name="activity_permission">Activity permission</string>
+    <string name="activity_release">Release</string>
+    <string name="hint_location"> Location of your activity</string>
+    <string name="hint_date"> date of your activity</string>
+    <string name="hint_description">Describe your activity briefly</string>
+    <string name="hint_participant">Who can join your activity</string>
+    <string name="hint_additional">Additional information</string>
+    <string name="hint_invite">Invite other users</string>
+    <string-array name="activity_permission">
+        <item>Public(everyone can join)</item>
+        <item>Private(only people invited can join)</item>
+        <item>Private(only people approved can join)</item>
+        <item>Private(only people in the same major can join)</item>
+    </string-array>
+
+
+
     <!-- Tags -->
     <string name="tag_main">tag_main</string>
     <string name="tag_activity">tag_activity</string>
