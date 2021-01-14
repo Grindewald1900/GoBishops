@@ -15,5 +15,9 @@ class ActivityDetailActivity : AppCompatActivity() {
 
     private fun initView(){
         Glide.with(this).asBitmap().load(R.drawable.img_portrait).into(iv_activity_detail_portrait)
+        btn_activity_detail_back.setOnClickListener {
+            onBackPressed()
+            finish()
+        }
     }
 }

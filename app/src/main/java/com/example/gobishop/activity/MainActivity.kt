@@ -11,6 +11,8 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.gobishop.R
 import com.example.gobishop.fragment.*
+import com.example.gobishop.utils.DBUtil
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +21,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.i(getString(R.string.tag_main), "Main Created")
         initView(savedInstanceState)
+//        test()
+    }
 
+    private fun test(){
+        setValue()
     }
 
     private fun initView(savedInstanceState: Bundle?){
@@ -64,5 +70,21 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    fun setValue(){
+        // Write a message to the database
+        val database = FirebaseDatabase.getInstance()
+        val rootRef = database.getReference()
+        Log.d("DatabaseUtil", "Database init...")
+        Log.d("DatabaseUtil", rootRef.toString())
+        rootRef.child("gobishop-bcd0f-default-rtdb:").setValue("Hello, World!")
+            .addOnSuccessListener {
+                Log.d("DatabaseUtil", "Success")
+            }.addOnFailureListener {
+                Log.d("DatabaseUtil", it.message.toString())
+            }
+        //        val userTest = User("Grindewald", "hhah@gmail.com")
+
     }
 }

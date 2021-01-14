@@ -14,6 +14,7 @@
     <com.example.gobishop.myview.mButtonView
         android:id="@+id/btn_activity_add_release"
         android:text="@string/activity_release"
+        android:textColor="@color/colorPrimary"
         android:layout_marginEnd="@dimen/dimen_20"
         style="@style/NormalButton"
         app:layout_constraintTop_toTopOf="@id/btn_activity_add_back"
@@ -31,12 +32,8 @@
     <EditText
         android:id="@+id/et_activity_add_location"
         android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_30"
         android:hint="@string/hint_location"
-        android:gravity="center_vertical"
-        android:layout_marginStart="@dimen/dimen_20"
-        android:layout_marginEnd="@dimen/dimen_20"
-        android:background="@drawable/shape_board"
+        style="@style/InformationEditText"
         android:paddingStart="@dimen/dimen_10"
         app:layout_constraintTop_toTopOf="@+id/iv_activity_add_location"
         app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_location"
@@ -48,7 +45,7 @@
         android:layout_width="@dimen/button_length_small"
         android:layout_height="@dimen/button_length_small"
         android:background="@drawable/ic_baseline_access_time_24"
-        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_10"
         app:layout_constraintTop_toBottomOf="@+id/iv_activity_add_location"
         app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_location"
         />
@@ -61,56 +58,73 @@
         android:layout_marginStart="@dimen/dimen_20"
         android:layout_marginEnd="@dimen/dimen_20"
         android:background="@drawable/shape_board"
-        android:drawableEnd="@drawable/ic_baseline_calendar_today_24"
         android:paddingStart="@dimen/dimen_10"
         android:paddingEnd="@dimen/dimen_10"
         app:layout_constraintTop_toTopOf="@+id/iv_activity_add_time"
         app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_time"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        app:drawableEndCompat="@drawable/ic_baseline_calendar_today_24" />
 
     <ImageView
         android:id="@+id/iv_activity_add_description"
         android:layout_width="@dimen/button_length_small"
         android:layout_height="@dimen/button_length_small"
         android:background="@drawable/ic_baseline_list_alt_24"
-        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_10"
         app:layout_constraintTop_toBottomOf="@+id/iv_activity_add_time"
         app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_time"
         />
     <EditText
         android:id="@+id/et_activity_add_description"
         android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_30"
+        android:layout_height="@dimen/dimen_100"
         android:hint="@string/hint_description"
-        android:gravity="center_vertical"
+        android:gravity="top"
+        android:textSize="@dimen/text_size_sub_title"
         android:layout_marginStart="@dimen/dimen_20"
         android:layout_marginEnd="@dimen/dimen_20"
         android:background="@drawable/shape_board"
         android:paddingStart="@dimen/dimen_10"
+        android:paddingTop="@dimen/dimen_10"
         app:layout_constraintTop_toTopOf="@+id/iv_activity_add_description"
         app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_description"
         app:layout_constraintRight_toRightOf="parent"
         />
 
     <ImageView
+        android:id="@+id/iv_activity_add_type"
+        android:layout_width="@dimen/button_length_small"
+        android:layout_height="@dimen/button_length_small"
+        android:background="@drawable/ic_antoutline_tags"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintTop_toBottomOf="@+id/et_activity_add_description"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_description"
+        />
+    <Spinner
+        android:id="@+id/spinner_activity_add_type"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_30"
+        android:background="@drawable/shape_board"
+        android:spinnerMode="dropdown"
+        android:dropDownVerticalOffset="@dimen/dimen_30"
+        app:layout_constraintTop_toTopOf="@+id/iv_activity_add_type"
+        app:layout_constraintLeft_toLeftOf="@+id/et_activity_add_participant"
+        app:layout_constraintRight_toRightOf="@+id/et_activity_add_participant"
+        />
+    <ImageView
         android:id="@+id/iv_activity_add_participant"
         android:layout_width="@dimen/button_length_small"
         android:layout_height="@dimen/button_length_small"
         android:background="@drawable/ic_baseline_group_24"
-        android:layout_marginTop="@dimen/dimen_20"
-        app:layout_constraintTop_toBottomOf="@+id/iv_activity_add_description"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintTop_toBottomOf="@+id/iv_activity_add_type"
         app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_description"
         />
     <EditText
         android:id="@+id/et_activity_add_participant"
         android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_30"
         android:hint="@string/hint_participant"
-        android:gravity="center_vertical"
-        android:layout_marginStart="@dimen/dimen_20"
-        android:layout_marginEnd="@dimen/dimen_20"
-        android:background="@drawable/shape_board"
+        style="@style/InformationEditText"
         android:paddingStart="@dimen/dimen_10"
         app:layout_constraintTop_toTopOf="@+id/iv_activity_add_participant"
         app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_participant"
@@ -121,8 +135,8 @@
         android:id="@+id/iv_activity_add_permission"
         android:layout_width="@dimen/button_length_small"
         android:layout_height="@dimen/button_length_small"
-        android:background="@drawable/ic_baseline_lock_open_24"
-        android:layout_marginTop="@dimen/dimen_20"
+        android:background="@drawable/ic_mb_unlock_o"
+        android:layout_marginTop="@dimen/dimen_10"
         app:layout_constraintTop_toBottomOf="@+id/iv_activity_add_participant"
         app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_participant"
         />
@@ -132,7 +146,7 @@
         android:layout_height="@dimen/dimen_30"
         android:text="@string/activity_permission"
         android:textSize="@dimen/text_size_title"
-        android:textColor="@color/black"
+        android:textColor="@color/colorPrimary"
         android:layout_marginStart="@dimen/dimen_20"
         app:layout_constraintTop_toTopOf="@+id/iv_activity_add_permission"
         app:layout_constraintBottom_toBottomOf="@+id/iv_activity_add_permission"
@@ -142,35 +156,12 @@
         android:id="@+id/spinner_activity_add_permission"
         android:layout_width="0dp"
         android:layout_height="@dimen/dimen_30"
-        android:layout_marginTop="@dimen/dimen_10"
+        android:background="@drawable/shape_board"
+        android:spinnerMode="dropdown"
+        android:dropDownVerticalOffset="@dimen/dimen_30"
         app:layout_constraintTop_toBottomOf="@+id/tv_activity_add_permission"
         app:layout_constraintLeft_toLeftOf="@+id/et_activity_add_participant"
         app:layout_constraintRight_toRightOf="@+id/et_activity_add_participant"
-        />
-
-
-    <ImageView
-        android:id="@+id/iv_activity_add_additional_info"
-        android:layout_width="@dimen/button_length_small"
-        android:layout_height="@dimen/button_length_small"
-        android:background="@drawable/ic_baseline_star_24"
-        android:layout_marginTop="@dimen/dimen_20"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_activity_add_permission"
-        app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_permission"
-        />
-    <EditText
-        android:id="@+id/et_activity_add_additional_info"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_30"
-        android:hint="@string/hint_additional"
-        android:gravity="center_vertical"
-        android:layout_marginStart="@dimen/dimen_20"
-        android:layout_marginEnd="@dimen/dimen_20"
-        android:background="@drawable/shape_board"
-        android:paddingStart="@dimen/dimen_10"
-        app:layout_constraintTop_toTopOf="@+id/iv_activity_add_additional_info"
-        app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_additional_info"
-        app:layout_constraintRight_toRightOf="parent"
         />
 
     <ImageView
@@ -178,23 +169,65 @@
         android:layout_width="@dimen/button_length_small"
         android:layout_height="@dimen/button_length_small"
         android:background="@drawable/ic_baseline_person_add_24"
-        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_activity_add_permission"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_permission"
+        />
+    <LinearLayout
+        android:id="@+id/ll_activity_add_invite"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_30"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/dimen_20"
+        app:layout_constraintTop_toTopOf="@+id/iv_activity_add_invite"
+        app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_invite">
+        <ImageButton
+            android:id="@+id/ib_activity_add_invite_add"
+            android:layout_width="@dimen/dimen_30"
+            android:layout_height="@dimen/dimen_30"
+            android:background="@drawable/ic_mb_plus_o"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_activity_add_additional_info"
+        android:layout_width="@dimen/button_length_small"
+        android:layout_height="@dimen/button_length_small"
+        android:background="@drawable/ic_baseline_star_24"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintTop_toBottomOf="@+id/iv_activity_add_invite"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_invite"
+        />
+    <EditText
+        android:id="@+id/et_activity_add_additional_info"
+        android:layout_width="0dp"
+        android:hint="@string/hint_additional"
+        style="@style/InformationEditText"
+        android:paddingStart="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/iv_activity_add_additional_info"
+        app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_additional_info"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_activity_add_upload"
+        android:layout_width="@dimen/button_length_small"
+        android:layout_height="@dimen/button_length_small"
+        android:background="@drawable/ic_fa5_upload"
+        android:layout_marginTop="@dimen/dimen_10"
         app:layout_constraintTop_toBottomOf="@+id/iv_activity_add_additional_info"
         app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_additional_info"
         />
-    <EditText
-        android:id="@+id/et_activity_add_invite"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_30"
-        android:hint="@string/hint_invite"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_20"
         android:layout_marginEnd="@dimen/dimen_20"
-        android:background="@drawable/shape_board"
-        android:paddingStart="@dimen/dimen_10"
-        app:layout_constraintTop_toTopOf="@+id/iv_activity_add_invite"
-        app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_invite"
+        app:layout_constraintTop_toTopOf="@+id/iv_activity_add_upload"
+        app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_upload"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        >
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,11 +14,11 @@
 
 
     <!-- Activity Page -->
-    <string name="activity_permission">Activity permission</string>
-    <string name="activity_release">Release</string>
+    <string name="activity_permission">Permission of event </string>
+    <string name="activity_release">Post</string>
     <string name="hint_location"> Location of your activity</string>
     <string name="hint_date"> date of your activity</string>
-    <string name="hint_description">Describe your activity briefly</string>
+    <string name="hint_description">Describe your event briefly</string>
     <string name="hint_participant">Who can join your activity</string>
     <string name="hint_additional">Additional information</string>
     <string name="hint_invite">Invite other users</string>
@@ -28,7 +28,14 @@
         <item>Private(only people approved can join)</item>
         <item>Private(only people in the same major can join)</item>
     </string-array>
-
+    <string-array name="activity_type">
+        <item>Sports</item>
+        <item>Reading meeting</item>
+        <item>Study group</item>
+        <item>Career development</item>
+        <item>Volunteer</item>
+        <item>Others</item>
+    </string-array>
 
 
     <!-- Tags -->
@@ -43,6 +50,8 @@
 
     <string name="f_location">Oxford</string>
     <string name="f_home_activity"> My Activity \n activity1 \n July 9, 2021, Oxford \n activity2 \n July 10, 2021, Oxford \n activity3 \n July 12, 2021, Oxford</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
