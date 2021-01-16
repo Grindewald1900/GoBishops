@@ -1,4 +1,4 @@
-package com.example.gobishop.fragment
+package com.example.gobishops.fragment
 
 import android.graphics.Typeface.BOLD
 import android.os.Bundle
@@ -10,8 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.gobishop.R
-import com.example.gobishop.utils.TextUtil
+import com.example.gobishops.R
+import com.example.gobishops.utils.TextUtil
 import com.joooonho.SelectableRoundedImageView
 import kotlinx.android.synthetic.main.fragment_home.*
 

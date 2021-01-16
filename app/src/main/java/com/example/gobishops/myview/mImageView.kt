@@ -1,14 +1,11 @@
-package com.example.gobishop.myview
+package com.example.gobishops.myview
 
 import android.content.Context
 import android.graphics.*
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
-import android.os.Debug
 import android.util.AttributeSet
 import android.util.Log
-import android.widget.ImageView
 import androidx.core.graphics.drawable.toBitmap
 
 

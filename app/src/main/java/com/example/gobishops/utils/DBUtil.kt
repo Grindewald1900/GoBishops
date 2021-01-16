@@ -1,10 +1,8 @@
-package com.example.gobishop.utils
+package com.example.gobishops.utils
 
 import android.util.Log
-import com.example.gobishop.entity.User
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+
 
 
 /**

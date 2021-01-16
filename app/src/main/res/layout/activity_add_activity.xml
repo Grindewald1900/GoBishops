@@ -11,7 +11,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         />
-    <com.example.gobishop.myview.mButtonView
+    <com.example.gobishops.myview.mButtonView
         android:id="@+id/btn_activity_add_release"
         android:text="@string/activity_release"
         android:textColor="@color/colorPrimary"

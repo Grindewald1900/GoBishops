@@ -1,4 +1,4 @@
-package com.example.gobishop.adapter
+package com.example.gobishops.adapter
 
 import android.content.Intent
 import android.util.Log
@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gobishop.R
-import com.example.gobishop.activity.ActivityDetailActivity
-import com.example.gobishop.entity.BuActivity
+import com.example.gobishops.R
+import com.example.gobishops.activity.ActivityDetailActivity
+import com.example.gobishops.entity.BuActivity
 
 
 /**

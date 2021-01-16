@@ -1,4 +1,4 @@
-package com.example.gobishop.view
+package com.example.gobishops.view
 
 
 /**

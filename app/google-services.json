@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "355441937273",
+    "firebase_url": "https://gobishops-91630-default-rtdb.firebaseio.com",
+    "project_id": "gobishops-91630",
+    "storage_bucket": "gobishops-91630.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355441937273:android:25383fd8ffe31e1d58fda8",
+        "android_client_info": {
+          "package_name": "com.example.gobishops"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355441937273-uccmmv29q65ucfr0qvs3g8qgk8l4k7mi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gobishops",
+            "certificate_hash": "008321ede1b4f99d3564b0c8a13c5698ee4f4df7"
+          }
+        },
+        {
+          "client_id": "355441937273-mjiht8tft7gv5bqi9at9jg3ibt8u5dhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB38LcIyL8u-jGmRyHZJEYk2Fw1YcjU0ag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355441937273-mjiht8tft7gv5bqi9at9jg3ibt8u5dhv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

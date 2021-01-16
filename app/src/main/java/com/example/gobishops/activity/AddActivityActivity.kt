@@ -1,5 +1,5 @@
 
-package com.example.gobishop.activity
+package com.example.gobishops.activity
 
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -9,8 +9,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import android.widget.Spinner
-import com.example.gobishop.R
-import com.example.gobishop.fragment.DatePickerFragment
+import com.example.gobishops.R
+import com.example.gobishops.fragment.DatePickerFragment
 import kotlinx.android.synthetic.main.activity_add_activity.*
 
 class AddActivityActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener{

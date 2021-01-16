@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="@id/btn_activity_detail_back"
         app:layout_constraintRight_toLeftOf="@+id/btn_activity_detail_join"
         />
-    <com.example.gobishop.myview.mButtonView
+    <com.example.gobishops.myview.mButtonView
         android:id="@+id/btn_activity_detail_join"
         android:text="@string/join"
         android:textColor="@color/colorPrimary"
@@ -59,7 +59,7 @@
         app:layout_constraintLeft_toRightOf="@+id/iv_activity_detail_portrait"
         />
 
-    <com.example.gobishop.myview.mImageView
+    <com.example.gobishops.myview.mImageView
         android:id="@+id/iv_activity_detail_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_200"

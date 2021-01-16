@@ -1,4 +1,4 @@
-package com.example.gobishop.utils
+package com.example.gobishops.utils
 
 
 /**

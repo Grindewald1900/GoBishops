@@ -1,4 +1,4 @@
-package com.example.gobishop.myview
+package com.example.gobishops.myview
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter

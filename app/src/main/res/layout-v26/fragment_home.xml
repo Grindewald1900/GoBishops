@@ -19,7 +19,7 @@
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        />-->
 
-    <com.example.gobishop.myview.mButtonView
+    <com.example.gobishops.myview.mButtonView
         android:id="@+id/btn_home_homepage"
         android:layout_width="@dimen/button_width_small"
         android:layout_height="@dimen/button_length_small"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <com.example.gobishop.myview.mButtonView
+    <com.example.gobishops.myview.mButtonView
         android:id="@+id/btn_home_chat"
         android:layout_width="@dimen/button_width_small"
         android:layout_height="@dimen/button_length_small"

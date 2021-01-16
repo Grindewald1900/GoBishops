@@ -1,4 +1,4 @@
-package com.example.gobishop.fragment
+package com.example.gobishops.fragment
 
 import android.app.DatePickerDialog
 import android.app.Dialog

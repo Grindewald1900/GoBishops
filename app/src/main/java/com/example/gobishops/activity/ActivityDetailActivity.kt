@@ -1,9 +1,9 @@
-package com.example.gobishop.activity
+package com.example.gobishops.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
-import com.example.gobishop.R
+import com.example.gobishops.R
 import kotlinx.android.synthetic.main.activity_detail_activity.*
 
 class ActivityDetailActivity : AppCompatActivity() {

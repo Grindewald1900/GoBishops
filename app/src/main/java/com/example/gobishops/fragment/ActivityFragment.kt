@@ -1,4 +1,4 @@
-package com.example.gobishop.fragment
+package com.example.gobishops.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.gobishop.R
-import com.example.gobishop.activity.AddActivityActivity
-import com.example.gobishop.adapter.ActivityAdapter
-import com.example.gobishop.entity.BuActivity
+import com.example.gobishops.R
+import com.example.gobishops.activity.AddActivityActivity
+import com.example.gobishops.adapter.ActivityAdapter
+import com.example.gobishops.entity.BuActivity
 import kotlinx.android.synthetic.main.fragment_activity.*
 
 /**

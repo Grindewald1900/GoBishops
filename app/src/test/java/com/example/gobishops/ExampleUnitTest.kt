@@ -1,4 +1,4 @@
-package com.example.gobishop
+package com.example.gobishops
 
 import org.junit.Test
 

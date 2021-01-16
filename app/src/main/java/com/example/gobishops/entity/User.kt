@@ -1,4 +1,4 @@
-package com.example.gobishop.entity
+package com.example.gobishops.entity
 
 
 /**
