@@ -41,6 +41,7 @@ class HomeFragment : Fragment() {
         initView()
     }
 
+
     private fun initView(){
         var ivPortrait:SelectableRoundedImageView = view!!.findViewById(R.id.iv_home_portrait)
         Glide.with(context!!)

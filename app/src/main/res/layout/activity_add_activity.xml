@@ -219,15 +219,28 @@
         app:layout_constraintLeft_toLeftOf="@+id/iv_activity_add_additional_info"
         />
     <LinearLayout
+        android:id="@+id/ll_activity_add_upload_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_20"
         android:layout_marginEnd="@dimen/dimen_20"
+        android:orientation="horizontal"
+        android:background="@color/white"
         app:layout_constraintTop_toTopOf="@+id/iv_activity_add_upload"
         app:layout_constraintLeft_toRightOf="@+id/iv_activity_add_upload"
         app:layout_constraintRight_toRightOf="parent"
         >
 
+        <ImageView
+            android:id="@+id/iv_activity_add_add_image"
+            android:layout_width="37dp"
+            android:layout_height="@dimen/dimen_40"
+            android:background="@color/gray_1"
+            android:src="@drawable/ic_baseline_add_24"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginBottom="@dimen/dimen_10"
+            android:layout_marginStart="@dimen/dimen_10"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

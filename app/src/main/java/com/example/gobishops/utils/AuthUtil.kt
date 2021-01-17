@@ -22,6 +22,11 @@ object AuthUtil {
         return mAuth.currentUser
     }
 
+    /**
+     * Implemented with Firebase Authentication
+     * @param email: email address
+     * @param password: user password
+     */
     fun createAccount(email: String, password: String){
         Log.d("mAuth", "createUserWithEmail")
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -42,31 +47,6 @@ object AuthUtil {
             }
     }
 
-    fun addEntity(path: String, content: Any){
-        // Write a message to the database
-        val database = FirebaseDatabase.getInstance()
-        val reference = database.getReference(path)
-        Log.d("DatabaseUtil", "Database init...")
-        Log.d("DatabaseUtil", reference.toString())
-        reference.setValue(content)
-            .addOnCompleteListener {
-                Log.d("DatabaseUtil", "Complete")
-            }.addOnSuccessListener {
-                Log.d("DatabaseUtil", "Success")
-            }.addOnFailureListener {
-                Log.d("DatabaseUtil", it.message.toString())
-            }.addOnCanceledListener {
-                Log.d("DatabaseUtil", "Canceled")
-            }
-//        rootRef.addValueEventListener(object: ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                Log.d("DatabaseUtil", "onDataChange")
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                Log.d("DatabaseUtil", "onCancelled")
-//            }
-//        })
-    }
+
 
 }

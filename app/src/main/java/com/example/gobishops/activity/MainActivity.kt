@@ -6,6 +6,8 @@ package com.example.gobishops.activity
  * Email: grindewald1504@gmail.com
  */
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -15,11 +17,14 @@ import com.example.gobishops.entity.User
 import com.example.gobishops.fragment.*
 import com.example.gobishops.utils.AuthUtil
 import com.example.gobishops.utils.ConstantUtil
+import com.example.gobishops.utils.DBUtil
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_home.*
+import java.io.File
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,9 +36,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun test(){
-        AuthUtil.addEntity(ConstantUtil.DATABASE_USER+"/User002", User("Grindewald", getString(R.string.f_email)))
+//        DBUtil.addEntity(ConstantUtil.DATABASE_USER+"/User002", User("Grindewald", getString(R.string.f_email)))
 //        AuthUtil.createAccount(getString(R.string.f_email), getString(R.string.f_password))
     }
+
 
     private fun initView(savedInstanceState: Bundle?){
         if (savedInstanceState == null){

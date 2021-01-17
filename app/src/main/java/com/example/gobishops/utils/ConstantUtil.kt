@@ -8,5 +8,8 @@ package com.example.gobishops.utils
  */
 object ConstantUtil {
     val DATABASE_USER: String = "Users"
+    val STORAGE_IMAGE: String = "Images/"
+
+    val SELECT_IMAGE: Int = 101
 
 }

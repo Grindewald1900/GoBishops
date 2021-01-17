@@ -2,8 +2,10 @@
 package com.example.gobishops.activity
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -11,6 +13,7 @@ import android.widget.DatePicker
 import android.widget.Spinner
 import com.example.gobishops.R
 import com.example.gobishops.fragment.DatePickerFragment
+import com.example.gobishops.utils.ConstantUtil
 import kotlinx.android.synthetic.main.activity_add_activity.*
 
 class AddActivityActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener{
@@ -39,6 +42,27 @@ class AddActivityActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         et_activity_add_time.setOnClickListener {
             val dateFragment = DatePickerFragment()
             dateFragment.show(supportFragmentManager, "datePicker")
+        }
+        iv_activity_add_add_image.setOnClickListener {
+            chooseImage()
+        }
+    }
+
+    private fun chooseImage(){
+        var intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Image"), ConstantUtil.SELECT_IMAGE)
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == RESULT_OK){
+            if (requestCode == ConstantUtil.SELECT_IMAGE){
+                val selectedImageUri = data!!.data
+                Log.d(this.localClassName, selectedImageUri.toString())
+            }
         }
     }
 
