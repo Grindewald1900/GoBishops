@@ -12,4 +12,7 @@ object ConstantUtil {
 
     val SELECT_IMAGE: Int = 101
 
+    // Constant amount
+    val MAX_UPLOAD_IMAGE: Int = 6
+
 }
