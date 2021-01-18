@@ -11,6 +11,8 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import com.example.gobishops.R
+import kotlin.properties.Delegates
 
 
 /**
@@ -27,9 +29,13 @@ open class mButtonView(context: Context, attrs: AttributeSet?): androidx.appcomp
     private var start = 0f
     private var isDraw = false
     private val cornerRadius = 10f
-    private val bkColor = Color.WHITE
+    private var bkColor = Color.WHITE
+    private var borderColor by Delegates.notNull<Int>()
 
     init {
+        val attr = context.obtainStyledAttributes(attrs, R.styleable.mButtonView)
+        borderColor = attr.getColor(R.styleable.mButtonView_border_color, Color.BLACK)
+        bkColor = attr.getColor(R.styleable.mButtonView_background_color, Color.WHITE)
         initView()
     }
 
@@ -40,7 +46,8 @@ open class mButtonView(context: Context, attrs: AttributeSet?): androidx.appcomp
         // Initialize painter
         paint = Paint()
         paint!!.isAntiAlias = true
-        paint!!.color = Color.parseColor("#ffffff")
+//        paint!!.color = Color.parseColor("#ffffff")
+        paint!!.color = borderColor
         paint!!.strokeWidth = 2f
         paint!!.style = Paint.Style.STROKE
 

@@ -1,5 +1,6 @@
 package com.example.gobishops.fragment
 
+import android.content.Intent
 import android.graphics.Typeface.BOLD
 import android.os.Bundle
 import android.text.Spannable
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
+import com.example.gobishops.activity.LoginActivity
 import com.example.gobishops.utils.TextUtil
 import com.joooonho.SelectableRoundedImageView
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -51,6 +53,10 @@ class HomeFragment : Fragment() {
         tv_home_1.text = initText(getString(R.string.f_home_activity))
         tv_home_2.text = initText(getString(R.string.f_home_activity))
         tv_home_3.text = initText(getString(R.string.f_home_activity))
+        iv_home_portrait.setOnClickListener {
+            var intent = Intent(context, LoginActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

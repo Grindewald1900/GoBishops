@@ -37,11 +37,33 @@
         <item>Others</item>
     </string-array>
 
+    <!-- Login Page -->
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="register">Register</string>
+    <string name="login">LOGIN</string>
+    <string name="login_google">LOGIN WITH GOOGLE</string>
+    <string name="login_facebook">LOGIN WITH FACEBOOK</string>
+    <string name="hint_username">Input your user name or ID</string>
+    <string name="hint_password">Input your password</string>
+
+    <!-- Register Page -->
+    <string name="reg_password1">Please input your password</string>
+    <string name="reg_password2">Please repeat your password</string>
+    <string name="reg_email">Please input your email</string>
+    <string name="privacy">Privacy Policy</string>
+    <string name="contact_us">Contact us</string>
+
+
 
     <!-- Tags -->
     <string name="tag_main">tag_main</string>
     <string name="tag_activity">tag_activity</string>
 
+    <!-- Hint -->
+    <string name="hint_max_image_upload">You can upload 6 images at most!</string>
 
     <!-- Fake data -->
     <string name="f_user_name">Grindewald</string>

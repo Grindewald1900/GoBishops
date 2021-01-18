@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import org.jetbrains.annotations.TestOnly
 import java.io.File
 
 
@@ -35,12 +36,18 @@ class MainActivity : AppCompatActivity() {
         test()
     }
 
-    private fun test(){
+    /**
+     * Only for test
+     */
+    @TestOnly fun test(){
 //        DBUtil.addEntity(ConstantUtil.DATABASE_USER+"/User002", User("Grindewald", getString(R.string.f_email)))
 //        AuthUtil.createAccount(getString(R.string.f_email), getString(R.string.f_password))
     }
 
 
+    /**
+     * View Initialization, including onClickListener()
+     */
     private fun initView(savedInstanceState: Bundle?){
         if (savedInstanceState == null){
             val fragment = HomeFragment.newInstance()

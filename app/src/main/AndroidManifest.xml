@@ -9,9 +9,11 @@
         android:roundIcon="@drawable/ic_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.gobishops.activity.AddActivityActivity"></activity>
-        <activity android:name="com.example.gobishops.activity.ActivityDetailActivity" />
-        <activity android:name="com.example.gobishops.activity.MainActivity">
+        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.AddActivityActivity" />
+        <activity android:name=".activity.ActivityDetailActivity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

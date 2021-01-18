@@ -22,10 +22,10 @@ object StorageUtil {
     fun uploadImage(uri: Uri, mContext: Context){
         val uuid: String = UUID.randomUUID().toString()
         val reference = mStorageRef.child(ConstantUtil.STORAGE_IMAGE + uuid)
-        val file: Uri = Uri.fromFile(File("path/to/images/rivers.jpg"))
+//        val file: Uri = Uri.fromFile(File("path/to/images/rivers.jpg"))
         Log.d("Storage", "uploadImage")
 
-        reference.putFile(file)
+        reference.putFile(uri)
             .addOnSuccessListener { taskSnapshot -> // Get a URL to the uploaded content
                 Log.d("Storage", "addOnSuccessListener")
 //                val downloadUrl: Uri = taskSnapshot.getDownloadUrl()
@@ -33,7 +33,7 @@ object StorageUtil {
             .addOnFailureListener {
                 Log.d("Storage", "addOnFailureListener")
                 // Handle unsuccessful uploads
-                // ...
+
             }
             .addOnProgressListener {
                 val percentage = (it.bytesTransferred / it.totalByteCount) * 100
