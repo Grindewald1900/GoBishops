@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.AddActivityActivity">
+    tools:context=".view.AddEventActivity">
     <ImageButton
         android:id="@+id/btn_activity_add_back"
         style="@style/BackButton"

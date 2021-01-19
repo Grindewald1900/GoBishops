@@ -1,13 +1,14 @@
 package com.example.gobishops.utils
 
+import android.R.attr
+import android.app.Activity
+import android.content.Context
 import android.util.Log
-import com.example.gobishops.R
+import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 
 /**
@@ -36,7 +37,7 @@ object AuthUtil {
                     Log.d("mAuth", "createUserWithEmail:success")
                 }else{
                     // Sign in fails
-                    Log.d("mAuth", "createUserWithEmail:fail"+it.exception)
+                    Log.d("mAuth", "createUserWithEmail:fail" + it.exception)
                 }
             }
             .addOnFailureListener {
@@ -47,6 +48,30 @@ object AuthUtil {
             }
     }
 
+    /**
+     * Implemented with Firebase Authentication
+     * @param email: email address
+     * @param password: user password
+     */
+    fun signInAccount(email: String, password: String, mActivity: Activity){
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(mActivity,
+                OnCompleteListener<AuthResult?> { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("mAuth", "signInWithEmail:success")
+                        val user = mAuth.currentUser
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("mAuth", "signInWithEmail:failure", task.exception)
+                        Toast.makeText(mActivity, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    }
+
+                    // ...
+                })
+    }
+
 
 
 }
+

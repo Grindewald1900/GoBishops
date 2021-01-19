@@ -7,12 +7,12 @@ package com.example.gobishops.utils
  * Email: grindewald1504@gmail.com
  */
 object ConstantUtil {
-    val DATABASE_USER: String = "Users"
-    val STORAGE_IMAGE: String = "Images/"
+    const val DATABASE_USER: String = "Users"
+    const val STORAGE_IMAGE: String = "Images/"
 
-    val SELECT_IMAGE: Int = 101
+    const val SELECT_IMAGE: Int = 101
 
     // Constant amount
-    val MAX_UPLOAD_IMAGE: Int = 6
+    const val MAX_UPLOAD_IMAGE: Int = 5
 
 }

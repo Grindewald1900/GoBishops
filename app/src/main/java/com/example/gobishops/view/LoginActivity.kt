@@ -1,4 +1,4 @@
-package com.example.gobishops.activity
+package com.example.gobishops.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

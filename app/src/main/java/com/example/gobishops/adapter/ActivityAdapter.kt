@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gobishops.R
-import com.example.gobishops.activity.ActivityDetailActivity
+import com.example.gobishops.view.ActivityDetailActivity
 import com.example.gobishops.entity.BuActivity
 
 

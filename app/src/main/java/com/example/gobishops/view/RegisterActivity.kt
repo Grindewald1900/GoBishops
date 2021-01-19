@@ -1,4 +1,4 @@
-package com.example.gobishops.activity
+package com.example.gobishops.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

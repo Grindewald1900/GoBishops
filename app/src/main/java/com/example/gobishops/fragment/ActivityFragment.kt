@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gobishops.R
-import com.example.gobishops.activity.AddActivityActivity
+import com.example.gobishops.view.AddEventActivity
 import com.example.gobishops.adapter.ActivityAdapter
 import com.example.gobishops.entity.BuActivity
 import kotlinx.android.synthetic.main.fragment_activity.*
@@ -57,7 +57,7 @@ class ActivityFragment : Fragment() {
         }
 
         btn_activity_add.setOnClickListener {
-            val intent = Intent(context, AddActivityActivity::class.java)
+            val intent = Intent(context, AddEventActivity::class.java)
             startActivity(intent)
         }
 

@@ -9,11 +9,11 @@
         android:roundIcon="@drawable/ic_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.RegisterActivity"></activity>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.AddActivityActivity" />
-        <activity android:name=".activity.ActivityDetailActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".view.RegisterActivity"></activity>
+        <activity android:name=".view.LoginActivity" />
+        <activity android:name=".view.AddEventActivity" />
+        <activity android:name=".view.ActivityDetailActivity" />
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.gobishops.activity
+package com.example.gobishops.view
 
 /**
  * Created by Yee on 2020/12/24.
@@ -6,33 +6,26 @@ package com.example.gobishops.activity
  * Email: grindewald1504@gmail.com
  */
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.gobishops.R
-import com.example.gobishops.entity.User
+import com.example.gobishops.contract.MainContract
 import com.example.gobishops.fragment.*
-import com.example.gobishops.utils.AuthUtil
-import com.example.gobishops.utils.ConstantUtil
-import com.example.gobishops.utils.DBUtil
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.example.gobishops.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.annotations.TestOnly
-import java.io.File
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainContract.View{
+    private var presenter: MainPresenter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initView(savedInstanceState)
+        presenter = MainPresenter(this)
         test()
     }
 
@@ -48,8 +41,8 @@ class MainActivity : AppCompatActivity() {
     /**
      * View Initialization, including onClickListener()
      */
-    private fun initView(savedInstanceState: Bundle?){
-        if (savedInstanceState == null){
+    override fun initMainView(isInitial: Boolean){
+        if (isInitial){
             val fragment = HomeFragment.newInstance()
             supportFragmentManager.beginTransaction().replace(
                 R.id.fragment_container_main,
@@ -114,6 +107,20 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    /**
+     * Show a short toast
+     */
+    override fun showToast(str: String) {
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun initView() {
+        // Just override the Interface
+    }
+    override fun updateViewData() {
+        TODO("Not yet implemented")
     }
 
 
