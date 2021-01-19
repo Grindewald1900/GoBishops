@@ -12,7 +12,7 @@
         <activity android:name=".view.RegisterActivity"></activity>
         <activity android:name=".view.LoginActivity" />
         <activity android:name=".view.AddEventActivity" />
-        <activity android:name=".view.ActivityDetailActivity" />
+        <activity android:name=".view.EventDetailActivity" />
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gobishops.R
-import com.example.gobishops.view.ActivityDetailActivity
+import com.example.gobishops.view.EventDetailActivity
 import com.example.gobishops.entity.BuActivity
 
 
@@ -42,7 +42,7 @@ class ActivityAdapter(var activities: ArrayList<BuActivity>): RecyclerView.Adapt
             content.setOnClickListener {
                 Toast.makeText(it.context, "Content Clicked", Toast.LENGTH_SHORT).show()
                 Log.v("tag_activity", "Item Click")
-                var intent = Intent(it.context, ActivityDetailActivity::class.java)
+                var intent = Intent(it.context, EventDetailActivity::class.java)
                 it.context.startActivity(intent)
 
             }
