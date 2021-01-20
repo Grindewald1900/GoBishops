@@ -1,11 +1,16 @@
 package com.example.gobishops.presenter
 
 import android.net.Uri
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.example.gobishops.R
 import com.example.gobishops.contract.AddEventContract
+import com.example.gobishops.entity.Event
 import com.example.gobishops.model.AddEventModel
 import com.example.gobishops.utils.ConstantUtil
+import com.example.gobishops.utils.DBUtil
 import com.example.gobishops.view.AddEventActivity
+import java.time.LocalDate
 
 
 /**
@@ -31,8 +36,58 @@ class AddEventPresenter(mView: AddEventContract.View): AddEventContract.Presente
         }
     }
 
+    override fun releaseEvent() {
+        val event: Event = view.getInputData()
+        DBUtil.addEntity(ConstantUtil.DATABASE_EVENT,event)
+    }
+
+    override fun refreshTitle(title: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun clickTitle(isClickable: Boolean) {
+        view.setTitleEditable(isClickable)
+        model.setTitleClickable(isClickable)
+    }
+    override fun getUploadCounter(): Int {
+        return model.getUploadCounter()
+    }
+
     override fun addImageToView(uri: Uri?) {
         view.addImageView(uri)
         model.addUploadCounter()
     }
+
+
+    override fun getInvitedUser(): ArrayList<String> {
+        return model.getInvitedUser()
+    }
+
+    override fun addInvitedUser(userId: String) {
+        model.addInvitedUser(userId)
+    }
+
+    override fun getImageSet(): ArrayList<String> {
+        return model.getImageSet()
+    }
+
+    override fun addImageSet(imageID: String) {
+        model.addImageSet(imageID)
+    }
+
+    override fun getEventID(): String {
+        return model.getEventID()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun getEventDate(): LocalDate {
+       return model.getEventDate()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun setEventDate(date: LocalDate) {
+        model.setEventDate(date)
+    }
+
+
 }

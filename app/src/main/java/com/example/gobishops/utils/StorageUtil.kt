@@ -19,10 +19,9 @@ import java.util.*
 object StorageUtil {
     private val mStorageRef: StorageReference = FirebaseStorage.getInstance().reference
 
-    fun uploadImage(uri: Uri, mContext: Context){
+    fun uploadImage(uri: Uri, imageId: String, mContext: Context){
         val uuid: String = UUID.randomUUID().toString()
-        val reference = mStorageRef.child(ConstantUtil.STORAGE_IMAGE + uuid)
-//        val file: Uri = Uri.fromFile(File("path/to/images/rivers.jpg"))
+        val reference = mStorageRef.child(ConstantUtil.STORAGE_IMAGE + imageId)
         Log.d("Storage", "uploadImage")
 
         reference.putFile(uri)

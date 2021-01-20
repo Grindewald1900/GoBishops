@@ -56,6 +56,14 @@
     <string name="privacy">Privacy Policy</string>
     <string name="contact_us">Contact us</string>
 
+    <!-- Event Page -->
+    <string name="title">Title</string>
+    <string name="hint_no_title">Please input the event title</string>
+    <string name="hint_no_location">Please input the location</string>
+    <string name="hint_no_date">Please select the date</string>
+    <string name="hint_no_participants">Please input the participants</string>
+    <string name="hint_no_type">Please select the type</string>
+    <string name="hint_no_permission">Please select the permission</string>
 
 
     <!-- Tags -->
