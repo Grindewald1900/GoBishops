@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), MainContract.View{
             when (it.itemId){
                 R.id.nav_activity -> {
                     Log.i(getString(R.string.tag_main), "Activity Clicked")
-                    selectedFragment = ActivityFragment.newInstance()
+                    selectedFragment = EventFragment.newInstance()
                     supportFragmentManager.beginTransaction().replace(
                         R.id.fragment_container_main,
                         selectedFragment,

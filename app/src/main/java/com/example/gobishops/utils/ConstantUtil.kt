@@ -8,7 +8,7 @@ package com.example.gobishops.utils
  */
 object ConstantUtil {
     const val DATABASE_USER: String = "Users"
-    const val DATABASE_EVENT: String = "Events"
+    const val DATABASE_EVENT: String = "Events/"
     const val STORAGE_IMAGE: String = "Images/"
 
     const val SELECT_IMAGE: Int = 101

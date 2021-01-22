@@ -19,7 +19,6 @@ interface AddEventContract {
         fun getInputData(): Event
         fun refreshDate(year: Int, month: Int, dayOfMonth: Int)
         fun refreshTitle(title: String)
-        fun checkEventInfo(event: Event)
         fun setTitleEditable(isEditable: Boolean)
     }
 
@@ -37,6 +36,8 @@ interface AddEventContract {
         fun releaseEvent()
         fun clickTitle(isClickable: Boolean)
         fun refreshTitle(title: String)
+        fun checkEventInfo(event: Event): Boolean
+
     }
 
     interface Model: BaseContract.BaseModel{

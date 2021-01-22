@@ -23,6 +23,7 @@ import com.example.gobishops.utils.StorageUtil
 import kotlinx.android.synthetic.main.activity_add_event.*
 import java.time.LocalDate
 import java.util.*
+import kotlin.collections.ArrayList
 
 class AddEventActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener, AddEventContract.View{
     private var presenter: AddEventContract.Presenter? = null
@@ -133,8 +134,13 @@ class AddEventActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun getInputData(): Event {
+        var set: ArrayList<String> = ArrayList()
+        set.add("11111111111111111")
+        set.add("222222222222222")
+        set.add("3333333333")
         return Event(
             presenter!!.getEventID(),
+            et_activity_add_title.text.toString(),
             et_activity_add_location.text.toString(),
             presenter!!.getEventDate().year,
             presenter!!.getEventDate().monthValue,
@@ -145,15 +151,12 @@ class AddEventActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
             spinner_activity_add_permission.selectedItemPosition,
             presenter!!.getInvitedUser(),
             et_activity_add_additional_info.text.toString(),
-            presenter!!.getImageSet()
+//            presenter!!.getImageSet()
+            set
         )
     }
 
-    override fun checkEventInfo(event: Event) {
-        if(event.location.isNullOrEmpty()){
-            showToast(getString(R.string.hint_no_location))
-        }
-    }
+
     /**
      * Deal with callback from photo gallery
      */

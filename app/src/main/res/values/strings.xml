@@ -64,6 +64,9 @@
     <string name="hint_no_participants">Please input the participants</string>
     <string name="hint_no_type">Please select the type</string>
     <string name="hint_no_permission">Please select the permission</string>
+    <string name="upload_success"> Uploaded Successfully!</string>
+    <string name="upload_fail">Failed to upload, please try again</string>
+    <string name="upload_cancel">Upload canceled</string>
 
 
     <!-- Tags -->

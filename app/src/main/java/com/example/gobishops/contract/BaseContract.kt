@@ -19,4 +19,8 @@ interface BaseContract {
     interface BasePresenter{
 
     }
+
+    interface OnDataRetrieved{
+        fun getRetrievedData(data: Any?)
+    }
 }

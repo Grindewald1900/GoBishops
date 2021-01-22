@@ -26,18 +26,20 @@ android {
 }
 
 dependencies {
+    //Pull to refresh
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     //Firebase
-
+    implementation 'com.google.firebase:firebase-database:19.6.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.2'
+    implementation 'com.google.firebase:firebase-storage:19.2.1'
     //Button
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.firebase:firebase-database:19.6.0'
-    implementation 'com.google.firebase:firebase-auth:20.0.2'
-    implementation 'com.google.firebase:firebase-storage:19.2.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    //Round ImageView
     implementation 'com.joooonho:selectableroundedimageview:1.0.1'
     //noinspection GradleCompatible
     implementation 'com.android.support:design:26.1.0'

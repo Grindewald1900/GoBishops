@@ -1,9 +1,11 @@
 package com.example.gobishops.utils
 
 import android.content.Context
+import android.content.res.Resources
 import android.net.Uri
 import android.util.Log
 import android.widget.Toast
+import com.example.gobishops.R
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.io.File
@@ -25,13 +27,13 @@ object StorageUtil {
         Log.d("Storage", "uploadImage")
 
         reference.putFile(uri)
-            .addOnSuccessListener { taskSnapshot -> // Get a URL to the uploaded content
-                Log.d("Storage", "addOnSuccessListener")
+            .addOnSuccessListener { taskSnapshot -> // Get a URI to the uploaded content
+                Toast.makeText(App.mContext, Resources.getSystem().getString(R.string.upload_success), Toast.LENGTH_SHORT).show()
 //                val downloadUrl: Uri = taskSnapshot.getDownloadUrl()
             }
+            // Handle unsuccessful uploads
             .addOnFailureListener {
-                Log.d("Storage", "addOnFailureListener")
-                // Handle unsuccessful uploads
+                Toast.makeText(App.mContext, Resources.getSystem().getString(R.string.upload_fail), Toast.LENGTH_SHORT).show()
 
             }
             .addOnProgressListener {

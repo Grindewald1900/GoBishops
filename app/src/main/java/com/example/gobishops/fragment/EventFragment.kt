@@ -12,19 +12,19 @@ import com.example.gobishops.R
 import com.example.gobishops.view.AddEventActivity
 import com.example.gobishops.adapter.ActivityAdapter
 import com.example.gobishops.entity.BuActivity
-import kotlinx.android.synthetic.main.fragment_activity.*
+import kotlinx.android.synthetic.main.fragment_event.*
 
 /**
  * Created by Yee on 2020/12/26.
  * Github: Grindewald1900
  * Email: grindewald1504@gmail.com
  */
-class ActivityFragment : Fragment() {
+class EventFragment : Fragment() {
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var activityAdapter: ActivityAdapter
     companion object{
-        fun newInstance(): ActivityFragment{
-            return ActivityFragment()
+        fun newInstance(): EventFragment{
+            return EventFragment()
         }
     }
 
@@ -33,7 +33,7 @@ class ActivityFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_activity, container, false)
+        return inflater.inflate(R.layout.fragment_event, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

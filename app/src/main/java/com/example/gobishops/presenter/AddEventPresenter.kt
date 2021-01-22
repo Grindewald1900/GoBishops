@@ -1,5 +1,6 @@
 package com.example.gobishops.presenter
 
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -7,6 +8,7 @@ import com.example.gobishops.R
 import com.example.gobishops.contract.AddEventContract
 import com.example.gobishops.entity.Event
 import com.example.gobishops.model.AddEventModel
+import com.example.gobishops.utils.App
 import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.utils.DBUtil
 import com.example.gobishops.view.AddEventActivity
@@ -38,7 +40,10 @@ class AddEventPresenter(mView: AddEventContract.View): AddEventContract.Presente
 
     override fun releaseEvent() {
         val event: Event = view.getInputData()
-        DBUtil.addEntity(ConstantUtil.DATABASE_EVENT,event)
+        if (checkEventInfo(event)){
+            val path = ConstantUtil.DATABASE_EVENT + event.id
+            DBUtil.addEntity(path,event)
+        }
     }
 
     override fun refreshTitle(title: String) {
@@ -48,6 +53,30 @@ class AddEventPresenter(mView: AddEventContract.View): AddEventContract.Presente
     override fun clickTitle(isClickable: Boolean) {
         view.setTitleEditable(isClickable)
         model.setTitleClickable(isClickable)
+    }
+
+    override fun checkEventInfo(event: Event): Boolean {
+        if(event.title.isEmpty()){
+            view.showToast(App.mContext!!.getString(R.string.hint_no_title))
+            return false
+        }
+        if(event.location.isEmpty()){
+            view.showToast(App.mContext!!.getString(R.string.hint_no_location))
+            return false
+        }
+        if(event.day.toString().isEmpty()){
+            view.showToast(App.mContext!!.getString(R.string.hint_no_date))
+            return false
+        }
+        if(event.type.toString().isEmpty()){
+            view.showToast(App.mContext!!.getString(R.string.hint_no_type))
+            return false
+        }
+        if(event.permission.toString().isEmpty()){
+            view.showToast(App.mContext!!.getString(R.string.hint_no_permission))
+            return false
+        }
+        return true
     }
     override fun getUploadCounter(): Int {
         return model.getUploadCounter()

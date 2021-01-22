@@ -3,6 +3,7 @@
     package="com.example.gobishops">
 
     <application
+        android:name=".utils.App"
         android:allowBackup="true"
         android:icon="@drawable/ic_icon"
         android:label="@string/app_name"

@@ -9,19 +9,21 @@ import java.time.LocalDate
  */
 
 /**
- * @param id: Event Id
+ * @param id: Event Id (Mandatory)
+ * @param title: Event title (Mandatory)
  * @param location: Location of event
- * @param date: Date of event, e.g.  2007-12-03
+ * @param date: Date of event, e.g.  2007-12-03 (Mandatory)
  * @param descriptor: Some description of the event
- * @param type: Type of event
+ * @param type: Type of event (Mandatory)
  * @param participants: Describe who can join the event
- * @param permission: Permission level of event
+ * @param permission: Permission level of event (Mandatory)
  * @param invitedUser: A list of string, including the IDs of invited users
  * @param additionalInfo: Some additional information
  * @param imageSet: A list of string, including the IDs of images to be uploaded.
  */
 data class Event(
     var id: String,
+    var title: String,
     var location: String,
     var year: Int,
     var month: Int,
@@ -32,5 +34,5 @@ data class Event(
     var permission: Int,
     var invitedUser: ArrayList<String>,
     var additionalInfo: String,
-    var imageSet: ArrayList<String>
+    var imageSet: ArrayList<String> = ArrayList()
 )
