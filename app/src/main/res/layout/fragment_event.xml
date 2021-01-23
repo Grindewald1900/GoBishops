@@ -1,59 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
-    <ImageButton
-        android:id="@+id/btn_activity_back"
-        style="@style/BackButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
-
-    <EditText
-        android:id="@+id/view_activity_search_box"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_30"
-        android:layout_marginStart="@dimen/dimen_20"
-        android:layout_marginEnd="@dimen/dimen_20"
-        android:background="@drawable/shape_board"
-        android:drawableStart="@drawable/ic_baseline_search_24"
-        android:paddingLeft="@dimen/dimen_5"
-        app:layout_constraintTop_toTopOf="@+id/btn_activity_back"
-        app:layout_constraintLeft_toRightOf="@+id/btn_activity_back"
-        app:layout_constraintRight_toLeftOf="@+id/btn_activity_add" />
-<!--    <ImageView-->
-<!--        android:id="@+id/iv_activity_search"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:src="@drawable/ic_baseline_search_24"-->
-<!--        android:layout_marginStart="@dimen/dimen_5"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/view_activity_search_box"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/view_activity_search_box"-->
-<!--        app:layout_constraintLeft_toLeftOf="@+id/view_activity_search_box"-->
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    >
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn_activity_back"-->
+<!--        style="@style/BackButton"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
 <!--        />-->
-    <ImageButton
-        android:id="@+id/btn_activity_add"
-        android:background="@drawable/ic_baseline_add_circle_outline_24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dimen_20"
-        app:layout_constraintTop_toTopOf="@+id/view_activity_search_box"
-        app:layout_constraintBottom_toBottomOf="@id/view_activity_search_box"
-        app:layout_constraintRight_toRightOf="parent"
-        />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_activity_main"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/dimen_10"
-        android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/view_activity_search_box"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/view_activity_event_search_box"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_30"
+            android:layout_marginStart="@dimen/dimen_50"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:background="@drawable/shape_board"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:paddingStart="@dimen/dimen_5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_activity_event_add"
+            />
+        <!--    <ImageView-->
+        <!--        android:id="@+id/iv_activity_search"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="0dp"-->
+        <!--        android:src="@drawable/ic_baseline_search_24"-->
+        <!--        android:layout_marginStart="@dimen/dimen_5"-->
+        <!--        app:layout_constraintTop_toTopOf="@+id/view_activity_search_box"-->
+        <!--        app:layout_constraintBottom_toBottomOf="@+id/view_activity_search_box"-->
+        <!--        app:layout_constraintLeft_toLeftOf="@+id/view_activity_search_box"-->
+        <!--        />-->
+        <ImageButton
+            android:id="@+id/btn_activity_event_add"
+            android:background="@drawable/ic_baseline_add_circle_outline_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_30"
+            app:layout_constraintTop_toTopOf="@+id/view_activity_event_search_box"
+            app:layout_constraintBottom_toBottomOf="@id/view_activity_event_search_box"
+            app:layout_constraintLeft_toRightOf="@+id/view_activity_event_search_box"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_activity_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_activity_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:scrollbars="vertical"
+            />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

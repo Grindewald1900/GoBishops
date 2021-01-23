@@ -32,13 +32,13 @@ object DBUtil {
             .addOnCompleteListener {
                 Log.d("DatabaseUtil", "Complete")
             }.addOnSuccessListener {
-                Toast.makeText(App.mContext, Resources.getSystem().getString(R.string.upload_success), Toast.LENGTH_SHORT).show()
+                Toast.makeText(App.mContext, App.mContext?.getString(R.string.upload_success), Toast.LENGTH_SHORT).show()
                 Log.d("DatabaseUtil", "Success")
             }.addOnFailureListener {
-                Toast.makeText(App.mContext, Resources.getSystem().getString(R.string.upload_fail), Toast.LENGTH_SHORT).show()
+                Toast.makeText(App.mContext, App.mContext?.getString(R.string.upload_fail), Toast.LENGTH_SHORT).show()
                 Log.d("DatabaseUtil", it.message.toString())
             }.addOnCanceledListener {
-                Toast.makeText(App.mContext, Resources.getSystem().getString(R.string.upload_cancel), Toast.LENGTH_SHORT).show()
+                Toast.makeText(App.mContext, App.mContext?.getString(R.string.upload_cancel), Toast.LENGTH_SHORT).show()
                 Log.d("DatabaseUtil", "Canceled")
             }
 //        rootRef.addValueEventListener(object: ValueEventListener {

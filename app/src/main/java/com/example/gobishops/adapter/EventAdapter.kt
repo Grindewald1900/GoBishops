@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gobishops.R
 import com.example.gobishops.view.EventDetailActivity
-import com.example.gobishops.entity.BuActivity
+import com.example.gobishops.entity.Event
 
 
 /**
@@ -18,19 +18,21 @@ import com.example.gobishops.entity.BuActivity
  * Github: Grindewald1900
  * Email: grindewald1504@gmail.com
  */
-class ActivityAdapter(var activities: ArrayList<BuActivity>): RecyclerView.Adapter<ActivityAdapter.ActivityHolder>(){
+class EventAdapter(var events: ArrayList<Event>): RecyclerView.Adapter<EventAdapter.ActivityHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_recycle_activity, parent, false)
         return ActivityHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ActivityHolder, position: Int) {
-        val activity = activities.get(position)
-        holder.title.text = activity.title
+        val event = events.get(position)
+        holder.title.text = event.title
+        holder.content.text = event.additionalInfo
+        holder.content.text = event.descriptor
     }
 
     override fun getItemCount(): Int {
-        return activities.size
+        return events.size
     }
 
     class ActivityHolder(view: View): RecyclerView.ViewHolder(view){
@@ -42,7 +44,7 @@ class ActivityAdapter(var activities: ArrayList<BuActivity>): RecyclerView.Adapt
             content.setOnClickListener {
                 Toast.makeText(it.context, "Content Clicked", Toast.LENGTH_SHORT).show()
                 Log.v("tag_activity", "Item Click")
-                var intent = Intent(it.context, EventDetailActivity::class.java)
+                val intent = Intent(it.context, EventDetailActivity::class.java)
                 it.context.startActivity(intent)
 
             }

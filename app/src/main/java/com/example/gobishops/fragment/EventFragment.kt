@@ -10,8 +10,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gobishops.R
 import com.example.gobishops.view.AddEventActivity
-import com.example.gobishops.adapter.ActivityAdapter
-import com.example.gobishops.entity.BuActivity
+import com.example.gobishops.adapter.EventAdapter
+import com.example.gobishops.contract.BaseContract
+import com.example.gobishops.entity.Event
+import com.example.gobishops.utils.ConstantUtil
+import com.example.gobishops.utils.DBUtil
+import com.example.gobishops.utils.TypeUtil
 import kotlinx.android.synthetic.main.fragment_event.*
 
 /**
@@ -19,9 +23,9 @@ import kotlinx.android.synthetic.main.fragment_event.*
  * Github: Grindewald1900
  * Email: grindewald1504@gmail.com
  */
-class EventFragment : Fragment() {
+class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var activityAdapter: ActivityAdapter
+    private lateinit var eventAdapter: EventAdapter
     companion object{
         fun newInstance(): EventFragment{
             return EventFragment()
@@ -41,25 +45,42 @@ class EventFragment : Fragment() {
         initView()
     }
 
+    override fun getRetrievedData(data: Any?) {
+        var events: ArrayList<Event> = TypeUtil.HashMapToEvent(data as HashMap<*, *>)
+        refreshView(events)
+    }
+
     private fun initView(){
         // Initialize recycle view of activities
-        var data: ArrayList<BuActivity> = ArrayList()
+        val data: ArrayList<Event> = ArrayList()
+        val fakeEvent = Event("001", "Title", "Oxford", 2021, 1, 12, "This is a description of our activity\\n\" + \"This is a description of our activity", 1, "Nothing", 1, ArrayList(), "Released at 7:05PM, Jan 1, 2021 by Grindewald1900 ", ArrayList())
+
         for (i in 0..10){
-            val activity: BuActivity = BuActivity("Title test", "2021.09.01  @Oxford", "This is a description of our activity\nThis is a description of our activity", "Released at 7:05PM, Jan 1, 2021 by Grindewald1900 ")
-            data.add(activity)
+            data.add(fakeEvent)
         }
         linearLayoutManager = LinearLayoutManager(context)
-        activityAdapter = ActivityAdapter(data)
-        rv_activity_main.layoutManager = linearLayoutManager
-        rv_activity_main.itemAnimator = DefaultItemAnimator()
-        rv_activity_main.adapter = activityAdapter
-        rv_activity_main.setOnClickListener {
+        eventAdapter = EventAdapter(data)
+        rv_activity_event.layoutManager = linearLayoutManager
+        rv_activity_event.itemAnimator = DefaultItemAnimator()
+        rv_activity_event.adapter = eventAdapter
+        rv_activity_event.setOnClickListener {
         }
 
-        btn_activity_add.setOnClickListener {
+        btn_activity_event_add.setOnClickListener {
             val intent = Intent(context, AddEventActivity::class.java)
             startActivity(intent)
         }
+        swipe_activity_event.setOnRefreshListener {
+            DBUtil.getEntity(
+                ConstantUtil.DATABASE_EVENT,
+                fakeEvent,
+                this)
+        }
+    }
 
+    private fun refreshView(events: ArrayList<Event>){
+        eventAdapter = EventAdapter(events)
+        rv_activity_event.adapter = eventAdapter
+        swipe_activity_event.isRefreshing = false
     }
 }

@@ -35,4 +35,6 @@ data class Event(
     var invitedUser: ArrayList<String>,
     var additionalInfo: String,
     var imageSet: ArrayList<String> = ArrayList()
-)
+) {
+    constructor() : this("","","",0,0,0,"",0,"", 0, ArrayList(),"",ArrayList())
+}
