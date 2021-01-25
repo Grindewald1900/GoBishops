@@ -67,6 +67,7 @@
     <string name="upload_success"> Uploaded Successfully!</string>
     <string name="upload_fail">Failed to upload, please try again</string>
     <string name="upload_cancel">Upload canceled</string>
+    <string name="search_history">Browsing History</string>
 
 
     <!-- Tags -->

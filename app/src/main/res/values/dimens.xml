@@ -36,6 +36,7 @@
 
     <!--Text font size -->
     <dimen name="text_size_logo">36sp</dimen>
+    <dimen name="text_size_sub_logo">30sp</dimen>
     <dimen name="text_size_title">16sp</dimen>
     <dimen name="text_size_sub_title">12sp</dimen>
     <dimen name="text_size_small">10sp</dimen>
