@@ -27,6 +27,8 @@
             android:layout_marginEnd="@dimen/dimen_10"
             android:background="@drawable/shape_board"
             android:drawableStart="@drawable/ic_baseline_search_24"
+            android:inputType="none"
+            android:editable="false"
             android:paddingStart="@dimen/dimen_5"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

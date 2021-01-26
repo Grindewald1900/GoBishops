@@ -16,6 +16,7 @@ import com.example.gobishops.entity.Event
 import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.utils.DBUtil
 import com.example.gobishops.utils.TypeUtil
+import com.example.gobishops.view.EventSearchActivity
 import kotlinx.android.synthetic.main.fragment_event.*
 
 /**
@@ -75,6 +76,10 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
                 ConstantUtil.DATABASE_EVENT,
                 fakeEvent,
                 this)
+        }
+        view_activity_event_search_box.setOnClickListener {
+            val intent = Intent(context, EventSearchActivity::class.java)
+            startActivity(intent)
         }
     }
 

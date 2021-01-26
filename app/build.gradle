@@ -28,14 +28,19 @@ android {
 dependencies {
     //Pull to refresh
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    //Viewpager2
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
     //Firebase
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.google.firebase:firebase-auth:20.0.2'
     implementation 'com.google.firebase:firebase-storage:19.2.1'
-    //Button
+
+    //V4 support
+//    implementation 'com.android.support:support-v4:28.0.0'
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 

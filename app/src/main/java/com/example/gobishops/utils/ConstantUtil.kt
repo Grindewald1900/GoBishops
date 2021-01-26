@@ -15,5 +15,6 @@ object ConstantUtil {
 
     // Constant amount
     const val MAX_UPLOAD_IMAGE: Int = 5
+    const val MAX_SEARCH_HISTORY: Int = 5
 
 }

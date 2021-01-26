@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- View for the content of viewpager in search page -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray_3"
+    android:layout_width="@dimen/dimen_120"
+    android:layout_height="@dimen/dimen_150"
+    android:layout_marginStart="@dimen/dimen_10"
+    android:layout_marginEnd="@dimen/dimen_10"
+    >
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_viewpager_search"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:src="@drawable/img_portrait"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:alpha="0.4"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/tv_viewpager_title"-->
+<!--        />-->
+    <ImageView
+        android:id="@+id/iv_viewpager_search"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/img_portrait"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toBottomOf="@+id/tv_viewpager_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+    <TextView
+        android:id="@+id/tv_viewpager_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
