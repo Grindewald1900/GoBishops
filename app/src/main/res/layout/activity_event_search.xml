@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipChildren="false"
-    android:layerType="software"
+    android:background="@color/gray_3"
     tools:context=".view.EventSearchActivity">
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_activity_event_search_left"
@@ -25,7 +24,7 @@
         android:id="@+id/view_activity_event_search_bk"
         android:layout_width="0dp"
         android:layout_height="@dimen/dimen_220"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/ic_search_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -51,29 +50,99 @@
         app:layout_constraintLeft_toLeftOf="@+id/btn_activity_event_search_back"
         />
 
-    <!-- activity_screen_slide.xml -->
-<!--    <androidx.viewpager2.widget.ViewPager2-->
-<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        android:id="@+id/pager_activity_event_search"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="@dimen/dimen_150"-->
-<!--        android:clipChildren="false"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/guideline_activity_event_search_left"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/guideline_activity_event_search_right"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/view_activity_event_search_bk"-->
-<!--        />-->
-    <androidx.viewpager2.widget.ViewPager2
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager_activity_event_search"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_150"
-        android:layout_marginStart="@dimen/dimen_150"
-        android:layout_marginEnd="@dimen/dimen_150"
+    <RelativeLayout
+        android:id="@+id/rl_activity_event_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_220"
         android:clipChildren="false"
+        android:layerType="software"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_activity_event_search_bk"
-        app:layout_constraintBottom_toBottomOf="@+id/view_activity_event_search_bk"
+        app:layout_constraintBottom_toBottomOf="@+id/view_activity_event_search_bk">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager_activity_event_search"
+            android:layout_width="@dimen/dimen_150"
+            android:layout_height="@dimen/dimen_200"
+            android:layout_centerHorizontal="true"
+            android:clipChildren="false"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_activity_event_search_general"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/general"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintTop_toBottomOf="@+id/rl_activity_event_search"
+        app:layout_constraintLeft_toLeftOf="@+id/et_activity_event_search"
+        />
+    <TextView
+        android:id="@+id/tv_activity_event_search_publisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/publisher"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="@+id/tv_activity_event_search_general"
+        app:layout_constraintLeft_toRightOf="@+id/tv_activity_event_search_general"
+        app:layout_constraintRight_toLeftOf="@+id/tv_activity_event_search_title"
+        />
+    <TextView
+        android:id="@+id/tv_activity_event_search_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="@+id/tv_activity_event_search_general"
+        app:layout_constraintLeft_toRightOf="@+id/tv_activity_event_search_publisher"
+        app:layout_constraintRight_toLeftOf="@+id/tv_activity_event_search_location"
+        />
+    <TextView
+        android:id="@+id/tv_activity_event_search_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/publisher"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginRight="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/tv_activity_event_search_general"
+        app:layout_constraintRight_toRightOf="@+id/et_activity_event_search"
+    />
+    <EditText
+        android:id="@+id/et_activity_event_search"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_40"
+        android:hint="@string/search"
+        android:drawableRight="@drawable/ic_baseline_search_24"
+        android:background="@drawable/shape_board"
+        android:paddingStart="@dimen/dimen_10"
+        android:paddingEnd="@dimen/dimen_10"
+        android:layout_marginStart="@dimen/dimen_20"
+        android:layout_marginEnd="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_event_search_general"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_activity_event_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginLeft="@dimen/dimen_10"
+        android:layout_marginRight="@dimen/dimen_10"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/et_activity_event_search"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

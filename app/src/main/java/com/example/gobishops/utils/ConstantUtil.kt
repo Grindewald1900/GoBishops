@@ -16,5 +16,8 @@ object ConstantUtil {
     // Constant amount
     const val MAX_UPLOAD_IMAGE: Int = 5
     const val MAX_SEARCH_HISTORY: Int = 5
+    const val MIN_TRANSFORM_SCALE = 0.8f
+    const val MIN_TRANSFORM_ALPHA = 0.5f
+
 
 }

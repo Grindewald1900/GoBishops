@@ -36,5 +36,5 @@ data class Event(
     var additionalInfo: String,
     var imageSet: ArrayList<String> = ArrayList()
 ) {
-    constructor() : this("","","",0,0,0,"",0,"", 0, ArrayList(),"",ArrayList())
+    constructor() : this("","This is a title","",1995,11,11,"",0,"", 0, ArrayList(),"",ArrayList())
 }

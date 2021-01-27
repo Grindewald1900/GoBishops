@@ -7,6 +7,7 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.util.Log
 import androidx.core.graphics.drawable.toBitmap
+import com.example.gobishops.R
 
 
 /**
@@ -18,10 +19,11 @@ open class mImageView(context: Context, attrs: AttributeSet?): androidx.appcompa
     private var mGradientDrawable:GradientDrawable? = null
     private var paint: Paint? = null
     private val bkColor = Color.WHITE
-    private val cornerRadius = 20f
+    private var cornerRadius: Float
     init {
+        val attr = context.obtainStyledAttributes(attrs, R.styleable.mImageView)
+        cornerRadius = attr.getFloat(R.styleable.mImageView_mCornerRadius, 20f)
         paint = Paint()
-//        initView()
     }
 
 
@@ -36,7 +38,7 @@ open class mImageView(context: Context, attrs: AttributeSet?): androidx.appcompa
         if(null != mDrawable){
             Log.d("mImageView","not null")
             val bitmap: Bitmap = mDrawable.toBitmap()
-            val b: Bitmap =getRoundBitmap(bitmap, 20f)
+            val b: Bitmap =getRoundBitmap(bitmap, cornerRadius)
             val rectSrc = Rect(0,0,b.width,b.height)
             val rectDest = Rect(0,0,width, height)
             paint!!.reset()

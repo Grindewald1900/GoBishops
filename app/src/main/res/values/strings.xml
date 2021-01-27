@@ -67,8 +67,15 @@
     <string name="upload_success"> Uploaded Successfully!</string>
     <string name="upload_fail">Failed to upload, please try again</string>
     <string name="upload_cancel">Upload canceled</string>
-    <string name="search_history">Browsing History</string>
 
+
+    <!-- Search Page -->
+    <string name="search_history">Browsing History</string>
+    <string name="search">Search</string>
+    <string name="general">General</string>
+    <string name="publisher">Publisher</string>
+    <string name="Location">Location</string>
+    <string name="permission_level">Permission level: </string>
 
     <!-- Tags -->
     <string name="tag_main">tag_main</string>

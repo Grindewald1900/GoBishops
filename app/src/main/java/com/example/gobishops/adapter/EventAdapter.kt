@@ -20,7 +20,7 @@ import com.example.gobishops.entity.Event
  */
 class EventAdapter(var events: ArrayList<Event>): RecyclerView.Adapter<EventAdapter.ActivityHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_recycle_activity, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_recycle_event, parent, false)
         return ActivityHolder(itemView)
     }
 

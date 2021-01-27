@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/cl_item_search_entire"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.example.gobishops.myview.mImageView
+        android:id="@+id/iv_item_search"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:src="@drawable/img_portrait"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_marginBottom="@dimen/dimen_10"
+        app:mCornerRadius= "50"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/tv_item_search_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_5"
+        app:layout_constraintTop_toTopOf="@+id/iv_item_search"
+        app:layout_constraintLeft_toRightOf="@+id/iv_item_search"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_search_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_time"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_search_title"
+        app:layout_constraintBottom_toTopOf="@+id/tv_item_search_permission"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_item_search_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_search_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_permission"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/gray_4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_search_info"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_item_search_title"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_item_search"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

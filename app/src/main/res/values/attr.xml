@@ -4,4 +4,8 @@
         <attr name="border_color" format="color"/>
         <attr name="background_color" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="mImageView">
+        <attr name="mCornerRadius" format="float"/>
+    </declare-styleable>
 </resources>

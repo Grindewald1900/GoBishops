@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="float_30" format="float" type="dimen">30</item>
+</resources>
