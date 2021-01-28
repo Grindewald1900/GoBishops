@@ -19,7 +19,7 @@ class ZoomOutPageTransformer: ViewPager2.PageTransformer {
             when{
                 // If the page is off-screen to the left
                 position < -2 -> {
-                    alpha = 0f
+//                    alpha = 0f
                 }
                 position <= 2 -> {
                     val scaleFactor = java.lang.Math.max(com.example.gobishops.utils.ConstantUtil.MIN_TRANSFORM_SCALE, 1 - java.lang.Math.abs(position))
@@ -35,12 +35,12 @@ class ZoomOutPageTransformer: ViewPager2.PageTransformer {
                     scaleY = scaleFactor
 
                     // Fade the page relative to its size.
-                    alpha = (ConstantUtil.MIN_TRANSFORM_ALPHA +
-                            (((scaleFactor - ConstantUtil.MIN_TRANSFORM_SCALE) / (1 - ConstantUtil.MIN_TRANSFORM_SCALE)) * (1 - ConstantUtil.MIN_TRANSFORM_ALPHA)))
+//                    alpha = (ConstantUtil.MIN_TRANSFORM_ALPHA +
+//                            (((scaleFactor - ConstantUtil.MIN_TRANSFORM_SCALE) / (1 - ConstantUtil.MIN_TRANSFORM_SCALE)) * (1 - ConstantUtil.MIN_TRANSFORM_ALPHA)))
                 }
                 else -> {
                     // This page is way off-screen to the right.
-                    alpha = 0f
+//                    alpha = 0f
                 }
             }
         }

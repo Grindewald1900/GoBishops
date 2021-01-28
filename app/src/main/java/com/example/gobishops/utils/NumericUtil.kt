@@ -14,6 +14,15 @@ object NumericUtil {
      */
     fun pixelToDp(px: Int, context: Context): Int{
         val scale = context.resources.displayMetrics.density
-        return (px * scale + 0.5f).toInt()
+        return (px / scale).toInt()
+
+    }
+
+    /**
+     * Convert dp to pixel
+     */
+    fun dpToPixel(dp: Int, context: Context): Int{
+        val scale = context.resources.displayMetrics.density
+        return (dp * scale + 0.5f).toInt()
     }
 }
