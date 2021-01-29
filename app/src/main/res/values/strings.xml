@@ -86,6 +86,12 @@
 
     <!-- Hint -->
     <string name="hint_max_image_upload">You can upload 6 images at most!</string>
+    <string name="hint_no_email">Please input the email address!</string>
+    <string name="hint_no_password">Please input the password!</string>
+    <string name="hint_invalid_password_length">Please input the password of 8 ~ 20 characters!</string>
+    <string name="hint_login_fail">Login failed, please try again</string>
+    <string name="hint_login_success">Login successfully!</string>
+
 
     <!-- Fake data -->
     <string name="f_user_name">Grindewald</string>

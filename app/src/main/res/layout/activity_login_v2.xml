@@ -30,8 +30,10 @@
         android:layout_height="@dimen/dimen_40"
         android:drawableLeft="@drawable/ic_fa5_user_2"
         android:drawablePadding="@dimen/dimen_5"
-        android:layout_marginTop="@dimen/dimen_40"
         android:background="@drawable/shape_board"
+        android:hint="@string/email"
+        android:textSize="@dimen/text_size_title"
+        android:layout_marginTop="@dimen/dimen_40"
         android:padding="@dimen/dimen_10"
         app:layout_constraintTop_toBottomOf="@+id/iv_login_portrait_v2"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -42,6 +44,9 @@
         android:layout_width="@dimen/dimen_280"
         android:layout_height="@dimen/dimen_40"
         android:layout_marginTop="@dimen/dimen_20"
+        android:hint="@string/password"
+        android:textSize="@dimen/text_size_title"
+        android:inputType="textPassword"
         android:drawableLeft="@drawable/ic_md_vpn_key"
         android:drawablePadding="@dimen/dimen_5"
         android:background="@drawable/shape_board"
@@ -62,19 +67,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
+
+
     <Button
         android:id="@+id/btn_login_login_v2"
         android:layout_width="@dimen/dimen_150"
         android:layout_height="wrap_content"
+        android:background="@drawable/shape_board"
         android:text="@string/login"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/text_size_title"
-        android:background="@drawable/shape_board"
-        app:layout_constraintTop_toBottomOf="@+id/tv_login_hint_v2"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/tv_login_hint_v2" />
 
     <View
         android:id="@+id/view_login_background"

@@ -41,16 +41,25 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
         return inflater.inflate(R.layout.fragment_event, container, false)
     }
 
+    /**
+     * Initialize view after the fragment view has been created
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
     }
 
-    override fun getRetrievedData(data: Any?) {
+    /**
+     *  Call back when data received from firebase
+     */
+    override fun getRetrievedData(state: Int, data: Any?) {
         var events: ArrayList<Event> = TypeUtil.HashMapToEvent(data as HashMap<*, *>)
         refreshView(events)
     }
 
+    /**
+     * View Initialization, including onClickListener()
+     */
     private fun initView(){
         // Initialize recycle view of activities
         val data: ArrayList<Event> = ArrayList()

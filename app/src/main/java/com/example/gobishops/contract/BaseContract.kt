@@ -21,6 +21,7 @@ interface BaseContract {
     }
 
     interface OnDataRetrieved{
-        fun getRetrievedData(data: Any?)
+        fun getRetrievedData(state: Int, data: Any?)
     }
+
 }
