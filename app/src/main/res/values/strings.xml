@@ -48,6 +48,7 @@
     <string name="login_facebook">LOGIN WITH FACEBOOK</string>
     <string name="hint_username">Input your user name or ID</string>
     <string name="hint_password">Input your password</string>
+    <string name="login_with">Or login with</string>
 
     <!-- Register Page -->
     <string name="reg_password1">Please input your password</string>
