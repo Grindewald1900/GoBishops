@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
+import com.example.gobishops.utils.AuthUtil
+import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.view.LoginActivity
 import com.example.gobishops.utils.TextUtil
 import com.joooonho.SelectableRoundedImageView
@@ -45,7 +48,7 @@ class HomeFragment : Fragment() {
 
 
     private fun initView(){
-        var ivPortrait:SelectableRoundedImageView = view!!.findViewById(R.id.iv_home_portrait)
+        val ivPortrait:SelectableRoundedImageView = view!!.findViewById(R.id.iv_home_portrait)
         Glide.with(context!!)
             .asBitmap()
             .load(R.drawable.img_portrait)
@@ -54,15 +57,16 @@ class HomeFragment : Fragment() {
         tv_home_2.text = initText(getString(R.string.f_home_activity))
         tv_home_3.text = initText(getString(R.string.f_home_activity))
         iv_home_portrait.setOnClickListener {
-            var intent = Intent(context, LoginActivity::class.java)
-            startActivity(intent)
+            if(null == AuthUtil.getCurrentUser()){
+                startActivity(Intent(context, LoginActivity::class.java))
+            }
         }
 
     }
 
     private fun initText(text: String): SpannableString{
         val spannable = SpannableString(text)
-        var index: ArrayList<Int> = TextUtil.getCharIndex(text, "\n")
+        val index: ArrayList<Int> = TextUtil.getCharIndex(text, "\n")
         spannable.setSpan(StyleSpan(BOLD), index[0], index[1], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(StyleSpan(BOLD), index[1], index[2], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(StyleSpan(BOLD), index[3], index[4], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)

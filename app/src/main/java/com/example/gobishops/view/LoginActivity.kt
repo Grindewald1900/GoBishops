@@ -41,6 +41,9 @@ class LoginActivity : AppCompatActivity(), LoginContract.View, BaseContract.OnDa
             }
             AuthUtil.signInAccount(et_login_name_v2.text.toString(), et_login_pwd_v2.text.toString(), this, this)
         }
+        tv_login_forget_v2.setOnClickListener {
+            startActivity(Intent(this, ForgetPwdActivity::class.java))
+        }
         Glide.with(this)
             .asBitmap()
             .load(R.drawable.img_portrait)

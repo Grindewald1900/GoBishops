@@ -22,6 +22,9 @@ interface AddEventContract {
         fun setTitleEditable(isEditable: Boolean)
     }
 
+    /**
+     * Interface of view
+     */
     interface Presenter: BaseContract.BasePresenter{
         fun chooseImage(str: String)
         fun getUploadCounter(): Int

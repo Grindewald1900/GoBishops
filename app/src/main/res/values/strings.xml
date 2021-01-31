@@ -49,6 +49,7 @@
     <string name="hint_username">Input your user name or ID</string>
     <string name="hint_password">Input your password</string>
     <string name="login_with">Or login with</string>
+    <string name="identify_with">Identify with email or mobile phone</string>>
 
     <!-- Register Page -->
     <string name="reg_password1">Please input your password</string>
@@ -83,6 +84,7 @@
     <!-- Tags -->
     <string name="tag_main">tag_main</string>
     <string name="tag_activity">tag_activity</string>
+    <string name="tag_home">tag_home</string>
 
     <!-- Hint -->
     <string name="hint_max_image_upload">You can upload 6 images at most!</string>
