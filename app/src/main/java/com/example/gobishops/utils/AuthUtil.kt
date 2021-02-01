@@ -87,7 +87,7 @@ object AuthUtil {
         Log.d("mAuth", "sendSignInEmail")
         val actionCodeSettings = ActionCodeSettings.newBuilder() // URL you want to redirect back to. The domain (www.example.com) for this
                 // URL must be whitelisted in the Firebase Console.
-                .setUrl("https://www.example.com/finishSignUp?cartId=1234") // This must be true
+                .setUrl("https://gobishops.page.link/forgetPwd") // This must be true
                 .setHandleCodeInApp(true)
                 .setIOSBundleId("com.example.ios")
                 .setAndroidPackageName(
