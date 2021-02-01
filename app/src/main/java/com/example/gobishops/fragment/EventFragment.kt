@@ -63,7 +63,7 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
     private fun initView(){
         // Initialize recycle view of activities
         val data: ArrayList<Event> = ArrayList()
-        val fakeEvent = Event("001", "Title", "Oxford", 2021, 1, 12, "This is a description of our activity\\n\" + \"This is a description of our activity", 1, "Nothing", 1, ArrayList(), "Released at 7:05PM, Jan 1, 2021 by Grindewald1900 ", ArrayList())
+        val fakeEvent = Event()
 
         for (i in 0..10){
             data.add(fakeEvent)

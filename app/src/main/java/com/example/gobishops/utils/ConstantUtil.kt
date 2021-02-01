@@ -16,8 +16,12 @@ object ConstantUtil {
     const val STATE_FAIL = 2
     const val STATE_CANCEL = 3
 
+    // onActivityResult
     const val SELECT_IMAGE: Int = 101
 
+    // User type
+    const val USER_STUDENT: Int = 201
+    const val USER_PROFESSOR: Int = 202
 
     // Constant amount
     const val MAX_UPLOAD_IMAGE: Int = 5

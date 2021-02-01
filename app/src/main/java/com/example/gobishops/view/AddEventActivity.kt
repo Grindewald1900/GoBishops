@@ -138,22 +138,7 @@ class AddEventActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         set.add("11111111111111111")
         set.add("222222222222222")
         set.add("3333333333")
-        return Event(
-            presenter!!.getEventID(),
-            et_activity_add_title.text.toString(),
-            et_activity_add_location.text.toString(),
-            presenter!!.getEventDate().year,
-            presenter!!.getEventDate().monthValue,
-            presenter!!.getEventDate().dayOfMonth,
-            et_activity_add_description.text.toString(),
-            spinner_activity_add_type.selectedItemPosition,
-            et_activity_add_participant.text.toString(),
-            spinner_activity_add_permission.selectedItemPosition,
-            presenter!!.getInvitedUser(),
-            et_activity_add_additional_info.text.toString(),
-//            presenter!!.getImageSet()
-            set
-        )
+        return Event()
     }
 
 

@@ -51,6 +51,11 @@
     <string name="login_with">Or login with</string>
     <string name="identify_with">Identify with email or mobile phone</string>>
 
+    <!-- Verify Page -->
+    <string name="verify">Verify</string>
+    <string name="done">Done</string>
+    <string name="send_email">Send Email</string>
+
     <!-- Register Page -->
     <string name="reg_password1">Please input your password</string>
     <string name="reg_password2">Please repeat your password</string>
@@ -96,6 +101,7 @@
 
 
     <!-- Fake data -->
+    <string name="f_uid">HKVdrJBD8gRVFU4uxay6kwJYx5u2</string>
     <string name="f_user_name">Grindewald</string>
     <string name="f_major">Computer Science</string>
     <string name="f_time">2021/01/02</string>
