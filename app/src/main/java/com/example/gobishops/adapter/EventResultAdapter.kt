@@ -25,7 +25,7 @@ class EventResultAdapter (var events: ArrayList<Event>): RecyclerView.Adapter<Ev
     }
 
     override fun onBindViewHolder(holder: EventResultHolder, position: Int) {
-        val event = events.get(position)
+        val event = events[position]
         holder.title.text = event.title
         holder.info.text = event.year.toString() + event.month.toString() + event.day.toString() + event.location
         holder.permission.text = "Permission level: " + event.permission.toString()

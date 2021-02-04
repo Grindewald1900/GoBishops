@@ -11,8 +11,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
+import com.example.gobishops.adapter.NormalCardAdapter
+import com.example.gobishops.entity.NormalCard
 import com.example.gobishops.utils.AuthUtil
 import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.view.LoginActivity
@@ -48,19 +52,29 @@ class HomeFragment : Fragment() {
 
 
     private fun initView(){
-        val ivPortrait:SelectableRoundedImageView = view!!.findViewById(R.id.iv_home_portrait)
-        Glide.with(context!!)
-            .asBitmap()
-            .load(R.drawable.img_portrait)
-            .into(ivPortrait)
-        tv_home_1.text = initText(getString(R.string.f_home_activity))
-        tv_home_2.text = initText(getString(R.string.f_home_activity))
-        tv_home_3.text = initText(getString(R.string.f_home_activity))
-        iv_home_portrait.setOnClickListener {
-            if(null == AuthUtil.getCurrentUser()){
-                startActivity(Intent(context, LoginActivity::class.java))
-            }
+//        val ivPortrait:SelectableRoundedImageView = view!!.findViewById(R.id.iv_home_portrait)
+        val data: ArrayList<NormalCard> = ArrayList()
+
+        // Prepare data for event list
+        for (i in 1..10){
+            data.add(NormalCard())
         }
+        rv_fragment_home.layoutManager = LinearLayoutManager(context)
+        rv_fragment_home.itemAnimator = DefaultItemAnimator()
+        rv_fragment_home.adapter = NormalCardAdapter(data)
+
+//        Glide.with(context!!)
+//            .asBitmap()
+//            .load(R.drawable.img_portrait)
+//            .into(ivPortrait)
+//        tv_home_1.text = initText(getString(R.string.f_home_activity))
+//        tv_home_2.text = initText(getString(R.string.f_home_activity))
+//        tv_home_3.text = initText(getString(R.string.f_home_activity))
+//        iv_home_portrait.setOnClickListener {
+//            if(null == AuthUtil.getCurrentUser()){
+//                startActivity(Intent(context, LoginActivity::class.java))
+//            }
+//        }
 
     }
 
