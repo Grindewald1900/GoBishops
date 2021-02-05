@@ -11,6 +11,14 @@
     <string name="home_page">Home page</string>
     <string name="chat">Chat</string>
     <string name="join">join</string>
+    <string name="all">all</string>
+    <string-array name="home_search_type">
+        <item>All</item>
+        <item>Event</item>
+        <item>Deal</item>
+        <item>Reservation</item>
+        <item>Team</item>
+    </string-array>
 
 
     <!-- Activity Page -->

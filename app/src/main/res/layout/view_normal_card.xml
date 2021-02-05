@@ -3,81 +3,85 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="@dimen/dimen_300"
     >
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_normal_card_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.2"
-        />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_normal_card_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.8"
-        />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_normal_card_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2"
-        />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_normal_card_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8"
-        />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_normal_card_middle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55"
-        />
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/guideline_normal_card_left"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintGuide_percent="0.2"-->
+<!--        />-->
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/guideline_normal_card_right"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintGuide_percent="0.8"-->
+<!--        />-->
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/guideline_normal_card_top"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.2"-->
+<!--        />-->
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/guideline_normal_card_bottom"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.8"-->
+<!--        />-->
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/guideline_normal_card_middle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.55"-->
+<!--        />-->
     <View
         android:id="@+id/view_normal_card_background"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_board"
-        app:layout_constraintTop_toTopOf="@+id/guideline_normal_card_top"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline_normal_card_bottom"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline_normal_card_left"
-        app:layout_constraintRight_toRightOf="@+id/guideline_normal_card_right"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginBottom="@dimen/dimen_20"
+        android:layout_marginStart="@dimen/dimen_60"
+        android:layout_marginEnd="@dimen/dimen_60"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         />
     <ImageButton
         android:id="@+id/ib_normal_card_collect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_md_favorite_border_color1"
-        app:layout_constraintTop_toTopOf="@+id/view_normal_card_background"
-        app:layout_constraintBottom_toTopOf="@+id/view_normal_card_background"
-        app:layout_constraintLeft_toLeftOf="@+id/view_normal_card_background"
-        app:layout_constraintRight_toLeftOf="@+id/view_normal_card_background"
+        android:layout_marginEnd="@dimen/dimen_40"
+        android:layout_marginBottom="@dimen/dimen_5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         />
     <com.example.gobishops.myview.mImageView
         android:id="@+id/iv_normal_card_image"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dimen_140"
         android:src="@drawable/img_wolf"
+        app:mCornerRadius="80"
         app:layout_constraintTop_toTopOf="@+id/view_normal_card_background"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline_normal_card_middle"
         app:layout_constraintLeft_toLeftOf="@+id/view_normal_card_background"
         app:layout_constraintRight_toRightOf="@+id/view_normal_card_background"
         />
     <com.joooonho.SelectableRoundedImageView
         android:id="@+id/iv_normal_card_portrait"
-        android:layout_width="@dimen/dimen_80"
-        android:layout_height="@dimen/dimen_80"
-        android:layout_marginTop="@dimen/dimen_30"
-        app:layout_constraintTop_toTopOf="@id/guideline_normal_card_top"
-        app:layout_constraintLeft_toLeftOf="@id/guideline_normal_card_right"
-        app:layout_constraintRight_toRightOf="@+id/guideline_normal_card_right"
+        android:layout_width="@dimen/dimen_70"
+        android:layout_height="@dimen/dimen_70"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginStart="@dimen/dimen_40"
+        app:layout_constraintTop_toTopOf="@id/view_normal_card_background"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:sriv_oval="true"
         app:sriv_border_color="@color/colorPrimary"
         app:sriv_border_width="@dimen/dimen_2"
@@ -88,13 +92,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title"
-        android:textSize="@dimen/text_size_sub_logo"
+        android:textSize="@dimen/text_size_title"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
-        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_10"
         android:layout_marginStart="@dimen/dimen_20"
-        app:layout_constraintTop_toTopOf="@+id/guideline_normal_card_middle"
-        app:layout_constraintLeft_toLeftOf="@+id/guideline_normal_card_left"
+        app:layout_constraintTop_toBottomOf="@+id/iv_normal_card_image"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_normal_card_image"
         />
     <ImageView
         android:id="@+id/iv_normal_card_location"
@@ -124,7 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_access_time_24"
-        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_5"
         app:layout_constraintLeft_toLeftOf="@+id/tv_normal_card_title"
         app:layout_constraintTop_toBottomOf="@+id/iv_normal_card_location"
         />

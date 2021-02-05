@@ -6,24 +6,59 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+    <ImageButton
+        android:id="@+id/iv_fragment_home_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_antoutline_message"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginEnd="@dimen/dimen_20"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <ImageButton
+        android:id="@+id/iv_fragment_home_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_antoutline_search"
+        android:layout_marginEnd="@dimen/dimen_30"
+        app:layout_constraintTop_toTopOf="@id/iv_fragment_home_chat"
+        app:layout_constraintRight_toLeftOf="@+id/iv_fragment_home_chat"
+        />
+    <Spinner
+        android:id="@+id/spinner_fragment_home_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/all"
+        android:textSize="@dimen/text_size_small_logo"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:gravity="right"
+        app:layout_constraintTop_toTopOf="@+id/iv_fragment_home_chat"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_fragment_home_chat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_fragment_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/spinner_fragment_home_type">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_fragment_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            />
+            android:scrollbars="vertical" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
-<!--    <ImageButton-->
+    <!--    <ImageButton-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:text="@string/app_name"-->

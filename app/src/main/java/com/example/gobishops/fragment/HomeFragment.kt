@@ -10,6 +10,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,8 +54,13 @@ class HomeFragment : Fragment() {
 
 
     private fun initView(){
-//        val ivPortrait:SelectableRoundedImageView = view!!.findViewById(R.id.iv_home_portrait)
         val data: ArrayList<NormalCard> = ArrayList()
+        val spinnerFilter: Spinner = view!!.findViewById(R.id.spinner_fragment_home_type)
+
+        ArrayAdapter.createFromResource(context!!, R.array.home_search_type, R.layout.spinner_item_simple).also {
+            it.setDropDownViewResource(R.layout.spinner_margin_20)
+            spinnerFilter.adapter = it
+        }
 
         // Prepare data for event list
         for (i in 1..10){
