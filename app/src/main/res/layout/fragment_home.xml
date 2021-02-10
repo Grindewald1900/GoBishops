@@ -24,6 +24,15 @@
         app:layout_constraintTop_toTopOf="@id/iv_fragment_home_chat"
         app:layout_constraintRight_toLeftOf="@+id/iv_fragment_home_chat"
         />
+    <ImageButton
+        android:id="@+id/iv_fragment_home_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_mb_user"
+        android:layout_marginStart="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@id/iv_fragment_home_chat"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
     <Spinner
         android:id="@+id/spinner_fragment_home_type"
         android:layout_width="wrap_content"

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_3">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_activity_register_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        />
+
+    <ImageView
+        android:id="@+id/iv_register_name_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_fa5_user_2"
+        android:layout_marginEnd="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/et_register_name_v2"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_name_v2"
+        app:layout_constraintRight_toLeftOf="@+id/et_register_name_v2"
+        />
+
+    <EditText
+        android:id="@+id/et_register_name_v2"
+        android:layout_width="@dimen/dimen_280"
+        android:layout_height="@dimen/dimen_40"
+        android:drawablePadding="@dimen/dimen_5"
+        android:background="@drawable/shape_board"
+        android:hint="@string/email"
+        android:textSize="@dimen/text_size_title"
+        android:padding="@dimen/dimen_10"
+        android:drawableEnd="@drawable/ic_baseline_star_rate_24"
+        android:layout_marginTop="@dimen/dimen_50"
+        android:layout_marginStart="@dimen/dimen_30"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_register_pwd1_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_fa5_unlock"
+        android:layout_marginEnd="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/et_register_pwd1_v2"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_pwd1_v2"
+        app:layout_constraintRight_toLeftOf="@+id/et_register_name_v2"
+        />
+
+    <EditText
+        android:id="@+id/et_register_pwd1_v2"
+        android:layout_width="@dimen/dimen_280"
+        android:layout_height="@dimen/dimen_40"
+        android:drawablePadding="@dimen/dimen_5"
+        android:background="@drawable/shape_board"
+        android:hint="@string/email"
+        android:textSize="@dimen/text_size_title"
+        android:padding="@dimen/dimen_10"
+        android:drawableEnd="@drawable/ic_baseline_star_rate_24"
+        android:layout_marginTop="@dimen/dimen_30"
+        android:layout_marginStart="@dimen/dimen_30"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_name_v2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_register_pwd2_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_fa5_unlock"
+        android:layout_marginEnd="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/et_register_pwd2_v2"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_pwd2_v2"
+        app:layout_constraintRight_toLeftOf="@+id/et_register_name_v2"
+        />
+
+    <EditText
+        android:id="@+id/et_register_pwd2_v2"
+        android:layout_width="@dimen/dimen_280"
+        android:layout_height="@dimen/dimen_40"
+        android:drawablePadding="@dimen/dimen_5"
+        android:background="@drawable/shape_board"
+        android:hint="@string/email"
+        android:textSize="@dimen/text_size_title"
+        android:padding="@dimen/dimen_10"
+        android:drawableEnd="@drawable/ic_baseline_star_rate_24"
+        android:layout_marginTop="@dimen/dimen_30"
+        android:layout_marginStart="@dimen/dimen_30"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_pwd1_v2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_register_email_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_fa5_email_purple"
+        android:layout_marginEnd="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/et_register_email_v2"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_email_v2"
+        app:layout_constraintRight_toLeftOf="@+id/et_register_name_v2"
+        />
+
+    <EditText
+        android:id="@+id/et_register_email_v2"
+        android:layout_width="@dimen/dimen_280"
+        android:layout_height="@dimen/dimen_40"
+        android:drawablePadding="@dimen/dimen_5"
+        android:background="@drawable/shape_board"
+        android:hint="@string/email"
+        android:textSize="@dimen/text_size_title"
+        android:padding="@dimen/dimen_10"
+        android:layout_marginTop="@dimen/dimen_30"
+        android:layout_marginStart="@dimen/dimen_30"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_pwd2_v2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_register_code_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_md_vpn_key"
+        android:layout_marginEnd="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/et_register_code_v2"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_code_v2"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_register_email_v2"
+        />
+
+    <EditText
+        android:id="@+id/et_register_code_v2"
+        android:layout_width="@dimen/dimen_180"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/shape_board"
+        android:drawablePadding="@dimen/dimen_5"
+        android:hint="@string/email"
+        android:padding="@dimen/dimen_10"
+        android:textSize="@dimen/text_size_title"
+        app:layout_constraintHorizontal_bias="0.618"
+        app:layout_constraintLeft_toLeftOf="@+id/et_register_email_v2"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_email_v2" />
+
+    <com.example.gobishops.myview.mButtonView
+        android:id="@+id/btn_register_code_v2"
+        android:layout_width="@dimen/dimen_80"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:text="@string/verify"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@+id/et_register_code_v2"
+        app:layout_constraintBottom_toBottomOf="@+id/et_register_code_v2"
+        app:layout_constraintRight_toRightOf="@+id/et_register_email_v2"
+        app:background_color="@color/colorPrimary"
+        />
+
+    <com.example.gobishops.myview.mButtonView
+        android:id="@+id/btn_register_register_v2"
+        android:layout_width="@dimen/dimen_120"
+        android:layout_height="@dimen/dimen_40"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:text="@string/register"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/dimen_30"
+        app:layout_constraintTop_toBottomOf="@+id/et_register_code_v2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:background_color="@color/colorPrimary"
+        />
+
+    <View
+        android:id="@+id/view_register_background_v2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_bk_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register_code_v2"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

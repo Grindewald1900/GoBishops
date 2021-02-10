@@ -6,13 +6,12 @@ import android.widget.Toast
 import com.example.gobishops.R
 import com.example.gobishops.contract.RegisterContract
 import com.example.gobishops.presenter.RegisterPresenter
-import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity(), RegisterContract.View {
     private var presenter: RegisterContract.Presenter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_register_v2)
         presenter = RegisterPresenter(this)
     }
 

@@ -5,6 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimen_30"
     android:textSize="@dimen/text_size_sub_title"
-    android:layout_marginStart="@dimen/dimen_20"
     android:paddingStart="@dimen/dimen_10"
     android:ellipsize="marquee"/>

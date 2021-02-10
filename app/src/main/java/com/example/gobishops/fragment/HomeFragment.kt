@@ -23,6 +23,7 @@ import com.example.gobishops.utils.AuthUtil
 import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.view.LoginActivity
 import com.example.gobishops.utils.TextUtil
+import com.example.gobishops.view.RegisterActivity
 import com.joooonho.SelectableRoundedImageView
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -58,7 +59,7 @@ class HomeFragment : Fragment() {
         val spinnerFilter: Spinner = view!!.findViewById(R.id.spinner_fragment_home_type)
 
         ArrayAdapter.createFromResource(context!!, R.array.home_search_type, R.layout.spinner_item_simple).also {
-            it.setDropDownViewResource(R.layout.spinner_margin_20)
+            it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerFilter.adapter = it
         }
 
@@ -69,7 +70,9 @@ class HomeFragment : Fragment() {
         rv_fragment_home.layoutManager = LinearLayoutManager(context)
         rv_fragment_home.itemAnimator = DefaultItemAnimator()
         rv_fragment_home.adapter = NormalCardAdapter(data)
-
+        iv_fragment_home_profile.setOnClickListener {
+            startActivity(Intent(context, LoginActivity::class.java))
+        }
 //        Glide.with(context!!)
 //            .asBitmap()
 //            .load(R.drawable.img_portrait)

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
@@ -25,15 +26,22 @@
         app:layout_constraintTop_toTopOf="@id/iv_fragment_home_chat"
         app:layout_constraintRight_toLeftOf="@+id/iv_fragment_home_chat"
         />
+
+    <ImageButton
+        android:id="@+id/iv_fragment_home_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_md_sort"
+        android:layout_marginStart="@dimen/dimen_20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_fragment_home_chat" />
     <Spinner
         android:id="@+id/spinner_fragment_home_type"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/all"
-        android:textSize="@dimen/text_size_small_logo"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
-        android:gravity="right"
+        android:layout_height="@dimen/dimen_30"
+        android:background="@drawable/shape_board"
+        android:spinnerMode="dropdown"
+        android:dropDownVerticalOffset = "@dimen/dimen_20"
         app:layout_constraintTop_toTopOf="@+id/iv_fragment_home_chat"
         app:layout_constraintBottom_toBottomOf="@+id/iv_fragment_home_chat"
         app:layout_constraintLeft_toLeftOf="parent"
