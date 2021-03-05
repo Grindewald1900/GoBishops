@@ -19,8 +19,13 @@ import com.google.firebase.auth.FirebaseUser
 object AuthUtil {
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    fun getCurrentUser(): FirebaseUser?{
-        return mAuth.currentUser
+    /**
+     * If user have signed in
+     * @return : true if signed in.
+     */
+    fun isSignedIn(): Boolean{
+        if (null != mAuth.currentUser) return true
+        return false
     }
 
     /**

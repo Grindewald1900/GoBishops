@@ -24,6 +24,7 @@ import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.view.LoginActivity
 import com.example.gobishops.utils.TextUtil
 import com.example.gobishops.view.RegisterActivity
+import com.example.gobishops.view.UserInfoActivity
 import com.joooonho.SelectableRoundedImageView
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -71,7 +72,11 @@ class HomeFragment : Fragment() {
         rv_fragment_home.itemAnimator = DefaultItemAnimator()
         rv_fragment_home.adapter = NormalCardAdapter(data)
         iv_fragment_home_profile.setOnClickListener {
-            startActivity(Intent(context, LoginActivity::class.java))
+            if (AuthUtil.isSignedIn()){
+                startActivity(Intent(context, UserInfoActivity::class.java))
+            }else{
+                startActivity(Intent(context, LoginActivity::class.java))
+            }
         }
 //        Glide.with(context!!)
 //            .asBitmap()
@@ -88,6 +93,11 @@ class HomeFragment : Fragment() {
 
     }
 
+    /**
+     * Deprecated
+     * @param text: string to be processed
+     */
+    @Deprecated("This method is deprecated, since home page no longer need this style")
     private fun initText(text: String): SpannableString{
         val spannable = SpannableString(text)
         val index: ArrayList<Int> = TextUtil.getCharIndex(text, "\n")

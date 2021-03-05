@@ -94,6 +94,14 @@
     <string name="type">Type</string>
     <string name="permission">permission</string>
 
+
+    <!-- User Info Page -->
+    <string name="my_event">My events</string>
+    <string name="my_deals">My deals</string>
+    <string name="my_reservations">My reservations</string>
+    <string name="my_teams">My teams</string>
+
+
     <!-- Tags -->
     <string name="tag_main">tag_main</string>
     <string name="tag_activity">tag_activity</string>
@@ -113,6 +121,7 @@
     <string name="f_user_name">Grindewald</string>
     <string name="f_major">Computer Science</string>
     <string name="f_time">2021/01/02</string>
+    <string name="f_month">Jan</string>
 
     <string name="f_email">grindewald1504@gmail.com</string>
     <string name="f_password">ry19940924</string>

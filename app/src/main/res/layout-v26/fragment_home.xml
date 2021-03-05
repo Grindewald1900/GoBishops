@@ -37,15 +37,17 @@
         app:layout_constraintTop_toTopOf="@id/iv_fragment_home_chat" />
     <Spinner
         android:id="@+id/spinner_fragment_home_type"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="@dimen/dimen_30"
         android:background="@drawable/shape_board"
         android:spinnerMode="dropdown"
         android:dropDownVerticalOffset = "@dimen/dimen_20"
+        android:layout_marginStart="@dimen/dimen_40"
+        android:layout_marginEnd="@dimen/dimen_40"
         app:layout_constraintTop_toTopOf="@+id/iv_fragment_home_chat"
         app:layout_constraintBottom_toBottomOf="@+id/iv_fragment_home_chat"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_fragment_home_profile"
+        app:layout_constraintRight_toLeftOf="@+id/iv_fragment_home_search"
         />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
