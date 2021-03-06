@@ -1,6 +1,7 @@
 package com.example.gobishops.utils
 
 import com.example.gobishops.entity.Event
+import com.example.gobishops.entity.Schedule
 
 
 /**
@@ -9,7 +10,10 @@ import com.example.gobishops.entity.Event
  * Email: grindewald1504@gmail.com
  */
 object TypeUtil {
-    fun HashMapToEvent(map: HashMap<*,*>): ArrayList<Event>{
+    /**
+     * Convert hash map(from firebase) to Event
+     */
+    fun hashMapToEvent(map: HashMap<*,*>): ArrayList<Event>{
         val events: ArrayList<Event> = ArrayList()
         for ((key, value) in map){
             val eventItem = Event()
@@ -32,5 +36,33 @@ object TypeUtil {
             events.add(eventItem)
         }
         return events
+    }
+
+    /**
+     * Convert Event to Schedule
+     * @param event: the entity to be converted
+     * @param sType: schedule type, 1-event, 2-deal, 3-reservation, 4-team
+     * @param dType: 0-no type, 1-content, 2-month, 3-year
+     */
+    fun eventToSchedule(event: Event, sType: Int, dType: Int): Schedule {
+        var schedule: Schedule = Schedule()
+        schedule.additionalInfo = event.additionalInfo
+        schedule.dateType = dType
+        schedule.day = event.day
+        schedule.descriptor = event.descriptor
+        schedule.id = event.id
+        schedule.imageSet = event.imageSet
+        schedule.invitedUser = event.invitedUser
+        schedule.location = event.location
+        schedule.month = event.month
+        schedule.participants = event.participants
+        schedule.permission = event.permission
+        schedule.scheduleType = sType
+        schedule.title = event.title
+        schedule.type = event.type
+        schedule.userId = event.userId
+        schedule.userType = event.userType
+        schedule.year = event.year
+        return schedule
     }
 }

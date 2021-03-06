@@ -53,7 +53,7 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
      *  Call back when data received from firebase
      */
     override fun getRetrievedData(state: Int, data: Any?) {
-        var events: ArrayList<Event> = TypeUtil.HashMapToEvent(data as HashMap<*, *>)
+        var events: ArrayList<Event> = TypeUtil.hashMapToEvent(data as HashMap<*, *>)
         refreshView(events)
     }
 

@@ -2,6 +2,8 @@ package com.example.gobishops.entity
 
 import java.io.FileDescriptor
 import java.time.LocalDate
+import kotlin.random.Random
+
 /**
  * Created by Yee on 2021/1/19.
  * Github: Grindewald1900
@@ -38,7 +40,7 @@ data class Event(
     var userId: String,
     var userType: Int
 ) {
-    constructor() : this("001", "Title", "Oxford", 2021, 1, 12,
+    constructor() : this("001", "Title", "Oxford", 2021, Random.nextInt(1,12), Random.nextInt(1,30),
         "This is a description of our activity\\n\" + \"This is a description of our activity", 1,
         "Nothing", 1, ArrayList(), "Released at 7:05PM, Jan 1, 2021 by Grindewald1900 ", ArrayList(),
         "HKVdrJBD8gRVFU4uxay6kwJYx5u2", 201)
