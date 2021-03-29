@@ -69,8 +69,8 @@
 
     <Button
         android:id="@+id/btn_login_login_v2"
-        android:layout_width="@dimen/dimen_120"
-        android:layout_height="@dimen/dimen_40"
+        android:layout_width="@dimen/button_width_middle"
+        android:layout_height="@dimen/button_length_middle"
         android:background="@drawable/shape_board"
         android:text="@string/login"
         android:textColor="@color/colorPrimary"

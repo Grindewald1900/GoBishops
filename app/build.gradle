@@ -30,6 +30,11 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     //Viewpager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    // Transition button (with animation)
+    implementation 'com.royrodriguez:transitionbutton:0.2.0'
+    // Shopping cart add and subtract
+    implementation 'com.github.open-android:ShoppingCartAddSubtract:0.1.0'
     //Firebase
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.google.firebase:firebase-auth:20.0.2'

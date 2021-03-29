@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_100">
+    <ImageView
+        android:id="@+id/iv_shopping_cart_icon"
+        android:layout_width="@dimen/dimen_80"
+        android:layout_height="@dimen/dimen_80"
+        android:layout_marginStart="@dimen/dimen_20"
+        android:src="@drawable/img_portrait"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/tv_shopping_cart_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_30"
+        android:text="@string/f_user_name"
+        android:textSize="@dimen/text_size_main_title"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/iv_shopping_cart_icon"
+        app:layout_constraintLeft_toRightOf="@+id/iv_shopping_cart_icon"
+        />
+    <TextView
+        android:id="@+id/tv_shopping_cart_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_user_name"
+        android:textSize="@dimen/text_size_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_shopping_cart_title"
+        app:layout_constraintBottom_toTopOf="@+id/tv_shopping_cart_price"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_shopping_cart_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_shopping_cart_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_price"
+        android:textSize="@dimen/text_size_title"
+        android:textColor="@color/google"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dimen_5"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_shopping_cart_icon"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_shopping_cart_title"
+        />
+
+    <com.bigkoo.snappingstepper.SnappingStepper
+        android:id="@+id/stepper_shopping_cart"
+        android:layout_width="@dimen/dimen_120"
+        android:layout_height="@dimen/dimen_30"
+        android:layout_marginEnd="@dimen/dimen_20"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_shopping_cart_price"
+        app:layout_constraintRight_toRightOf="parent"
+        app:stepper_background="@color/black"
+        app:stepper_contentBackground="@color/white"
+        app:stepper_leftButtonBackground="@color/colorPrimary"
+        app:stepper_rightButtonBackground="@color/colorPrimary"
+        />
+
+    <View
+        android:id="@+id/view_shopping_cart"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_1"
+        android:background="@color/black"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_shopping_cart_icon"
+        app:layout_constraintRight_toRightOf="@+id/stepper_shopping_cart"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
