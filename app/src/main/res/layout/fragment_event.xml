@@ -61,8 +61,8 @@
         android:id="@+id/swipe_activity_event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_5"
-        android:layout_marginEnd="@dimen/dimen_5"
+        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_marginEnd="@dimen/dimen_10"
         >
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_activity_event"

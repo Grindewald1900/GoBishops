@@ -55,6 +55,9 @@ class HomeFragment : Fragment() {
     }
 
 
+    /**
+     * View Initialization, including onClickListener()
+     */
     private fun initView(){
         val data: ArrayList<NormalCard> = ArrayList()
         val spinnerFilter: Spinner = view!!.findViewById(R.id.spinner_fragment_home_type)
