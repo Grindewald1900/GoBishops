@@ -1,16 +1,22 @@
-## GoBishop
-This is a project based on kotlin : )
+## SherEats
+This is a project based on kotlin, Psql and Firebase  : )
 
 ### 1 - Project info:
 **Project**:   
-[GoBishop](https://github.com/users/Grindewald1900/projects/1)
+[SherEats](https://github.com/users/Grindewald1900/projects/1)
 
 **Repositary**:   
 [App source code](https://github.com/Grindewald1900/GoBishop)  
 [Documentation](https://github.com/Grindewald1900/GoBishopDoc)
 
 #### Introduction
-
+* **1. Home(Cuisine Recommendation)**
+* **2. Restaurant Recommendation**
+* **3. Cart**
+* **4. Orders**
+* **5. Friends**
+* **6. Login/Register**
+* 
 
 
 #### Project info
