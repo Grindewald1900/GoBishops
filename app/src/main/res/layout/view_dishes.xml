@@ -13,28 +13,20 @@
         android:background="@drawable/shape_board"
         android:layout_marginTop="@dimen/dimen_20"
         android:layout_marginBottom="@dimen/dimen_20"
-        android:layout_marginStart="@dimen/dimen_60"
-        android:layout_marginEnd="@dimen/dimen_60"
+        android:layout_marginStart="@dimen/dimen_30"
+        android:layout_marginEnd="@dimen/dimen_30"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
-    <ImageButton
-        android:id="@+id/ib_dish_collect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_md_favorite_border_color1"
-        android:layout_marginEnd="@dimen/dimen_40"
-        android:layout_marginBottom="@dimen/dimen_5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+
     <com.example.gobishops.myview.mImageView
         android:id="@+id/iv_dish_image"
         android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_140"
+        android:layout_height="@dimen/dimen_120"
         android:src="@drawable/img_sushi"
+        android:scaleType="centerCrop"
         android:layout_margin="@dimen/dimen_2"
         app:mCornerRadius="80"
         app:layout_constraintTop_toTopOf="@+id/view_dish_background"
@@ -101,4 +93,26 @@
         app:layout_constraintLeft_toRightOf="@+id/iv_dish_price"
         />
 
+    <ImageView
+        android:id="@+id/iv_dish_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_rate_review_24"
+        android:layout_marginTop="@dimen/dimen_5"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_dish_title"
+        app:layout_constraintTop_toBottomOf="@+id/iv_dish_price"
+        />
+    <LinearLayout
+        android:id="@+id/ll_dish_rate"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_30"
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/dimen_20"
+        app:layout_constraintTop_toTopOf="@+id/iv_dish_rate"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_dish_rate"
+        app:layout_constraintLeft_toRightOf="@+id/iv_dish_rate"
+        app:layout_constraintRight_toRightOf="@+id/view_dish_background"
+        >
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

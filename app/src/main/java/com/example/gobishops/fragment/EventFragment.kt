@@ -71,7 +71,7 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
             data.add(fakeEvent)
         }
         linearLayoutManager = LinearLayoutManager(context)
-        dishAdapter = DishAdapter(data)
+        dishAdapter = DishAdapter(data, context)
         rv_activity_event.layoutManager = linearLayoutManager
         rv_activity_event.itemAnimator = DefaultItemAnimator()
         rv_activity_event.adapter = dishAdapter
@@ -95,7 +95,7 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
     }
 
     private fun refreshView(dishes: ArrayList<Item>){
-        dishAdapter = DishAdapter(dishes)
+        dishAdapter = DishAdapter(dishes, context)
         rv_activity_event.adapter = dishAdapter
         swipe_activity_event.isRefreshing = false
     }

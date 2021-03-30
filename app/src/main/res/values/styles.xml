@@ -32,8 +32,8 @@
     </style>
 
     <style name="NormalButton">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">@dimen/dimen_30</item>
+        <item name="android:layout_width">@dimen/dimen_80</item>
+        <item name="android:layout_height">@dimen/dimen_25</item>
         <item name="android:padding">0dp</item>
         <item name="android:textSize">@dimen/text_size_sub_title</item>
     </style>

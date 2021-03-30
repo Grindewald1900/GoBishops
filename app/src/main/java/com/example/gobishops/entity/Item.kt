@@ -23,6 +23,7 @@ data class Item(
     val name: String,
     val price: Float,
     val image: String,
+    val rate: Float,
 ) {
-    constructor(): this(12345, 110, "taco", Random(100).nextFloat(), "Null")
+    constructor(): this(12345, 110, "taco", Random(100).nextFloat(), "Null", 4.5f)
 }
