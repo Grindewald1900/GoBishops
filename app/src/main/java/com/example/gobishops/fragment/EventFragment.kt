@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gobishops.R
+import com.example.gobishops.adapter.DishAdapter
 import com.example.gobishops.view.AddEventActivity
 import com.example.gobishops.adapter.EventAdapter
 import com.example.gobishops.contract.BaseContract
 import com.example.gobishops.entity.Event
+import com.example.gobishops.entity.Item
 import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.utils.DBUtil
 import com.example.gobishops.utils.TypeUtil
@@ -26,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_event.*
  */
 class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
     private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var eventAdapter: EventAdapter
+    private lateinit var dishAdapter: DishAdapter
     companion object{
         fun newInstance(): EventFragment{
             return EventFragment()
@@ -54,7 +56,7 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
      */
     override fun getRetrievedData(state: Int, data: Any?) {
         var events: ArrayList<Event> = TypeUtil.hashMapToEvent(data as HashMap<*, *>)
-        refreshView(events)
+//        refreshView(events)
     }
 
     /**
@@ -62,17 +64,17 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
      */
     private fun initView(){
         // Initialize recycle view of activities
-        val data: ArrayList<Event> = ArrayList()
-        val fakeEvent = Event()
+        val data: ArrayList<Item> = ArrayList()
+        val fakeEvent = Item()
 
         for (i in 0..10){
             data.add(fakeEvent)
         }
         linearLayoutManager = LinearLayoutManager(context)
-        eventAdapter = EventAdapter(data)
+        dishAdapter = DishAdapter(data, context)
         rv_activity_event.layoutManager = linearLayoutManager
         rv_activity_event.itemAnimator = DefaultItemAnimator()
-        rv_activity_event.adapter = eventAdapter
+        rv_activity_event.adapter = dishAdapter
         rv_activity_event.setOnClickListener {
         }
 
@@ -81,10 +83,10 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
             startActivity(intent)
         }
         swipe_activity_event.setOnRefreshListener {
-            DBUtil.getEntity(
-                ConstantUtil.DATABASE_EVENT,
-                fakeEvent,
-                this)
+//            DBUtil.getEntity(
+//                ConstantUtil.DATABASE_EVENT,
+//                fakeEvent,
+//                this)
         }
         view_activity_event_search_box.setOnClickListener {
             val intent = Intent(context, EventSearchActivity::class.java)
@@ -92,9 +94,9 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
         }
     }
 
-    private fun refreshView(events: ArrayList<Event>){
-        eventAdapter = EventAdapter(events)
-        rv_activity_event.adapter = eventAdapter
+    private fun refreshView(dishes: ArrayList<Item>){
+        dishAdapter = DishAdapter(dishes, context)
+        rv_activity_event.adapter = dishAdapter
         swipe_activity_event.isRefreshing = false
     }
 }

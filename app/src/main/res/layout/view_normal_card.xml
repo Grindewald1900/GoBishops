@@ -69,6 +69,7 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/dimen_140"
         android:src="@drawable/img_wolf"
+        android:layout_margin="@dimen/dimen_2"
         app:mCornerRadius="80"
         app:layout_constraintTop_toTopOf="@+id/view_normal_card_background"
         app:layout_constraintLeft_toLeftOf="@+id/view_normal_card_background"

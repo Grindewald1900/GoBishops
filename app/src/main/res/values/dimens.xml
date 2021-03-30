@@ -31,6 +31,8 @@
     <dimen name="dimen_260">260dp</dimen>
     <dimen name="dimen_280">280dp</dimen>
     <dimen name="dimen_300">300dp</dimen>
+    <dimen name="dimen_320">320dp</dimen>
+
 
 
     <!--Button size -->

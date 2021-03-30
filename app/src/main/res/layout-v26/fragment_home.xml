@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/gray_5"
+    >
 
     <ImageButton
         android:id="@+id/iv_fragment_home_chat"

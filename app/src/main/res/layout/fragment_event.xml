@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
     >
 <!--    <ImageButton-->
 <!--        android:id="@+id/btn_activity_back"-->
@@ -61,8 +60,6 @@
         android:id="@+id/swipe_activity_event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen_10"
-        android:layout_marginEnd="@dimen/dimen_10"
         >
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_activity_event"

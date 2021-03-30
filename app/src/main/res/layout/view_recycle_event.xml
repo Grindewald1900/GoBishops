@@ -38,14 +38,15 @@
         android:layout_height="@dimen/dimen_30"
         android:src="@drawable/ic_baseline_star_24"
         android:layout_marginEnd="@dimen/dimen_10"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="@+id/iv_item_activity_logo"
         app:layout_constraintRight_toLeftOf="@+id/btn_item_activity_join"
         />
     <com.example.gobishops.myview.mButtonView
         android:id="@+id/btn_item_activity_join"
         android:layout_marginEnd="@dimen/dimen_5"
-        android:text="@string/join"
-        style="@style/SmallButton"
+        android:text="@string/contact"
+        style="@style/NormalButton"
         app:layout_constraintTop_toTopOf="@+id/tv_item_activity_title"
         app:layout_constraintRight_toRightOf="parent"
         />

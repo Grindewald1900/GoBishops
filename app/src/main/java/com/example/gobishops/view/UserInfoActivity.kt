@@ -1,5 +1,6 @@
 package com.example.gobishops.view
 
+import `in`.galaxyofandroid.awesometablayout.AwesomeTabBar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -8,11 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
 import com.example.gobishops.adapter.ScheduleCardAdapter
+import com.example.gobishops.adapter.UserInfoPagerAdapter
 import com.example.gobishops.contract.UserInfoContract
 import com.example.gobishops.entity.Event
 import com.example.gobishops.entity.Schedule
 import com.example.gobishops.presenter.UserInfoPresenter
 import com.example.gobishops.utils.TypeUtil
+import kotlinx.android.synthetic.main.activity_dish.*
 import kotlinx.android.synthetic.main.activity_user_info.*
 
 class UserInfoActivity : AppCompatActivity(), UserInfoContract.View{
@@ -46,9 +49,17 @@ class UserInfoActivity : AppCompatActivity(), UserInfoContract.View{
             }
 
         }
-        rv_activity_user_info_home.itemAnimator = DefaultItemAnimator()
-        rv_activity_user_info_home.layoutManager = LinearLayoutManager(this)
-        rv_activity_user_info_home.adapter = ScheduleCardAdapter(data)
+
+        viewpager_activity_user_info.adapter = UserInfoPagerAdapter(supportFragmentManager)
+        tab_bar_activity_user_info.setupWithViewPager(viewpager_activity_user_info)
+        btn_activity_user_info_back.setOnClickListener {
+            onBackPressed()
+            finish()
+        }
+        // Github style list
+//        rv_activity_user_info_home.itemAnimator = DefaultItemAnimator()
+//        rv_activity_user_info_home.layoutManager = LinearLayoutManager(this)
+//        rv_activity_user_info_home.adapter = ScheduleCardAdapter(data)
     }
 
     /**
