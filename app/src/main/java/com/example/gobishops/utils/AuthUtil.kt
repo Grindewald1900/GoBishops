@@ -71,13 +71,13 @@ object AuthUtil {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("mAuth", "signInWithEmail:success")
                         val user = mAuth.currentUser
-                        view.getRetrievedData(ConstantUtil.STATE_SUCCESS, user)
+//                        view.getRetrievedData(ConstantUtil.STATE_SUCCESS, user)
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("mAuth", "signInWithEmail:failure", task.exception)
                         Toast.makeText(mActivity, "Authentication failed.", Toast.LENGTH_SHORT)
                             .show()
-                        view.getRetrievedData(ConstantUtil.STATE_FAIL, task.exception)
+//                        view.getRetrievedData(ConstantUtil.STATE_FAIL, task.exception)
                     }
 
                     // ...

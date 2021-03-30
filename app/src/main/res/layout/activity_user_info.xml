@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.UserInfoActivity">
+
     <ImageButton
         android:id="@+id/btn_activity_user_info_back"
         style="@style/BackButton"
@@ -18,16 +19,17 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ic_antoutline_message"
         android:layout_marginEnd="@dimen/dimen_20"
-        app:layout_constraintTop_toTopOf="@+id/btn_activity_user_info_back"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
 
     <com.joooonho.SelectableRoundedImageView
         android:id="@+id/btn_activity_user_info_portrait"
-        android:layout_width="@dimen/dimen_80"
-        android:layout_height="@dimen/dimen_80"
-        android:layout_marginTop="@dimen/dimen_20"
-        android:layout_marginStart="@dimen/dimen_60"
+        android:layout_width="@dimen/dimen_60"
+        android:layout_height="@dimen/dimen_60"
+        android:layout_marginTop="@dimen/dimen_50"
+        android:layout_marginStart="@dimen/dimen_50"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:sriv_oval="true"
@@ -40,105 +42,85 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/f_user_name"
-        android:textSize="@dimen/text_size_title"
+        android:textSize="@dimen/text_size_main_title"
+        android:textStyle="bold"
         android:textColor="@color/colorPrimary"
         android:layout_marginStart="@dimen/dimen_20"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_activity_user_info_portrait"
+        app:layout_constraintBottom_toTopOf="@+id/tv_activity_user_id"
         app:layout_constraintTop_toTopOf="@+id/btn_activity_user_info_portrait"
         app:layout_constraintLeft_toRightOf="@+id/btn_activity_user_info_portrait"
         />
 
-    <View
-        android:id="@+id/view_activity_user_info_line0"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dimen_2"
-        android:layout_marginTop="@dimen/dimen_20"
-        android:background="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/btn_activity_user_info_portrait"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
     <TextView
-        android:id="@+id/tv_activity_user_info_column1"
+        android:id="@+id/tv_activity_user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/my_event"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/view_activity_user_info_line0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/tv_activity_user_info_column2"
-        />
-    <TextView
-        android:id="@+id/tv_activity_user_info_column2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/my_deals"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/view_activity_user_info_line0"
-        app:layout_constraintLeft_toRightOf="@+id/tv_activity_user_info_column1"
-        app:layout_constraintRight_toLeftOf="@+id/tv_activity_user_info_column3"
-        />
-    <TextView
-        android:id="@+id/tv_activity_user_info_column3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/my_reservations"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/view_activity_user_info_line0"
-        app:layout_constraintLeft_toRightOf="@+id/tv_activity_user_info_column2"
-        app:layout_constraintRight_toLeftOf="@+id/tv_activity_user_info_column4"
-        />
-    <TextView
-        android:id="@+id/tv_activity_user_info_column4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/my_teams"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/view_activity_user_info_line0"
-        app:layout_constraintLeft_toRightOf="@+id/tv_activity_user_info_column3"
-        app:layout_constraintRight_toRightOf="parent"
-        />
-    <View
-        android:id="@+id/view_activity_user_info_line1"
-        android:layout_width="@dimen/dimen_2"
-        android:layout_height="0dp"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="@dimen/dimen_2"
-        app:layout_constraintTop_toTopOf="@+id/tv_activity_user_info_column1"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_activity_user_info_column1"
-        app:layout_constraintLeft_toRightOf="@+id/tv_activity_user_info_column1"
-        app:layout_constraintRight_toLeftOf="@+id/tv_activity_user_info_column2"
-        />
-    <View
-        android:id="@+id/view_activity_user_info_line2"
-        android:layout_width="@dimen/dimen_2"
-        android:layout_height="0dp"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="@dimen/dimen_2"
-        app:layout_constraintTop_toTopOf="@+id/tv_activity_user_info_column1"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_activity_user_info_column1"
-        app:layout_constraintLeft_toRightOf="@+id/tv_activity_user_info_column2"
-        app:layout_constraintRight_toLeftOf="@+id/tv_activity_user_info_column3"
-        />
-    <View
-        android:id="@+id/view_activity_user_info_line3"
-        android:layout_width="@dimen/dimen_2"
-        android:layout_height="0dp"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="@dimen/dimen_2"
-        app:layout_constraintTop_toTopOf="@+id/tv_activity_user_info_column1"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_activity_user_info_column1"
-        app:layout_constraintLeft_toRightOf="@+id/tv_activity_user_info_column3"
-        app:layout_constraintRight_toLeftOf="@+id/tv_activity_user_info_column4"
+        android:text="@string/f_uid"
+        android:textSize="@dimen/text_size_title"
+        android:textStyle="bold"
+        android:textColor="@color/gray_2"
+        android:maxLength="15"
+        android:layout_marginStart="@dimen/dimen_20"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_activity_user_info_portrait"
+        app:layout_constraintTop_toBottomOf="@+id/tv_activity_user_info_name"
+        app:layout_constraintLeft_toRightOf="@+id/btn_activity_user_info_portrait"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_activity_user_info_home"
-        android:layout_width="0dp"
+<!--    <View-->
+<!--        android:id="@+id/view_activity_user_info_line0"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="@dimen/dimen_2"-->
+<!--        android:layout_marginTop="@dimen/dimen_30"-->
+<!--        android:background="@color/white"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_activity_user_info_portrait"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        />-->
+
+
+<!--  Github style list  -->
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rv_activity_user_info_home"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:scrollbars="vertical"-->
+<!--        android:layout_marginTop="@dimen/dimen_10"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tv_activity_user_info_column1"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        />-->
+
+    <in.galaxyofandroid.awesometablayout.AwesomeTabBar
+        android:id="@+id/tab_bar_activity_user_info"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:layout_marginTop="@dimen/dimen_10"
-        app:layout_constraintTop_toBottomOf="@+id/tv_activity_user_info_column1"
+        android:layout_marginTop="@dimen/dimen_50"
+        app:layout_constraintTop_toBottomOf="@+id/btn_activity_user_info_portrait"
+        app:atb_indicatorHeight="@dimen/dimen_5"
+        app:atb_indicatorColor="@color/white"
+        app:atb_imageHeight="@dimen/dimen_30"
+        app:atb_imageWidth="@dimen/dimen_30"
+        app:atb_indicatorLineColor="@color/colorPrimary"
+        app:atb_margin="@dimen/dimen_50"
+        app:atb_textSize="@dimen/text_size_title"
+        />
+    <View
+        android:layout_width="@dimen/dimen_2"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="@dimen/dimen_5"
+        android:layout_marginBottom="@dimen/dimen_5"
+        app:layout_constraintTop_toTopOf="@+id/tab_bar_activity_user_info"
+        app:layout_constraintBottom_toBottomOf="@+id/tab_bar_activity_user_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager_activity_user_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tab_bar_activity_user_info"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />

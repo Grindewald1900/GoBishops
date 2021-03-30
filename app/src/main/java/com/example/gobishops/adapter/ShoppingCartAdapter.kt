@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bigkoo.snappingstepper.SnappingStepper
 import com.example.gobishops.R
 import com.example.gobishops.entity.Item
+import com.example.gobishops.utils.TextUtil
 import kotlin.math.roundToInt
 
 
@@ -31,7 +32,7 @@ class ShoppingCartAdapter(var items: ArrayList<Item>): RecyclerView.Adapter<Shop
         holder.stepper.setOnValueChangeListener { view, value ->
             totalPrice = value * item.price
             // Keep 2 decimals for the price, e.g. 2.50$
-            holder.price.text = String.format("%.2f", totalPrice) + "$"
+            holder.price.text = TextUtil.getItemPrice(totalPrice)
         }
     }
 

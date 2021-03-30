@@ -15,6 +15,16 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Set the properties within `local.properties` into a `Properties` class so that values
+        // within `local.properties` (e.g. Maps API key) are accessible in this file.
+        Properties properties = new Properties()
+        if (rootProject.file("local.properties").exists()) {
+            properties.load(rootProject.file("local.properties").newDataInputStream())
+        }
+
+        // Inject the Maps API key into the manifest
+        manifestPlaceholders = [ mapsApiKey : properties.getProperty("MAPS_API_KEY", "") ]
     }
 
     buildTypes {
@@ -31,11 +41,16 @@ dependencies {
     //Viewpager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
+    //Colorful tab layout
+    compile 'com.github.MdFarhanRaja:ColorFullTabLayout:1.1'
     // Transition button (with animation)
     implementation 'com.royrodriguez:transitionbutton:0.2.0'
     // Shopping cart add and subtract
     implementation 'com.github.open-android:ShoppingCartAddSubtract:0.1.0'
-    //Firebase
+
+    // Google Map
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    // Firebase
     implementation 'com.google.firebase:firebase-database:19.6.0'
     implementation 'com.google.firebase:firebase-auth:20.0.2'
     implementation 'com.google.firebase:firebase-storage:19.2.1'

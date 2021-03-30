@@ -78,7 +78,7 @@ class HomeFragment : Fragment() {
             if (AuthUtil.isSignedIn()){
                 startActivity(Intent(context, UserInfoActivity::class.java))
             }else{
-                startActivity(Intent(context, LoginActivity::class.java))
+                startActivity(Intent(context, UserInfoActivity::class.java))
             }
         }
 //        Glide.with(context!!)

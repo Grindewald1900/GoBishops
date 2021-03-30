@@ -58,7 +58,7 @@ object DBUtil {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // Get Post object and use the values to update the UI
                 val data = dataSnapshot.getValue()
-                view.getRetrievedData(ConstantUtil.STATE_SUCCESS, data)
+//                view.getRetrievedData(ConstantUtil.STATE_SUCCESS, data)
                 // ...
             }
 

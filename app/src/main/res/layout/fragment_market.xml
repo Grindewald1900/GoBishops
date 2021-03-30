@@ -17,7 +17,7 @@
             android:id="@+id/iv_activity_cart_logo"
             android:layout_width="@dimen/dimen_50"
             android:layout_height="@dimen/dimen_50"
-            android:src="@drawable/ic_shopiing_cart"
+            android:src="@drawable/ic_shopping_cart"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
         android:layout_marginStart="@dimen/dimen_10"
         android:layout_marginEnd="@dimen/dimen_10"
         android:layout_marginTop="@dimen/dimen_10"
-        app:layout_constraintTop_toBottomOf="@+id/rl_activity_cart"
+        android:layout_marginBottom="@dimen/dimen_10"
         app:layout_constraintBottom_toTopOf="@+id/tv_shopping_cart_subtotal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -79,13 +79,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/subtotal"
-        android:textSize="@dimen/text_size_main_title"
+        android:textSize="@dimen/text_size_title"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/gray_2"
         android:layout_marginTop="@dimen/dimen_20"
         android:layout_marginStart="@dimen/dimen_20"
-        app:layout_constraintTop_toBottomOf="@+id/view_activity_cart_bottom"
-        app:layout_constraintBottom_toTopOf="@+id/btn_activity_cart_checkout"
+        app:layout_constraintBottom_toTopOf="@+id/tv_shopping_cart_shipping"
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
@@ -94,13 +93,66 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/f_price"
-        android:textSize="@dimen/text_size_main_title"
+        android:textSize="@dimen/text_size_title"
         android:textStyle="bold"
-        android:textColor="@color/google"
+        android:textColor="@color/gray_2"
         android:layout_marginStart="@dimen/dimen_10"
         app:layout_constraintTop_toTopOf="@+id/tv_shopping_cart_subtotal"
         app:layout_constraintLeft_toRightOf="@+id/tv_shopping_cart_subtotal"
         />
+
+    <TextView
+        android:id="@+id/tv_shopping_cart_shipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shipping:   0.00 $"
+        android:textSize="@dimen/text_size_title"
+        android:textStyle="bold"
+        android:textColor="@color/gray_2"
+        app:layout_constraintBottom_toTopOf="@+id/tv_shopping_cart_tax"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_shopping_cart_subtotal"
+        />
+    <TextView
+        android:id="@+id/tv_shopping_cart_tax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estimated GST/HST:    "
+        android:textSize="@dimen/text_size_title"
+        android:textStyle="bold"
+        android:textColor="@color/gray_2"
+        android:layout_marginStart="@dimen/dimen_20"
+        app:layout_constraintBottom_toTopOf="@+id/tv_shopping_cart_total"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_shopping_cart_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_price"
+        android:textSize="@dimen/text_size_main_title"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/dimen_20"
+        android:layout_marginBottom="@dimen/dimen_20"
+        app:layout_constraintBottom_toTopOf="@+id/btn_activity_cart_checkout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_shopping_cart_total_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_price"
+        android:textSize="@dimen/text_size_main_title"
+        android:textStyle="bold"
+        android:textColor="@color/google"
+        android:layout_marginStart="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="@+id/tv_shopping_cart_total"
+        app:layout_constraintLeft_toRightOf="@+id/tv_shopping_cart_total"
+        />
+
 
     <com.royrodriguez.transitionbutton.TransitionButton
         android:id="@+id/btn_activity_cart_checkout"
@@ -109,13 +161,13 @@
         android:text="@string/check_out"
         android:textColor="@color/white"
         android:layout_marginTop="@dimen/dimen_20"
-        android:layout_marginBottom="@dimen/dimen_20"
-        app:layout_constraintTop_toBottomOf="@+id/tv_shopping_cart_subtotal"
+        android:layout_marginBottom="@dimen/dimen_10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:defaultColor="#7926A9"
         app:loaderColor="#ffffff"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

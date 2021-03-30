@@ -21,5 +21,9 @@ class TextUtil {
             }
             return indexes
         }
+
+        fun getItemPrice(price: Float): String{
+            return String.format("%.2f", price) + "$"
+        }
     }
 }

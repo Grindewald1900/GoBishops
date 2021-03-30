@@ -1,5 +1,8 @@
 package com.example.gobishops.entity
 
+import java.util.*
+import kotlin.random.Random
+
 
 /**
  * Created by Yee on 2021/3/28.
@@ -21,5 +24,5 @@ data class Item(
     val price: Float,
     val image: String,
 ) {
-    constructor(): this(12345, 110, "taco", 12f, "Null")
+    constructor(): this(12345, 110, "taco", Random(100).nextFloat(), "Null")
 }
