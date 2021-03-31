@@ -2,6 +2,7 @@ package com.example.gobishops.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.example.gobishops.entity.Item
 import com.example.gobishops.entity.NormalCard
 import com.example.gobishops.myview.mImageView
 import com.example.gobishops.utils.App
+import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.utils.NumericUtil
 import com.example.gobishops.utils.TextUtil
 import com.example.gobishops.view.DishActivity
@@ -37,19 +39,33 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
 
     override fun onBindViewHolder(holder: DishHolder, position: Int) {
         val dish = dishes[position]
+        var starCount = dish.rate
         holder.title.text = dish.name
-        holder.restaurant.text = dish.restaurantId.toString()
+        holder.restaurant.text = dish.id.toString()
         holder.price.text = TextUtil.getItemPrice(dish.price)
 
         holder.background.setOnClickListener {
-            it.context.startActivity(Intent(it.context, DishActivity::class.java))
+            var intent = Intent(it.context, DishActivity::class.java)
+            intent.putExtra(ConstantUtil.CLASS_ITEM, dish)
+            it.context.startActivity(intent)
         }
 
-        for (i in 1..3){
-            holder.rateLayout.addView(addStar(3))
+        // Remove
+        holder.rateLayout.removeAllViews()
+        for (i in 1..5){
+            Log.d("Dish_tag", "pos: $position")
+            Log.d("Dish_tag", "starCount: $starCount")
+            starCount -= 1
+            if (starCount >= 0.75) {
+                holder.rateLayout.addView(addStar(3))
+            }
+            if (starCount > 0.25 && starCount < 0.75){
+                holder.rateLayout.addView(addStar(2))
+            }
+            if(starCount < 0.25){
+                holder.rateLayout.addView(addStar(1))
+            }
         }
-        holder.rateLayout.addView(addStar(2))
-        holder.rateLayout.addView(addStar(1))
 
     }
 

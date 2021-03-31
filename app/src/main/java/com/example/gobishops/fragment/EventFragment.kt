@@ -65,9 +65,9 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
     private fun initView(){
         // Initialize recycle view of activities
         val data: ArrayList<Item> = ArrayList()
-        val fakeEvent = Item()
-
+        var fakeEvent: Item
         for (i in 0..10){
+            fakeEvent = Item(i)
             data.add(fakeEvent)
         }
         linearLayoutManager = LinearLayoutManager(context)

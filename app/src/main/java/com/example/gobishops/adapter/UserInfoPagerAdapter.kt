@@ -6,6 +6,8 @@ import android.graphics.Color
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.example.gobishops.fragment.EventFragment
+import com.example.gobishops.fragment.ReservationFragment
 
 
 /**
@@ -18,10 +20,10 @@ class UserInfoPagerAdapter(fragmentManager: FragmentManager?) :
     var fragments: ArrayList<Fragment> = ArrayList()
     var titles: ArrayList<String> = ArrayList()
     var colors = intArrayOf(
-        com.example.gobishops.R.color.white,
-        com.example.gobishops.R.color.white,
+        com.example.gobishops.R.color.colorPrimary,
+        com.example.gobishops.R.color.colorPrimary,
     )
-    var textColors = intArrayOf(com.example.gobishops.R.color.colorPrimary,com.example.gobishops.R.color.colorPrimary)
+    var textColors = intArrayOf(com.example.gobishops.R.color.white,com.example.gobishops.R.color.white)
     var icons = intArrayOf(
         com.example.gobishops.R.drawable.ic_baseline_format_list_bulleted_24,
         com.example.gobishops.R.drawable.ic_md_favorite_border_color1,
@@ -29,8 +31,8 @@ class UserInfoPagerAdapter(fragmentManager: FragmentManager?) :
         )
 
     init {
-            fragments.add(Fragment())
-            fragments.add(Fragment())
+            fragments.add(ReservationFragment())
+            fragments.add(EventFragment())
 
             titles.add("Orders")
             titles.add("Favorites")

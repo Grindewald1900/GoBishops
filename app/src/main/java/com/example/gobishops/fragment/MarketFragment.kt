@@ -11,8 +11,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gobishops.R
 import com.example.gobishops.adapter.ShoppingCartAdapter
+import com.example.gobishops.contract.BaseContract
 import com.example.gobishops.entity.Item
 import com.example.gobishops.entity.NormalCard
+import com.example.gobishops.entity.OrderItem
+import com.example.gobishops.utils.ConstantUtil
+import com.example.gobishops.utils.SharedPreferencesUtil
+import com.example.gobishops.utils.TextUtil
 import com.royrodriguez.transitionbutton.TransitionButton
 import kotlinx.android.synthetic.main.fragment_market.*
 
@@ -21,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_market.*
  * Github: Grindewald1900
  * Email: grindewald1504@gmail.com
  */
-class MarketFragment : Fragment() {
+class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
     companion object{
         fun newInstance(): MarketFragment{
             return MarketFragment()
@@ -42,19 +47,36 @@ class MarketFragment : Fragment() {
     }
 
     /**
+     * Update the recyclerview when data changed
+     * @param index: -1: do not remove the item view, positive integer: remove the view at index
+     */
+    override fun updateAdapter(index: Int) {
+        var tPrice = 0f
+        val orders: ArrayList<OrderItem> = SharedPreferencesUtil.getOrder(ConstantUtil.CLASS_ORDER_ITEM)
+        orders.forEach {
+            tPrice += it.item!!.price * it.count
+        }
+
+        tv_shopping_cart_price.text = TextUtil.getItemPrice(tPrice)
+        tv_shopping_cart_gst.text = TextUtil.getItemPrice(tPrice * 0.15f)
+        tv_shopping_cart_total_price.text = TextUtil.getItemPrice(tPrice * 1.15f)
+        if(index >= 0){
+            rv_activity_cart.removeViewAt(index)
+        }
+    }
+
+    /**
      * View Initialization, including onClickListener()
      */
     private fun initView(){
-        val data: ArrayList<Item> = ArrayList()
+        val data: ArrayList<OrderItem>?
         val handler: Handler = Handler()
 
         // Prepare data for event list
-        for (i in 1..10){
-            data.add(Item())
-        }
+        data = SharedPreferencesUtil.getOrder(ConstantUtil.CLASS_ORDER_ITEM)
         rv_activity_cart.layoutManager = LinearLayoutManager(context)
         rv_activity_cart.itemAnimator = DefaultItemAnimator()
-        rv_activity_cart.adapter = ShoppingCartAdapter(data)
+        rv_activity_cart.adapter = ShoppingCartAdapter(data, this)
 
         btn_activity_cart_checkout.setOnClickListener {
             btn_activity_cart_checkout.startAnimation();
@@ -66,7 +88,7 @@ class MarketFragment : Fragment() {
                         Toast.makeText(context, getText(R.string.checkout_successful), Toast.LENGTH_SHORT).show()
                     })
                 }
-            }, 2000)
+            }, 1000)
         }
     }
 }

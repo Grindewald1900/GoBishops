@@ -1,5 +1,6 @@
 package com.example.gobishops.entity
 
+import java.io.Serializable
 import java.util.*
 import kotlin.random.Random
 
@@ -24,6 +25,6 @@ data class Item(
     val price: Float,
     val image: String,
     val rate: Float,
-) {
-    constructor(): this(12345, 110, "taco", Random(100).nextFloat(), "Null", 4.5f)
+): Serializable{
+    constructor(seed: Int): this((1..10000).shuffled()[seed], 110, "taco", Random(100).nextFloat(), "Null", 4.5f)
 }

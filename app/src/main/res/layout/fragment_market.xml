@@ -127,6 +127,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
+    <TextView
+        android:id="@+id/tv_shopping_cart_gst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_price"
+        android:textSize="@dimen/text_size_title"
+        android:textStyle="bold"
+        android:textColor="@color/gray_2"
+        app:layout_constraintTop_toTopOf="@+id/tv_shopping_cart_tax"
+        app:layout_constraintLeft_toRightOf="@+id/tv_shopping_cart_tax"
+        />
 
     <TextView
         android:id="@+id/tv_shopping_cart_total"

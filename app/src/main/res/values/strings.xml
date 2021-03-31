@@ -144,5 +144,6 @@
 
     <!-- Others -->
     <string name="map">Map</string>
+    <string name="all_done">All Done!</string>
 
 </resources>

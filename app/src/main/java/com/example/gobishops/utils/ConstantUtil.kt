@@ -7,9 +7,14 @@ package com.example.gobishops.utils
  * Email: grindewald1504@gmail.com
  */
 object ConstantUtil {
+    //URL
     const val DATABASE_USER: String = "Users"
     const val DATABASE_EVENT: String = "Events/"
     const val STORAGE_IMAGE: String = "Images/"
+
+    //Classes
+    const val CLASS_ITEM: String = "ITEM"
+    const val CLASS_ORDER_ITEM = "ORDER_ITEM"
 
     // States
     const val STATE_SUCCESS = 1

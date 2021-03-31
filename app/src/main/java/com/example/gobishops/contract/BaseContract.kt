@@ -24,4 +24,8 @@ interface BaseContract {
         fun getRetrievedData(state: Int, data: Any?)
     }
 
+    interface OnAdapterCHanged{
+        fun updateAdapter(index: Int)
+    }
+
 }
