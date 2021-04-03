@@ -25,6 +25,7 @@ data class Item(
     val price: Float,
     val image: String,
     val rate: Float,
+    val promotion: Float,
 ): Serializable{
-    constructor(seed: Int): this((1..10000).shuffled()[seed], 110, "taco", Random(100).nextFloat(), "Null", 4.5f)
+    constructor(seed: Int): this((1..10000).shuffled()[seed], 110, "taco", Random(100).nextFloat(), "Null", 4.5f, 0.91f)
 }

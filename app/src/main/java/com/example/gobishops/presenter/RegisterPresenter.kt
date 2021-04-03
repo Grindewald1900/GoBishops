@@ -13,6 +13,6 @@ class RegisterPresenter(mView: RegisterContract.View): RegisterContract.Presente
     private var view: RegisterContract.View = mView
     private var model: RegisterContract.Model = RegisterModel()
     init {
-//        view.initView()
+        view.initView()
     }
 }

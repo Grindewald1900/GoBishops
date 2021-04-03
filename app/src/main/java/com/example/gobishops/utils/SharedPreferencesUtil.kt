@@ -22,14 +22,18 @@ object SharedPreferencesUtil {
     private val type = object : TypeToken<ArrayList<OrderItem?>?>() {}.type
 
     init {
-        orders = Gson().fromJson(mPrefs.getString(ConstantUtil.CLASS_ORDER_ITEM, ""), type)
-        orders.forEach {
-            orderIds.add(it.item!!.id)
+        if(!mPrefs.getString(ConstantUtil.CLASS_ORDER_ITEM, "").isNullOrEmpty()){
+            orders = Gson().fromJson(mPrefs.getString(ConstantUtil.CLASS_ORDER_ITEM, ""), type)
+            orders.forEach {
+                orderIds.add(it.item!!.id)
+            }
         }
-
     }
 
 
+    /**
+     *  Add a unique order to order list
+     */
     fun saveOrder(order: OrderItem){
         if (orderIds.contains(order.item!!.id)){
             val index = orderIds.indexOf(order.item.id)
@@ -44,12 +48,33 @@ object SharedPreferencesUtil {
         prefsEditor.putString(ConstantUtil.CLASS_ORDER_ITEM, json).apply()
     }
 
+    /**
+     * Update the count of order
+     */
+    fun updateOrder(order: OrderItem){
+        if (orderIds.contains(order.item!!.id)){
+            val index = orderIds.indexOf(order.item.id)
+            orders[index] = order
+        }
+        val json = Gson().toJson(orders)
+
+        // Save the key as ORDER_ITEM + Class name
+        prefsEditor.putString(ConstantUtil.CLASS_ORDER_ITEM, json).apply()
+    }
+
+
+    /**
+     * Search and return the whole order list
+     */
     fun getOrder(key: String): ArrayList<OrderItem>{
         val json = mPrefs.getString(key, "")
         return Gson().fromJson(json, type)
     }
 
 
+    /**
+     * Remove a certain order, actually by its id
+     */
     fun removeOrder(order: OrderItem){
         if (orderIds.contains(order.item!!.id)){
             val index = orderIds.indexOf(order.item.id)
@@ -62,8 +87,19 @@ object SharedPreferencesUtil {
         prefsEditor.putString(ConstantUtil.CLASS_ORDER_ITEM, json).apply()
     }
 
+
+    /**
+     *  Return the static reference of SharedPreferences
+     */
     fun getPreference(): SharedPreferences {
         return mPrefs
+    }
+
+    /**
+     *  If the order list has been initialized
+     */
+    fun isSharedKeyEmpty(key: String): Boolean{
+        return mPrefs.getString(key,"").isNullOrEmpty()
     }
 
 }

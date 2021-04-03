@@ -25,5 +25,9 @@ class TextUtil {
         fun getItemPrice(price: Float): String{
             return String.format("%.2f", price) + "$"
         }
+
+        fun getPromotion(promo: Float): String{
+            return (100 - promo*100).toInt().toString() + "% \nOff"
+        }
     }
 }

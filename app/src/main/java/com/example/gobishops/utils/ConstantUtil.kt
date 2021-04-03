@@ -16,6 +16,16 @@ object ConstantUtil {
     const val CLASS_ITEM: String = "ITEM"
     const val CLASS_ORDER_ITEM = "ORDER_ITEM"
 
+    // Connection - Local test
+    const val SERVER_URL: String = "http://10.0.2.2:8080/BU_war_exploded/"
+    const val SERVLET_REGISTER: String = "RegisterServlet.do"
+    const val SERVLET_LOGIN: String = "LoginServlet.do"
+    const val SERVER_RESULT = "result"
+    const val SERVER_SUCCESS = "success"
+    const val SERVER_FAIL = "fail"
+
+    //
+
     // States
     const val STATE_SUCCESS = 1
     const val STATE_FAIL = 2
@@ -27,6 +37,9 @@ object ConstantUtil {
     // User type
     const val USER_STUDENT: Int = 201
     const val USER_PROFESSOR: Int = 202
+
+    // Handler
+    const val HANDLER_LOGIN: Int = 301
 
     // Constant amount
     const val MAX_UPLOAD_IMAGE: Int = 5

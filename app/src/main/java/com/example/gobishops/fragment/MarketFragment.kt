@@ -18,6 +18,7 @@ import com.example.gobishops.entity.OrderItem
 import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.utils.SharedPreferencesUtil
 import com.example.gobishops.utils.TextUtil
+import com.google.android.gms.maps.model.LatLng
 import com.royrodriguez.transitionbutton.TransitionButton
 import kotlinx.android.synthetic.main.fragment_market.*
 
@@ -61,7 +62,9 @@ class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
         tv_shopping_cart_gst.text = TextUtil.getItemPrice(tPrice * 0.15f)
         tv_shopping_cart_total_price.text = TextUtil.getItemPrice(tPrice * 1.15f)
         if(index >= 0){
-            rv_activity_cart.removeViewAt(index)
+//            rv_activity_cart.removeViewAt(index)
+            initView()
+
         }
     }
 
@@ -73,10 +76,12 @@ class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
         val handler: Handler = Handler()
 
         // Prepare data for event list
-        data = SharedPreferencesUtil.getOrder(ConstantUtil.CLASS_ORDER_ITEM)
-        rv_activity_cart.layoutManager = LinearLayoutManager(context)
-        rv_activity_cart.itemAnimator = DefaultItemAnimator()
-        rv_activity_cart.adapter = ShoppingCartAdapter(data, this)
+        if(!SharedPreferencesUtil.isSharedKeyEmpty(ConstantUtil.CLASS_ORDER_ITEM)){
+            data = SharedPreferencesUtil.getOrder(ConstantUtil.CLASS_ORDER_ITEM)
+            rv_activity_cart.layoutManager = LinearLayoutManager(context)
+            rv_activity_cart.itemAnimator = DefaultItemAnimator()
+            rv_activity_cart.adapter = ShoppingCartAdapter(data, this)
+        }
 
         btn_activity_cart_checkout.setOnClickListener {
             btn_activity_cart_checkout.startAnimation();

@@ -39,7 +39,7 @@ class ShoppingCartAdapter(var orders: ArrayList<OrderItem>, var mFragment: Marke
             totalPrice = value * order.item.price
             // Keep 2 decimals for the price, e.g. 2.50$
             holder.price.text = TextUtil.getItemPrice(totalPrice)
-            SharedPreferencesUtil.saveOrder(OrderItem(order.item, value))
+            SharedPreferencesUtil.updateOrder(OrderItem(order.item, value))
             if (value == 0){
 //                holder.mView.visibility = View.GONE
                 SharedPreferencesUtil.removeOrder(order)

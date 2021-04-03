@@ -31,7 +31,7 @@
         android:layout_height="@dimen/dimen_40"
         android:drawablePadding="@dimen/dimen_5"
         android:background="@drawable/shape_board"
-        android:hint="@string/email"
+        android:hint="@string/name"
         android:textSize="@dimen/text_size_title"
         android:padding="@dimen/dimen_10"
         android:drawableEnd="@drawable/ic_baseline_star_rate_24"
@@ -59,9 +59,10 @@
         android:layout_height="@dimen/dimen_40"
         android:drawablePadding="@dimen/dimen_5"
         android:background="@drawable/shape_board"
-        android:hint="@string/email"
+        android:hint="@string/password"
         android:textSize="@dimen/text_size_title"
         android:padding="@dimen/dimen_10"
+        android:inputType="textPassword"
         android:drawableEnd="@drawable/ic_baseline_star_rate_24"
         android:layout_marginTop="@dimen/dimen_30"
         android:layout_marginStart="@dimen/dimen_30"
@@ -87,9 +88,10 @@
         android:layout_height="@dimen/dimen_40"
         android:drawablePadding="@dimen/dimen_5"
         android:background="@drawable/shape_board"
-        android:hint="@string/email"
+        android:hint="@string/password"
         android:textSize="@dimen/text_size_title"
         android:padding="@dimen/dimen_10"
+        android:inputType="textPassword"
         android:drawableEnd="@drawable/ic_baseline_star_rate_24"
         android:layout_marginTop="@dimen/dimen_30"
         android:layout_marginStart="@dimen/dimen_30"
@@ -163,18 +165,19 @@
         app:background_color="@color/colorPrimary"
         />
 
-    <com.example.gobishops.myview.mButtonView
+    <com.royrodriguez.transitionbutton.TransitionButton
         android:id="@+id/btn_register_register_v2"
-        android:layout_width="@dimen/dimen_120"
-        android:layout_height="@dimen/dimen_40"
-        android:layout_marginStart="@dimen/dimen_10"
+        android:layout_width="@dimen/button_width_middle"
+        android:layout_height="@dimen/button_length_middle"
         android:text="@string/register"
         android:textColor="@color/white"
         android:layout_marginTop="@dimen/dimen_30"
+        android:layout_marginBottom="@dimen/dimen_10"
         app:layout_constraintTop_toBottomOf="@+id/et_register_code_v2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:background_color="@color/colorPrimary"
+        app:defaultColor="#7926A9"
+        app:loaderColor="#ffffff"
         />
 
     <View

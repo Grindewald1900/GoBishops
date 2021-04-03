@@ -65,7 +65,7 @@ class DishActivity : AppCompatActivity(),  OnMapReadyCallback, DishContract.View
                         showToast(getText(R.string.checkout_successful).toString())
                     })
                 }
-            }, 2000)
+            }, 1000)
         }
 
         // Initialize Google Map

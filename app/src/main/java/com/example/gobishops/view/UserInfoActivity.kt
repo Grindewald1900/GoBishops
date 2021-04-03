@@ -13,13 +13,16 @@ import com.example.gobishops.adapter.UserInfoPagerAdapter
 import com.example.gobishops.contract.UserInfoContract
 import com.example.gobishops.entity.Event
 import com.example.gobishops.entity.Schedule
+import com.example.gobishops.entity.User
 import com.example.gobishops.presenter.UserInfoPresenter
+import com.example.gobishops.utils.LoginStateUtil
 import com.example.gobishops.utils.TypeUtil
 import kotlinx.android.synthetic.main.activity_dish.*
 import kotlinx.android.synthetic.main.activity_user_info.*
 
 class UserInfoActivity : AppCompatActivity(), UserInfoContract.View{
     private var presenter: UserInfoContract.Presenter? = null
+    private lateinit var mUser: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_info)
@@ -31,25 +34,29 @@ class UserInfoActivity : AppCompatActivity(), UserInfoContract.View{
      */
     override fun initView() {
         val data: ArrayList<Schedule> = ArrayList()
+        mUser = LoginStateUtil.getUser()!!
         Glide.with(this).asBitmap().load(R.drawable.img_portrait).into(btn_activity_user_info_portrait)
 
-        for(i in 0..10){
-            val event = Event()
-            data.add(TypeUtil.eventToSchedule(event, 1, 1))
-            // If different month, set the month layout
-            if(i == 0){
-                data.add(0, TypeUtil.eventToSchedule(event, 1, 2))
-            }else{
-                if (data[i].month - data[i-1].month >= 1){
-                    data.add(i, TypeUtil.eventToSchedule(event, 1, 2))
-                }
-                if(data[i].year - data[i-1].year >=1){
-                    data.add(i, TypeUtil.eventToSchedule(event, 1, 3))
-                }
-            }
+        // Github style list
 
-        }
+//        for(i in 0..10){
+//            val event = Event()
+//            data.add(TypeUtil.eventToSchedule(event, 1, 1))
+//            // If different month, set the month layout
+//            if(i == 0){
+//                data.add(0, TypeUtil.eventToSchedule(event, 1, 2))
+//            }else{
+//                if (data[i].month - data[i-1].month >= 1){
+//                    data.add(i, TypeUtil.eventToSchedule(event, 1, 2))
+//                }
+//                if(data[i].year - data[i-1].year >=1){
+//                    data.add(i, TypeUtil.eventToSchedule(event, 1, 3))
+//                }
+//            }
+//        }
 
+        tv_activity_user_info_name.text = mUser.userName
+        tv_activity_user_id.text = mUser.id.toString()
         viewpager_activity_user_info.adapter = UserInfoPagerAdapter(supportFragmentManager)
         tab_bar_activity_user_info.setupWithViewPager(viewpager_activity_user_info)
         btn_activity_user_info_back.setOnClickListener {

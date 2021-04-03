@@ -29,7 +29,7 @@
         android:drawableLeft="@drawable/ic_fa5_user_2"
         android:drawablePadding="@dimen/dimen_5"
         android:background="@drawable/shape_board"
-        android:hint="@string/email"
+        android:hint="@string/name"
         android:textSize="@dimen/text_size_title"
         android:layout_marginTop="@dimen/dimen_40"
         android:padding="@dimen/dimen_10"

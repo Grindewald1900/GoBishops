@@ -2,6 +2,8 @@ package com.example.gobishops.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Paint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -42,15 +44,22 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
         var starCount = dish.rate
         holder.title.text = dish.name
         holder.restaurant.text = dish.id.toString()
-        holder.price.text = TextUtil.getItemPrice(dish.price)
 
         holder.background.setOnClickListener {
             var intent = Intent(it.context, DishActivity::class.java)
             intent.putExtra(ConstantUtil.CLASS_ITEM, dish)
             it.context.startActivity(intent)
         }
+        holder.price.text = TextUtil.getItemPrice(dish.price)
+        if (dish.promotion < 1f){
+            holder.price.setTextColor(Color.GRAY)
+            holder.price.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
+            holder.newPrice.text = TextUtil.getItemPrice(dish.price * dish.promotion)
+            holder.promotion.text = TextUtil.getPromotion(dish.promotion)
+        }
 
-        // Remove
+
+        // Remove all views when initializing
         holder.rateLayout.removeAllViews()
         for (i in 1..5){
             Log.d("Dish_tag", "pos: $position")
@@ -100,9 +109,11 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
     class DishHolder(view: View): RecyclerView.ViewHolder(view){
         var title: TextView = view.findViewById(R.id.tv_dish_title)
         var restaurant: TextView = view.findViewById(R.id.tv_dish_restaurant)
-        val price: TextView = view.findViewById(R.id.tv_dish_time)
+        val price: TextView = view.findViewById(R.id.tv_dish_price)
+        val newPrice: TextView = view.findViewById(R.id.tv_dish_new_price)
         val background: mImageView = view.findViewById(R.id.iv_dish_image)
         val rateLayout: LinearLayout = view.findViewById(R.id.ll_dish_rate)
+        val promotion: TextView = view.findViewById(R.id.tv_dish_promotion)
         init {
 
         }

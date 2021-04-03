@@ -26,4 +26,6 @@ data class User(
     val gender: Char,
     val phoneNumber: String,
     val image: String,
-)
+){
+    constructor(): this(10000, "Alili" , "alili@ubishops.ca", Date(1900, 2,2), 'M', "191919191", "")
+}
