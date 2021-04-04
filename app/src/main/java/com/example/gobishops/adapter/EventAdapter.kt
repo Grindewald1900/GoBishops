@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gobishops.R
 import com.example.gobishops.view.EventDetailActivity
 import com.example.gobishops.entity.Event
+import com.example.gobishops.view.OrderActivity
 
 
 /**
@@ -29,6 +31,9 @@ class EventAdapter(var events: ArrayList<Event>): RecyclerView.Adapter<EventAdap
         holder.title.text = event.title
         holder.content.text = event.additionalInfo
         holder.content.text = event.descriptor
+        holder.layout.setOnClickListener {
+            it.context.startActivity(Intent(it.context, OrderActivity::class.java))
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,26 +41,14 @@ class EventAdapter(var events: ArrayList<Event>): RecyclerView.Adapter<EventAdap
     }
 
     class ActivityHolder(view: View): RecyclerView.ViewHolder(view){
+        var layout: ConstraintLayout = view.findViewById(R.id.view_event)
         var title: TextView = view.findViewById(R.id.tv_item_activity_title)
         var subtitle: TextView = view.findViewById(R.id.tv_item_activity_subtitle)
         var content: TextView = view.findViewById(R.id.tv_item_activity_content)
+        var addtional: TextView = view.findViewById(R.id.tv_item_activity_info)
+
         init{
             // Set listener for each element in the activity item
-            content.setOnClickListener {
-                Toast.makeText(it.context, "Content Clicked", Toast.LENGTH_SHORT).show()
-                Log.v("tag_activity", "Item Click")
-                val intent = Intent(it.context, EventDetailActivity::class.java)
-                it.context.startActivity(intent)
-
-            }
-            subtitle.setOnClickListener {
-                Toast.makeText(it.context, "Subtitle Clicked", Toast.LENGTH_SHORT).show()
-                Log.v("tag_activity", "Item Click")
-            }
-            title.setOnClickListener {
-                Toast.makeText(it.context, "Title Clicked", Toast.LENGTH_SHORT).show()
-                Log.v("tag_activity", "Item Click")
-            }
         }
 
         companion object{

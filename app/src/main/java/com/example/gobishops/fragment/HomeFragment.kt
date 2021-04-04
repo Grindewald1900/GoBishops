@@ -19,10 +19,8 @@ import com.bumptech.glide.Glide
 import com.example.gobishops.R
 import com.example.gobishops.adapter.NormalCardAdapter
 import com.example.gobishops.entity.NormalCard
-import com.example.gobishops.utils.AuthUtil
-import com.example.gobishops.utils.ConstantUtil
+import com.example.gobishops.utils.*
 import com.example.gobishops.view.LoginActivity
-import com.example.gobishops.utils.TextUtil
 import com.example.gobishops.view.RegisterActivity
 import com.example.gobishops.view.UserInfoActivity
 import com.joooonho.SelectableRoundedImageView
@@ -60,11 +58,10 @@ class HomeFragment : Fragment() {
      */
     private fun initView(){
         val data: ArrayList<NormalCard> = ArrayList()
-        val spinnerFilter: Spinner = view!!.findViewById(R.id.spinner_fragment_home_type)
 
-        ArrayAdapter.createFromResource(context!!, R.array.home_search_type, R.layout.spinner_item_simple).also {
+        ArrayAdapter.createFromResource(requireContext(), R.array.home_search_type, R.layout.spinner_item_simple).also {
             it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinnerFilter.adapter = it
+            spinner_fragment_home_type.adapter = it
         }
 
         // Prepare data for event list
@@ -75,10 +72,10 @@ class HomeFragment : Fragment() {
         rv_fragment_home.itemAnimator = DefaultItemAnimator()
         rv_fragment_home.adapter = NormalCardAdapter(data)
         iv_fragment_home_profile.setOnClickListener {
-            if (AuthUtil.isSignedIn()){
+            if (LoginStateUtil.getIsLogin()){
                 startActivity(Intent(context, UserInfoActivity::class.java))
             }else{
-                startActivity(Intent(context, UserInfoActivity::class.java))
+                startActivity(Intent(context, LoginActivity::class.java))
             }
         }
 //        Glide.with(context!!)

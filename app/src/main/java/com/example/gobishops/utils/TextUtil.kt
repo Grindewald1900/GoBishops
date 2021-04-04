@@ -25,5 +25,15 @@ class TextUtil {
         fun getItemPrice(price: Float): String{
             return String.format("%.2f", price) + "$"
         }
+
+        fun getPromotion(promo: Float): String{
+            return (100 - promo*100).toInt().toString() + "% \nOff"
+        }
+
+        fun isEmpty(string: String): Boolean{
+            if(string.isNullOrEmpty()) return false
+            if (string.compareTo("[]") != 0) return false
+            return true
+        }
     }
 }

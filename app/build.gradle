@@ -41,8 +41,10 @@ dependencies {
     //Viewpager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
+    // Welcome page
+    implementation 'com.stephentuso:welcome:1.4.1'
     //Colorful tab layout
-    compile 'com.github.MdFarhanRaja:ColorFullTabLayout:1.1'
+    implementation 'com.github.MdFarhanRaja:ColorFullTabLayout:1.1'
     // Transition button (with animation)
     implementation 'com.royrodriguez:transitionbutton:0.2.0'
     // Shopping cart add and subtract
@@ -50,10 +52,15 @@ dependencies {
 
     // Google Map
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
+    //Google Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    // SharedPreference
+    implementation 'androidx.preference:preference-ktx:1.1.1'
     // Firebase
-    implementation 'com.google.firebase:firebase-database:19.6.0'
-    implementation 'com.google.firebase:firebase-auth:20.0.2'
-    implementation 'com.google.firebase:firebase-storage:19.2.1'
+    implementation 'com.google.firebase:firebase-database:19.7.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.3'
+    implementation 'com.google.firebase:firebase-storage:19.2.2'
 
     implementation platform('com.google.firebase:firebase-bom:26.2.0')
     implementation 'com.google.android.gms:play-services-auth:19.0.0' // Also declare the dependency for the Google Play services library and specify its version

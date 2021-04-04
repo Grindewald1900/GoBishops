@@ -2,6 +2,9 @@ package com.example.gobishops.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Paint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +18,7 @@ import com.example.gobishops.entity.Item
 import com.example.gobishops.entity.NormalCard
 import com.example.gobishops.myview.mImageView
 import com.example.gobishops.utils.App
+import com.example.gobishops.utils.ConstantUtil
 import com.example.gobishops.utils.NumericUtil
 import com.example.gobishops.utils.TextUtil
 import com.example.gobishops.view.DishActivity
@@ -37,19 +41,40 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
 
     override fun onBindViewHolder(holder: DishHolder, position: Int) {
         val dish = dishes[position]
+        var starCount = dish.rate
         holder.title.text = dish.name
-        holder.restaurant.text = dish.restaurantId.toString()
-        holder.price.text = TextUtil.getItemPrice(dish.price)
+        holder.restaurant.text = dish.id.toString()
 
         holder.background.setOnClickListener {
-            it.context.startActivity(Intent(it.context, DishActivity::class.java))
+            var intent = Intent(it.context, DishActivity::class.java)
+            intent.putExtra(ConstantUtil.CLASS_ITEM, dish)
+            it.context.startActivity(intent)
+        }
+        holder.price.text = TextUtil.getItemPrice(dish.price)
+        if (dish.promotion < 1f){
+            holder.price.setTextColor(Color.GRAY)
+            holder.price.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
+            holder.newPrice.text = TextUtil.getItemPrice(dish.price * dish.promotion)
+            holder.promotion.text = TextUtil.getPromotion(dish.promotion)
         }
 
-        for (i in 1..3){
-            holder.rateLayout.addView(addStar(3))
+
+        // Remove all views when initializing
+        holder.rateLayout.removeAllViews()
+        for (i in 1..5){
+            Log.d("Dish_tag", "pos: $position")
+            Log.d("Dish_tag", "starCount: $starCount")
+            starCount -= 1
+            if (starCount >= 0.75) {
+                holder.rateLayout.addView(addStar(3))
+            }
+            if (starCount > 0.25 && starCount < 0.75){
+                holder.rateLayout.addView(addStar(2))
+            }
+            if(starCount < 0.25){
+                holder.rateLayout.addView(addStar(1))
+            }
         }
-        holder.rateLayout.addView(addStar(2))
-        holder.rateLayout.addView(addStar(1))
 
     }
 
@@ -84,9 +109,11 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
     class DishHolder(view: View): RecyclerView.ViewHolder(view){
         var title: TextView = view.findViewById(R.id.tv_dish_title)
         var restaurant: TextView = view.findViewById(R.id.tv_dish_restaurant)
-        val price: TextView = view.findViewById(R.id.tv_dish_time)
+        val price: TextView = view.findViewById(R.id.tv_dish_price)
+        val newPrice: TextView = view.findViewById(R.id.tv_dish_new_price)
         val background: mImageView = view.findViewById(R.id.iv_dish_image)
         val rateLayout: LinearLayout = view.findViewById(R.id.ll_dish_rate)
+        val promotion: TextView = view.findViewById(R.id.tv_dish_promotion)
         init {
 
         }

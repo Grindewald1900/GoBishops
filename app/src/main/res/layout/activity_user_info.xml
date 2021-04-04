@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_5"
     tools:context=".view.UserInfoActivity">
 
     <ImageButton
@@ -26,8 +27,8 @@
 
     <com.joooonho.SelectableRoundedImageView
         android:id="@+id/btn_activity_user_info_portrait"
-        android:layout_width="@dimen/dimen_60"
-        android:layout_height="@dimen/dimen_60"
+        android:layout_width="@dimen/dimen_70"
+        android:layout_height="@dimen/dimen_70"
         android:layout_marginTop="@dimen/dimen_50"
         android:layout_marginStart="@dimen/dimen_50"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/f_user_name"
-        android:textSize="@dimen/text_size_main_title"
+        android:textSize="@dimen/text_size_large_title"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
         android:layout_marginStart="@dimen/dimen_20"
@@ -56,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/f_uid"
-        android:textSize="@dimen/text_size_title"
+        android:textSize="@dimen/text_size_main_title"
         android:textStyle="bold"
         android:textColor="@color/gray_2"
         android:maxLength="15"
@@ -97,24 +98,24 @@
         android:layout_marginTop="@dimen/dimen_50"
         app:layout_constraintTop_toBottomOf="@+id/btn_activity_user_info_portrait"
         app:atb_indicatorHeight="@dimen/dimen_5"
-        app:atb_indicatorColor="@color/white"
+        app:atb_indicatorColor="@color/gray_5"
         app:atb_imageHeight="@dimen/dimen_30"
         app:atb_imageWidth="@dimen/dimen_30"
         app:atb_indicatorLineColor="@color/colorPrimary"
         app:atb_margin="@dimen/dimen_50"
         app:atb_textSize="@dimen/text_size_title"
         />
-    <View
-        android:layout_width="@dimen/dimen_2"
-        android:layout_height="0dp"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="@dimen/dimen_5"
-        android:layout_marginBottom="@dimen/dimen_5"
-        app:layout_constraintTop_toTopOf="@+id/tab_bar_activity_user_info"
-        app:layout_constraintBottom_toBottomOf="@+id/tab_bar_activity_user_info"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        />
+<!--    <View-->
+<!--        android:layout_width="@dimen/dimen_5"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:layout_marginTop="@dimen/dimen_5"-->
+<!--        android:layout_marginBottom="@dimen/dimen_5"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tab_bar_activity_user_info"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tab_bar_activity_user_info"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        />-->
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager_activity_user_info"
         android:layout_width="0dp"
