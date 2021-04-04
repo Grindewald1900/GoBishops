@@ -56,7 +56,7 @@ class UserInfoActivity : AppCompatActivity(), UserInfoContract.View{
 //        }
 
         tv_activity_user_info_name.text = mUser.userName
-        tv_activity_user_id.text = mUser.id.toString()
+        tv_activity_user_id.text = mUser.email
         viewpager_activity_user_info.adapter = UserInfoPagerAdapter(supportFragmentManager)
         tab_bar_activity_user_info.setupWithViewPager(viewpager_activity_user_info)
         btn_activity_user_info_back.setOnClickListener {

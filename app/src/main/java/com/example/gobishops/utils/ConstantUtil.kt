@@ -7,14 +7,17 @@ package com.example.gobishops.utils
  * Email: grindewald1504@gmail.com
  */
 object ConstantUtil {
-    //URL
+    // URL
     const val DATABASE_USER: String = "Users"
     const val DATABASE_EVENT: String = "Events/"
     const val STORAGE_IMAGE: String = "Images/"
 
-    //Classes
+    // Classes
     const val CLASS_ITEM: String = "ITEM"
     const val CLASS_ORDER_ITEM = "ORDER_ITEM"
+
+    // Ordinary String
+    const val STRING_RESULT_ACTIVITY = "RESULT_ACTIVITY"
 
     // Connection - Local test
     const val SERVER_URL: String = "http://10.0.2.2:8080/BU_war_exploded/"
@@ -33,6 +36,12 @@ object ConstantUtil {
 
     // onActivityResult
     const val SELECT_IMAGE: Int = 101
+
+    // ResultActivity
+    const val RESULT_DEFAULT : Int = 500
+    const val RESULT_CORRECT : Int = 501
+    const val RESULT_INCORRECT : Int = 502
+
 
     // User type
     const val USER_STUDENT: Int = 201

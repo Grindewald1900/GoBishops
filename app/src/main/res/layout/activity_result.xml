@@ -19,7 +19,7 @@
         android:id="@+id/iv_activity_success_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_sentiment_satisfied_alt_24"
+        android:background="@drawable/ic_baseline_sentiment_satisfied_alt_24"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tv_activity_result_text"
         app:layout_constraintLeft_toLeftOf="parent"

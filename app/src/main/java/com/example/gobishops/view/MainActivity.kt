@@ -15,28 +15,37 @@ import com.example.gobishops.R
 import com.example.gobishops.contract.MainContract
 import com.example.gobishops.fragment.*
 import com.example.gobishops.presenter.MainPresenter
+import com.stephentuso.welcome.WelcomeHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.jetbrains.annotations.TestOnly
 
 
 class MainActivity : AppCompatActivity(), MainContract.View{
+    private lateinit var welcomePage: WelcomeHelper
     private var presenter: MainPresenter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter = MainPresenter(this)
-        test()
+        welcomePage = WelcomeHelper(this, MyWelcomePage::class.java)
+        welcomePage.show(savedInstanceState)
     }
 
     /**
      * Only for test
      */
-    @TestOnly fun test(){
+    @TestOnly fun test(savedInstanceState: Bundle?){
+        welcomePage = WelcomeHelper(this, MyWelcomePage::class.java)
+        welcomePage.show(savedInstanceState)
 //        DBUtil.addEntity(ConstantUtil.DATABASE_USER+"/User002", User("Grindewald", getString(R.string.f_email)))
 //        AuthUtil.createAccount(getString(R.string.f_email), getString(R.string.f_password))
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        welcomePage.onSaveInstanceState(outState)
+    }
 
     /**
      * View Initialization, including onClickListener()

@@ -48,6 +48,7 @@
     <dimen name="text_size_logo">36sp</dimen>
     <dimen name="text_size_sub_logo">30sp</dimen>
     <dimen name="text_size_small_logo">26sp</dimen>
+    <dimen name="text_size_large_title">24sp</dimen>
     <dimen name="text_size_main_title">20sp</dimen>
     <dimen name="text_size_title">16sp</dimen>
     <dimen name="text_size_sub_title">12sp</dimen>

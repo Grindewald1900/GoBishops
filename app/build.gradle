@@ -41,8 +41,10 @@ dependencies {
     //Viewpager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
 
+    // Welcome page
+    implementation 'com.stephentuso:welcome:1.4.1'
     //Colorful tab layout
-    compile 'com.github.MdFarhanRaja:ColorFullTabLayout:1.1'
+    implementation 'com.github.MdFarhanRaja:ColorFullTabLayout:1.1'
     // Transition button (with animation)
     implementation 'com.royrodriguez:transitionbutton:0.2.0'
     // Shopping cart add and subtract

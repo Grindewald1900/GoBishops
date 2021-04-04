@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
@@ -92,16 +93,21 @@ class LoginActivity : AppCompatActivity(), LoginContract.View, BaseContract.OnDa
             when (msg.what) {
                 ConstantUtil.HANDLER_LOGIN -> {
                     var bundle = msg.data
-                    val result = bundle.getString(ConstantUtil.SERVER_RESULT)
+                    val result = bundle.getString(ConstantUtil.SERVER_RESULT).toString()
                     //Toast.makeText(MainActivity.this,result,Toast.LENGTH_SHORT).show();
                     try {
-                        if (!result.isNullOrEmpty()) {
+                        Log.e("JSONTAG", result)
+                        if (!TextUtil.isEmpty(result)) {
+                            Log.e("JSONTAG", result)
                             LoginStateUtil.setIsLogin(true)
                             val user = EntityUtil.jsonToUser(result)
                             LoginStateUtil.setUser(user)
                             mContext.startActivity(Intent(mContext, MainActivity::class.java))
                         } else {
-                            mContext.startActivity(Intent(mContext, ResultActivity::class.java))
+                            // Login unsuccessfully
+                            val intent = Intent(mContext, ResultActivity::class.java)
+                            intent.putExtra(ConstantUtil.STRING_RESULT_ACTIVITY, ConstantUtil.RESULT_INCORRECT)
+                            mContext.startActivity(intent)
                         }
                         finish()
                     } catch (e: java.lang.NullPointerException) {

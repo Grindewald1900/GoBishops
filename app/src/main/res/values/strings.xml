@@ -106,13 +106,17 @@
 
     <!-- Shopping Cart Page -->
     <string name="item_price">${item.price} $</string>
-    <string name="shopping_cart">Shopping cart</string>
+    <string name="shopping_cart">Shopping Cart</string>
     <string name="subtotal">Subtotal: </string>
     <string name="check_out">Checkout</string>
     <string name="add_to_cart">Add To Cart</string>
     <string name="checkout_successful">Your order has been placed!</string>
     <string name="checkout_fail">Fail to place your order, please try again!</string>
     <string name="total_price">Order Total: </string>
+
+
+    <!-- Order page -->
+    <string name="order_detail">Order Detail</string>
 
     <!-- Tags -->
     <string name="tag_main">tag_main</string>
@@ -130,7 +134,6 @@
     <string name="hint_login_fail">Login failed, please try again</string>
     <string name="hint_login_success">Login successfully!</string>
     <string name="hint_welcome_bu">Welcome back, Gaiters!</string>
-
 
 
     <!-- Fake data -->
@@ -151,5 +154,8 @@
     <!-- Others -->
     <string name="map">Map</string>
     <string name="all_done">All Done!</string>
+    <string name="try_again">Please try again!</string>
+    <string name="request_upload">We\'re processing your request.</string>
+
 
 </resources>
