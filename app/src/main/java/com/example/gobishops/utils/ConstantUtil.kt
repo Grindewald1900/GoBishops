@@ -21,8 +21,15 @@ object ConstantUtil {
 
     // Connection - Local test
     const val SERVER_URL: String = "http://10.0.2.2:8080/BU_war_exploded/"
-    const val SERVLET_REGISTER: String = "RegisterServlet.do"
-    const val SERVLET_LOGIN: String = "LoginServlet.do"
+    const val SERVLET_REGISTER: String = "Servlet.RegisterServlet.do"
+    const val SERVLET_LOGIN: String = "Servlet.LoginServlet.do"
+    const val SERVLET_ADD_ORDER: String = "Servlet.OrderServlet.do"
+    const val SERVLET_DISH: String = "Servlet.DishServlet.do"
+    const val SERVLET_STORE: String = "Servlet.StoreServlet.do"
+
+
+
+
     const val SERVER_RESULT = "result"
     const val SERVER_SUCCESS = "success"
     const val SERVER_FAIL = "fail"
@@ -30,6 +37,7 @@ object ConstantUtil {
     //
 
     // States
+    const val STATE_NULL = -1
     const val STATE_SUCCESS = 1
     const val STATE_FAIL = 2
     const val STATE_CANCEL = 3
@@ -49,6 +57,11 @@ object ConstantUtil {
 
     // Handler
     const val HANDLER_LOGIN: Int = 301
+    const val HANDLER_REGISTER: Int = 302
+    const val HANDLER_ORDER: Int = 303
+    const val HANDLER_DISH: Int = 304
+    const val HANDLER_STORE: Int = 305
+
 
     // Constant amount
     const val MAX_UPLOAD_IMAGE: Int = 5

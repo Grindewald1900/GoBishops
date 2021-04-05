@@ -3,6 +3,8 @@ package com.example.gobishops.fragment
 import android.content.Intent
 import android.graphics.Typeface.BOLD
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
@@ -17,13 +19,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
+import com.example.gobishops.adapter.DishAdapter
 import com.example.gobishops.adapter.NormalCardAdapter
+import com.example.gobishops.entity.Item
 import com.example.gobishops.entity.NormalCard
+import com.example.gobishops.entity.Store
 import com.example.gobishops.utils.*
 import com.example.gobishops.view.LoginActivity
 import com.example.gobishops.view.RegisterActivity
+import com.example.gobishops.view.StoreDetailActivity
 import com.example.gobishops.view.UserInfoActivity
 import com.joooonho.SelectableRoundedImageView
+import kotlinx.android.synthetic.main.fragment_event.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -57,7 +64,7 @@ class HomeFragment : Fragment() {
      * View Initialization, including onClickListener()
      */
     private fun initView(){
-        val data: ArrayList<NormalCard> = ArrayList()
+//        val data: ArrayList<NormalCard> = ArrayList()
 
         ArrayAdapter.createFromResource(requireContext(), R.array.home_search_type, R.layout.spinner_item_simple).also {
             it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -65,12 +72,16 @@ class HomeFragment : Fragment() {
         }
 
         // Prepare data for event list
-        for (i in 1..10){
-            data.add(NormalCard())
-        }
-        rv_fragment_home.layoutManager = LinearLayoutManager(context)
-        rv_fragment_home.itemAnimator = DefaultItemAnimator()
-        rv_fragment_home.adapter = NormalCardAdapter(data)
+        Thread{
+            val result = HttpJavaUtil.GetStoreByPost()
+            val bundle = Bundle()
+            val message = Message()
+            bundle.putString(ConstantUtil.SERVER_RESULT, result)
+            message.data = bundle
+            message.what = ConstantUtil.HANDLER_STORE
+            handler.sendMessage(message)
+        }.start()
+
         iv_fragment_home_profile.setOnClickListener {
             if (LoginStateUtil.getIsLogin()){
                 startActivity(Intent(context, UserInfoActivity::class.java))
@@ -106,5 +117,37 @@ class HomeFragment : Fragment() {
         spannable.setSpan(StyleSpan(BOLD), index[3], index[4], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(StyleSpan(BOLD), index[5], index[6], Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return spannable
+    }
+
+    private fun initRecyclerView(stores: ArrayList<Store>){
+        rv_fragment_home.layoutManager = LinearLayoutManager(context)
+        rv_fragment_home.itemAnimator = DefaultItemAnimator()
+        rv_fragment_home.adapter = NormalCardAdapter(stores)
+    }
+
+    //TODO memory leak here
+    private var handler: Handler = object : Handler() {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            when (msg.what) {
+                ConstantUtil.HANDLER_STORE -> {
+                    var bundle = msg.data
+                    var stores: ArrayList<Store> = ArrayList()
+                    val result = bundle.getString(ConstantUtil.SERVER_RESULT).toString()
+                    try {
+                        Log.e("JSONTAG", result)
+                        if (!TextUtil.isEmpty(result)) {
+                            stores = EntityUtil.jsonToStoreList(result)
+                            initRecyclerView(stores)
+                        } else {
+                            // Login unsuccessfully
+
+                        }
+                    } catch (e: java.lang.NullPointerException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
     }
 }

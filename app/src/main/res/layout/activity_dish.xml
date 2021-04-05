@@ -19,6 +19,7 @@
         android:background="@drawable/ic_md_favorite_border"
         android:layout_marginEnd="@dimen/dimen_20"
         app:layout_constraintTop_toTopOf="@id/btn_activity_dish_back"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_activity_dish_back"
         app:layout_constraintRight_toLeftOf="@+id/btn_activity_dish_join"
         />
     <com.example.gobishops.myview.mButtonView
@@ -28,6 +29,7 @@
         android:layout_marginEnd="@dimen/dimen_20"
         style="@style/SmallButton"
         app:layout_constraintTop_toTopOf="@+id/btn_activity_dish_back"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_activity_dish_back"
         app:layout_constraintRight_toLeftOf="@+id/btn_activity_dish_share"
         />
     <ImageButton
@@ -37,6 +39,7 @@
         android:background="@drawable/ic_baseline_share_24"
         android:layout_marginEnd="@dimen/dimen_20"
         app:layout_constraintTop_toTopOf="@id/btn_activity_dish_back"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_activity_dish_back"
         app:layout_constraintRight_toRightOf="parent"
         />
     <com.joooonho.SelectableRoundedImageView
@@ -45,6 +48,7 @@
         android:layout_height="@dimen/dimen_30"
         android:layout_marginStart="@dimen/dimen_20"
         app:layout_constraintTop_toTopOf="@+id/btn_activity_dish_back"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_activity_dish_back"
         app:layout_constraintLeft_toRightOf="@+id/btn_activity_dish_back"
         app:sriv_oval="true"
         />
@@ -53,10 +57,11 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dimen_30"
         android:layout_marginStart="@dimen/dimen_20"
-        android:text="@string/f_user_name"
+        android:text="@string/visitor"
         android:gravity="center"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="@+id/btn_activity_dish_back"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_activity_dish_back"
         app:layout_constraintLeft_toRightOf="@+id/iv_activity_dish_portrait"
         />
 

@@ -2,6 +2,9 @@ package com.example.gobishops.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,10 +18,10 @@ import com.example.gobishops.adapter.EventAdapter
 import com.example.gobishops.contract.BaseContract
 import com.example.gobishops.entity.Event
 import com.example.gobishops.entity.Item
-import com.example.gobishops.utils.ConstantUtil
-import com.example.gobishops.utils.DBUtil
-import com.example.gobishops.utils.TypeUtil
+import com.example.gobishops.utils.*
 import com.example.gobishops.view.EventSearchActivity
+import com.example.gobishops.view.MainActivity
+import com.example.gobishops.view.ResultActivity
 import kotlinx.android.synthetic.main.fragment_event.*
 
 /**
@@ -64,19 +67,16 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
      */
     private fun initView(){
         // Initialize recycle view of activities
-        val data: ArrayList<Item> = ArrayList()
-        var fakeEvent: Item
-        for (i in 0..10){
-            fakeEvent = Item(i)
-            data.add(fakeEvent)
-        }
-        linearLayoutManager = LinearLayoutManager(context)
-        dishAdapter = DishAdapter(data, context)
-        rv_activity_event.layoutManager = linearLayoutManager
-        rv_activity_event.itemAnimator = DefaultItemAnimator()
-        rv_activity_event.adapter = dishAdapter
-        rv_activity_event.setOnClickListener {
-        }
+        Thread{
+            val dishes = HttpJavaUtil.GetDishByPost(ConstantUtil.STATE_NULL)
+            val bundle = Bundle()
+            val message = Message()
+            bundle.putString(ConstantUtil.SERVER_RESULT, dishes)
+            message.data = bundle
+            message.what = ConstantUtil.HANDLER_DISH
+            handler.sendMessage(message)
+        }.start()
+
 
         btn_activity_event_add.setOnClickListener {
             val intent = Intent(context, AddEventActivity::class.java)
@@ -94,9 +94,47 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
         }
     }
 
+
+    private fun initRecyclerView(dishes: ArrayList<Item>){
+        linearLayoutManager = LinearLayoutManager(context)
+        dishAdapter = DishAdapter(dishes, context)
+        rv_activity_event.layoutManager = linearLayoutManager
+        rv_activity_event.itemAnimator = DefaultItemAnimator()
+        rv_activity_event.adapter = dishAdapter
+        rv_activity_event.setOnClickListener {
+        }
+    }
+
     private fun refreshView(dishes: ArrayList<Item>){
         dishAdapter = DishAdapter(dishes, context)
         rv_activity_event.adapter = dishAdapter
         swipe_activity_event.isRefreshing = false
+    }
+
+
+    //TODO memory leak here
+    private var handler: Handler = object : Handler() {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            when (msg.what) {
+                ConstantUtil.HANDLER_DISH -> {
+                    var bundle = msg.data
+                    var dishes: ArrayList<Item> = ArrayList()
+                    val result = bundle.getString(ConstantUtil.SERVER_RESULT).toString()
+                    try {
+                        Log.e("JSONTAG", result)
+                        if (!TextUtil.isEmpty(result)) {
+                            dishes = EntityUtil.jsonToItemList(result)
+                            initRecyclerView(dishes)
+                        } else {
+                            // Login unsuccessfully
+
+                        }
+                    } catch (e: java.lang.NullPointerException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
     }
 }

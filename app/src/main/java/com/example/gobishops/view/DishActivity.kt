@@ -13,6 +13,7 @@ import com.example.gobishops.entity.Item
 import com.example.gobishops.entity.OrderItem
 import com.example.gobishops.presenter.DishPresenter
 import com.example.gobishops.utils.ConstantUtil
+import com.example.gobishops.utils.LoginStateUtil
 import com.example.gobishops.utils.SharedPreferencesUtil
 import com.example.gobishops.utils.TextUtil
 import com.google.android.gms.maps.GoogleMap
@@ -42,7 +43,13 @@ class DishActivity : AppCompatActivity(),  OnMapReadyCallback, DishContract.View
     override fun initView(){
         val handler: Handler = Handler()
 
-        Glide.with(this).asBitmap().load(R.drawable.img_portrait).into(iv_activity_dish_portrait)
+        if(LoginStateUtil.getIsLogin()){
+            tv_activity_dish_initiator.text = LoginStateUtil.getUser()!!.userName
+            Glide.with(this).asBitmap().load(R.drawable.img_portrait).into(iv_activity_dish_portrait)
+        }else{
+            Glide.with(this).asBitmap().load(R.drawable.ic_male_user_30).into(iv_activity_dish_portrait)
+        }
+
         if(null != dish){
             tv_activity_dish_location.text = dish!!.name
             tv_activity_dish_price.text = TextUtil.getItemPrice(dish!!.price)
@@ -52,6 +59,13 @@ class DishActivity : AppCompatActivity(),  OnMapReadyCallback, DishContract.View
             finish()
         }
 
+        iv_activity_dish_portrait.setOnClickListener {
+            if (LoginStateUtil.getIsLogin()){
+                startActivity(Intent(this, UserInfoActivity::class.java))
+            }else{
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+        }
         btn_activity_dish_add.setOnClickListener {
             btn_activity_dish_add.startAnimation();
             // One piece by default
@@ -61,7 +75,9 @@ class DishActivity : AppCompatActivity(),  OnMapReadyCallback, DishContract.View
                 if(isSuccessful){
                     btn_activity_dish_add.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND, TransitionButton.OnAnimationStopEndListener {
                         //Start Activity here
-                        startActivity(Intent(this, ResultActivity::class.java))
+                        val intent = Intent(this, ResultActivity::class.java)
+                        intent.putExtra(ConstantUtil.STRING_RESULT_ACTIVITY, ConstantUtil.RESULT_CORRECT)
+                        startActivity(intent)
                         showToast(getText(R.string.checkout_successful).toString())
                     })
                 }
