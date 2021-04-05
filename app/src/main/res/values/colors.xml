@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#7926A9</color>
     <color name="colorAccent">#BAB6B6</color>
 
+    <color name="green_1">#00e6ac</color>
+    <color name="pink_1">#ff6666</color>
+    <color name="blue_1">#3399ff</color>
+
     <color name="purple_1">#9768D1</color>
     <color name="purple_2">#7F7ED9</color>
     <color name="google">#FF1957</color>

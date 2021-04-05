@@ -98,17 +98,13 @@ class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
             btn_activity_cart_checkout.startAnimation()
             // TODO: to be fixed - upload the whole order list, rather than one by one
             Thread{
-                var result = ""
                 val orders = SharedPreferencesUtil.getOrder(ConstantUtil.CLASS_ORDER_ITEM)
+                val orderId = (1..200000).random()
                 for(i in 0 until orders.size){
-                    result = HttpJavaUtil.AddOrderByPost(i, (1..200000).random(), LoginStateUtil.getUser()!!.id, orders[i].item!!.restaurantId, orders[i].item!!.id, orders[i].count)
+                    HttpJavaUtil.AddOrderByPost(i, orderId, LoginStateUtil.getUser()!!.id, orders[i].item!!.restaurantId, orders[i].item!!.id, orders[i].count)
                 }
-                val bundle = Bundle()
-                val message = Message()
-                bundle.putString(ConstantUtil.SERVER_RESULT, result)
-                message.data = bundle
-                message.what = ConstantUtil.HANDLER_ORDER
-//                handler.sendMessage(message)
+                SharedPreferencesUtil.releaseOrder()
+
             }.start()
 //            handler.postDelayed(Runnable {
 //                var isSuccessful: Boolean = true
@@ -122,33 +118,4 @@ class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
         }
     }
 
-    //TODO memory leak here
-    private var handler: Handler = object : Handler() {
-        override fun handleMessage(msg: Message) {
-            super.handleMessage(msg)
-            when (msg.what) {
-                ConstantUtil.HANDLER_ORDER -> {
-                    var bundle = msg.data
-                    val result = bundle.getString(ConstantUtil.SERVER_RESULT).toString()
-                    try {
-                        Log.e("JSONTAG", result)
-                        if (!TextUtil.isEmpty(result)) {
-                            Log.e("JSONTAG", result)
-                            LoginStateUtil.setIsLogin(true)
-                            val user = EntityUtil.jsonToUser(result)
-                            LoginStateUtil.setUser(user)
-                            context!!.startActivity(Intent(context, MainActivity::class.java))
-                        } else {
-                            // Login unsuccessfully
-                            val intent = Intent(context, ResultActivity::class.java)
-                            intent.putExtra(ConstantUtil.STRING_RESULT_ACTIVITY, ConstantUtil.RESULT_INCORRECT)
-                            context!!.startActivity(intent)
-                        }
-                    } catch (e: java.lang.NullPointerException) {
-                        e.printStackTrace()
-                    }
-                }
-            }
-        }
-    }
 }

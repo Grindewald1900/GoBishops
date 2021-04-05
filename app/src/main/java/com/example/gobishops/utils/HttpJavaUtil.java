@@ -2,6 +2,8 @@ package com.example.gobishops.utils;
 
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -133,6 +135,7 @@ public class HttpJavaUtil {
     public static String AddOrderByPost(int sequenceId, int orderId, int userId, int storeId, int itemId, int amount){
         String address = ConstantUtil.SERVER_URL + ConstantUtil.SERVLET_ADD_ORDER;
         String result = "";
+        Log.d("AddOrderByPost", "address" + address);
 
         try{
             URL url = new URL(address);
@@ -151,12 +154,15 @@ public class HttpJavaUtil {
                     "&item_id="+ URLEncoder.encode(String.valueOf(itemId),"UTF-8")+
                     "&item_amount="+ URLEncoder.encode(String.valueOf(amount),"UTF-8");
 
+            Log.d("AddOrderByPost", "data" + data);
+
             OutputStream out = conn.getOutputStream();
 
             out.write(data.getBytes());
             out.flush();
             out.close();
             conn.connect();
+            Log.d("AddOrderByPost", "getResponseCode" + conn.getResponseCode());
 
             if (conn.getResponseCode() == 200) {
                 Log.d("AddOrderByPost","getResponseCode 200");
@@ -170,6 +176,8 @@ public class HttpJavaUtil {
                 is.close();
                 message.close();
                 result = new String(message.toByteArray());
+                Log.d("AddOrderByPost", "result" + result);
+
                 return result;
             }
 
@@ -182,9 +190,10 @@ public class HttpJavaUtil {
 
     /**
      * GetDish: get dish list from server
+     * @param id: if -1, request for all dishes, if positive id, request for dishes of certain restaurant
      * @return: JSONArray in a string (dish info)
      */
-    public static String GetDishByPost(){
+    public static String GetDishByPost(int id){
         String address = ConstantUtil.SERVER_URL + ConstantUtil.SERVLET_DISH;
         String result = "";
         Log.d("AddOrderByPost", address);
@@ -198,8 +207,13 @@ public class HttpJavaUtil {
             conn.setReadTimeout(5000);
             conn.setConnectTimeout(5000);
             conn.setUseCaches(false);
-
+            // request for dishes by id
+            String data = "&id="+ URLEncoder.encode(String.valueOf(id),"UTF-8");
+            Log.d("AddOrderByPost", "data" + data);
             OutputStream out = conn.getOutputStream();
+            out.write(data.getBytes());
+            out.flush();
+            out.close();
             conn.connect();
             Log.d("AddOrderByPost", "msg :" + conn.getResponseMessage());
             Log.d("AddOrderByPost - conn", String.valueOf(conn.getResponseCode()));
@@ -217,7 +231,6 @@ public class HttpJavaUtil {
                 is.close();
                 message.close();
                 result = new String(message.toByteArray());
-                Log.d("AddOrderByPost - result",result);
                 return result;
             }
 
@@ -225,6 +238,48 @@ public class HttpJavaUtil {
             e.printStackTrace();
             Log.d("AddOrderByPost - e",e.getMessage());
 
+        }
+        return result;
+    }
+
+    /**
+     * GetDish: get store list from server
+     * @return: JSONArray in a string (dish info)
+     */
+    public static String GetStoreByPost(){
+        String address = ConstantUtil.SERVER_URL + ConstantUtil.SERVLET_STORE;
+        String result = "";
+
+        try{
+            URL url = new URL(address);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+
+            //Set up timeout
+            conn.setReadTimeout(5000);
+            conn.setConnectTimeout(5000);
+            conn.setUseCaches(false);
+
+            OutputStream out = conn.getOutputStream();
+            conn.connect();
+
+            if (conn.getResponseCode() == 200) {
+                InputStream is = conn.getInputStream();
+                ByteArrayOutputStream message = new ByteArrayOutputStream();
+                int len = 0;
+                byte[] buffer = new byte[1024];
+                while ((len = is.read(buffer)) != -1) {
+                    message.write(buffer, 0, len);
+                }
+                is.close();
+                message.close();
+                result = new String(message.toByteArray());
+                return result;
+            }
+
+        } catch (IOException e){
+            e.printStackTrace();
+            Log.d("AddOrderByPost - e",e.getMessage());
         }
         return result;
     }

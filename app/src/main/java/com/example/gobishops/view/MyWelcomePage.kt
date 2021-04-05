@@ -18,23 +18,27 @@ class MyWelcomePage: WelcomeActivity() {
             .defaultBackgroundColor(com.example.gobishops.R.color.colorPrimary)
             .page(
                 TitlePage(
-                    com.example.gobishops.R.drawable.ic_baseline_sentiment_very_dissatisfied_24,
-                    "Title"
+                    com.example.gobishops.R.drawable.ic_welcome_1,
+                    "Recommend Restaurant"
                 )
             )
             .page(
-                BasicPage(
-                    com.example.gobishops.R.drawable.ic_baseline_sentiment_neutral_24,
-                    "Header",
-                    "More text."
-                ).background(com.example.gobishops.R.color.google)
+                TitlePage(
+                    com.example.gobishops.R.drawable.ic_welcome_2,
+                    "Provide directions"
+                ).background(com.example.gobishops.R.color.facebook)
             )
             .page(
-                BasicPage(
-                    com.example.gobishops.R.drawable.ic_baseline_sentiment_satisfied_alt_24,
-                    "Lorem ipsum",
-                    "dolor sit amet."
-                ).background(com.example.gobishops.R.color.facebook)
+                TitlePage(
+                    com.example.gobishops.R.drawable.ic_welcome_3,
+                    "Place your Order"
+                ).background(com.example.gobishops.R.color.green_1)
+            )
+            .page(
+                TitlePage(
+                    com.example.gobishops.R.drawable.ic_welcome_4,
+                    "Eat with friends"
+                ).background(com.example.gobishops.R.color.pink_1)
             )
             .swipeToDismiss(true)
             .build()

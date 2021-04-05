@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.OrderActivity"></activity>
+        <activity android:name=".view.StoreDetailActivity"></activity>
+        <activity android:name=".view.OrderActivity" />
         <activity android:name=".view.ResultActivity" />
         <activity android:name=".view.MapActivity" />
         <activity android:name=".view.DishActivity" />
@@ -33,9 +34,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Google Map Api -->
+        </activity> <!-- Google Map Api -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${mapsApiKey}" />

@@ -135,6 +135,10 @@
     <string name="hint_login_success">Login successfully!</string>
     <string name="hint_welcome_bu">Welcome back, Gaiters!</string>
     <string name="hint_no_login">Please log in before checkout!</string>
+    <string name="hint_collect">Restaurant marked!</string>
+    <string name="hint_collect_cancel">Restaurant unmarked!</string>
+
+
 
 
     <!-- Fake data -->
@@ -154,9 +158,11 @@
 
     <!-- Others -->
     <string name="map">Map</string>
+    <string name="menu">Menu</string>
     <string name="all_done">All Done!</string>
     <string name="try_again">Please try again!</string>
     <string name="request_upload">We\'re processing your request.</string>
+    <string name="visitor">Visitor</string>
 
 
 </resources>

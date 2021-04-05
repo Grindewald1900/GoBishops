@@ -25,6 +25,8 @@ object ConstantUtil {
     const val SERVLET_LOGIN: String = "Servlet.LoginServlet.do"
     const val SERVLET_ADD_ORDER: String = "Servlet.OrderServlet.do"
     const val SERVLET_DISH: String = "Servlet.DishServlet.do"
+    const val SERVLET_STORE: String = "Servlet.StoreServlet.do"
+
 
 
 
@@ -35,6 +37,7 @@ object ConstantUtil {
     //
 
     // States
+    const val STATE_NULL = -1
     const val STATE_SUCCESS = 1
     const val STATE_FAIL = 2
     const val STATE_CANCEL = 3
@@ -57,6 +60,7 @@ object ConstantUtil {
     const val HANDLER_REGISTER: Int = 302
     const val HANDLER_ORDER: Int = 303
     const val HANDLER_DISH: Int = 304
+    const val HANDLER_STORE: Int = 305
 
 
     // Constant amount

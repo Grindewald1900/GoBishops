@@ -35,6 +35,8 @@ object SharedPreferencesUtil {
      *  Add a unique order to order list
      */
     fun saveOrder(order: OrderItem){
+        // Here we keep the order data with an order list and an orderId list
+        // If orderId exists, update the order accordingly
         if (orderIds.contains(order.item!!.id)){
             val index = orderIds.indexOf(order.item.id)
             orders[index] = order
@@ -58,7 +60,7 @@ object SharedPreferencesUtil {
         }
         val json = Gson().toJson(orders)
 
-        // Save the key as ORDER_ITEM + Class name
+        // Save the key as ORDER_ITEM
         prefsEditor.putString(ConstantUtil.CLASS_ORDER_ITEM, json).apply()
     }
 
@@ -87,6 +89,12 @@ object SharedPreferencesUtil {
         prefsEditor.putString(ConstantUtil.CLASS_ORDER_ITEM, json).apply()
     }
 
+    fun releaseOrder(){
+        orders.clear()
+        orderIds.clear()
+        val json = Gson().toJson(orders)
+        prefsEditor.putString(ConstantUtil.CLASS_ORDER_ITEM, json).apply()
+    }
 
     /**
      *  Return the static reference of SharedPreferences

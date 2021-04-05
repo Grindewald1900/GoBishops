@@ -67,14 +67,8 @@ class EventFragment : Fragment(), BaseContract.OnDataRetrieved{
      */
     private fun initView(){
         // Initialize recycle view of activities
-//        val data: ArrayList<Item> = ArrayList()
-//        var fakeEvent: Item
-//        for (i in 0..10){
-//            fakeEvent = Item(i)
-//            data.add(fakeEvent)
-//        }
         Thread{
-            val dishes = HttpJavaUtil.GetDishByPost()
+            val dishes = HttpJavaUtil.GetDishByPost(ConstantUtil.STATE_NULL)
             val bundle = Bundle()
             val message = Message()
             bundle.putString(ConstantUtil.SERVER_RESULT, dishes)
