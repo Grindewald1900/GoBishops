@@ -6,6 +6,7 @@ package com.example.gobishops.view
  * Email: grindewald1504@gmail.com
  */
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -15,6 +16,7 @@ import com.example.gobishops.R
 import com.example.gobishops.contract.MainContract
 import com.example.gobishops.fragment.*
 import com.example.gobishops.presenter.MainPresenter
+import com.example.gobishops.utils.App
 import com.stephentuso.welcome.WelcomeHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -28,8 +30,12 @@ class MainActivity : AppCompatActivity(), MainContract.View{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         presenter = MainPresenter(this)
-        welcomePage = WelcomeHelper(this, MyWelcomePage::class.java)
-        welcomePage.show(savedInstanceState)
+        if(App.isInitial){
+            welcomePage = WelcomeHelper(this, MyWelcomePage::class.java)
+            welcomePage.forceShow()
+            App.isInitial = false
+        }
+
     }
 
     /**
@@ -42,10 +48,6 @@ class MainActivity : AppCompatActivity(), MainContract.View{
 //        AuthUtil.createAccount(getString(R.string.f_email), getString(R.string.f_password))
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        welcomePage.onSaveInstanceState(outState)
-    }
 
     /**
      * View Initialization, including onClickListener()

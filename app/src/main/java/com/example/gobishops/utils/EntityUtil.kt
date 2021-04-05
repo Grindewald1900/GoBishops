@@ -10,6 +10,7 @@ import com.google.gson.JsonArray
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 /**
@@ -36,11 +37,32 @@ object EntityUtil {
     }
 
     /**
-     * Convert json to Item
+     * Convert json to Item(Dish)
      */
     fun jsonToItem(string: String): Item{
         val gson = Gson()
         return gson.fromJson(string, Item::class.java)
+    }
+
+    /**
+     * Convert json to Item(Dish)
+     */
+    fun jsonToItemList(string: String): ArrayList<Item>{
+        val result: ArrayList<Item> = ArrayList()
+        val jsonArray: JSONArray = JSONArray(string)
+        for (i in 0 until jsonArray.length()){
+            val jsonObject = jsonArray.getJSONObject(i)
+            result.add(Item(
+                jsonObject.getString("item_id").toInt(),
+                jsonObject.getString("store_id").toInt(),
+                jsonObject.getString("item_name"),
+                jsonObject.getString("item_price").toFloat(),
+                "image",
+                jsonObject.getString("item_taste").toFloat(),
+                jsonObject.getString("item_discount").toFloat(),
+                ))
+        }
+        return result
     }
 
     /**

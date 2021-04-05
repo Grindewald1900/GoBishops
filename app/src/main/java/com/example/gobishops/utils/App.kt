@@ -12,6 +12,7 @@ import android.content.Context
 class App: Application() {
     companion object{
         var mContext: Context? = null
+        var isInitial: Boolean = true
     }
 
     override fun onCreate() {

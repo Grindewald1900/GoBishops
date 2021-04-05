@@ -51,8 +51,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View, BaseContract.OnDa
             Thread {
                 val result = HttpJavaUtil.LoginByPost(et_login_name_v2.text.toString(), et_login_pwd_v2.text.toString())
                 val bundle = Bundle()
-                bundle.putString(ConstantUtil.SERVER_RESULT, result)
                 val message = Message()
+                bundle.putString(ConstantUtil.SERVER_RESULT, result)
                 message.data = bundle
                 message.what = ConstantUtil.HANDLER_LOGIN
                 handler.sendMessage(message)
@@ -87,7 +87,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View, BaseContract.OnDa
     }
 
     //TODO memory leak here
-    var handler: Handler = object : Handler() {
+    private var handler: Handler = object : Handler() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             when (msg.what) {
@@ -96,9 +96,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View, BaseContract.OnDa
                     val result = bundle.getString(ConstantUtil.SERVER_RESULT).toString()
                     //Toast.makeText(MainActivity.this,result,Toast.LENGTH_SHORT).show();
                     try {
-                        Log.e("JSONTAG", result)
                         if (!TextUtil.isEmpty(result)) {
-                            Log.e("JSONTAG", result)
                             LoginStateUtil.setIsLogin(true)
                             val user = EntityUtil.jsonToUser(result)
                             LoginStateUtil.setUser(user)

@@ -134,6 +134,7 @@
     <string name="hint_login_fail">Login failed, please try again</string>
     <string name="hint_login_success">Login successfully!</string>
     <string name="hint_welcome_bu">Welcome back, Gaiters!</string>
+    <string name="hint_no_login">Please log in before checkout!</string>
 
 
     <!-- Fake data -->

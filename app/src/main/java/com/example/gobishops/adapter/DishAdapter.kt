@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
@@ -43,7 +44,7 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
         val dish = dishes[position]
         var starCount = dish.rate
         holder.title.text = dish.name
-        holder.restaurant.text = dish.id.toString()
+//        holder.restaurant.text = dish.id.toString()
 
         holder.background.setOnClickListener {
             var intent = Intent(it.context, DishActivity::class.java)
@@ -51,11 +52,17 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
             it.context.startActivity(intent)
         }
         holder.price.text = TextUtil.getItemPrice(dish.price)
+        // If promotion
         if (dish.promotion < 1f){
+            setVisibility(holder, View.VISIBLE)
             holder.price.setTextColor(Color.GRAY)
             holder.price.paint.flags = Paint.STRIKE_THRU_TEXT_FLAG
             holder.newPrice.text = TextUtil.getItemPrice(dish.price * dish.promotion)
             holder.promotion.text = TextUtil.getPromotion(dish.promotion)
+        }else{
+            holder.price.setTextColor(Color.parseColor("#7926A9"))
+            holder.price.paint.flags = 0
+            setVisibility(holder, View.INVISIBLE)
         }
 
 
@@ -76,6 +83,15 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
             }
         }
 
+    }
+
+    /**
+     * Set visibility of some components
+     */
+    private fun setVisibility(holder: DishHolder, visible: Int){
+        holder.newPrice.visibility = visible
+        holder.promotionBackGround.visibility = visible
+        holder.promotion.visibility = visible
     }
 
     /**
@@ -113,6 +129,7 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
         val newPrice: TextView = view.findViewById(R.id.tv_dish_new_price)
         val background: mImageView = view.findViewById(R.id.iv_dish_image)
         val rateLayout: LinearLayout = view.findViewById(R.id.ll_dish_rate)
+        val promotionBackGround: View = view.findViewById(R.id.view_dish_promotion)
         val promotion: TextView = view.findViewById(R.id.tv_dish_promotion)
         init {
 

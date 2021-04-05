@@ -1,7 +1,10 @@
 package com.example.gobishops.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,12 +18,14 @@ import com.example.gobishops.contract.BaseContract
 import com.example.gobishops.entity.Item
 import com.example.gobishops.entity.NormalCard
 import com.example.gobishops.entity.OrderItem
-import com.example.gobishops.utils.ConstantUtil
-import com.example.gobishops.utils.SharedPreferencesUtil
-import com.example.gobishops.utils.TextUtil
+import com.example.gobishops.utils.*
+import com.example.gobishops.view.MainActivity
+import com.example.gobishops.view.ResultActivity
 import com.google.android.gms.maps.model.LatLng
 import com.royrodriguez.transitionbutton.TransitionButton
+import kotlinx.android.synthetic.main.activity_login_v2.*
 import kotlinx.android.synthetic.main.fragment_market.*
+import kotlin.random.Random
 
 /**
  * Created by Yee on 2020/12/26.
@@ -73,7 +78,6 @@ class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
      */
     private fun initView(){
         val data: ArrayList<OrderItem>?
-        val handler: Handler = Handler()
 
         // Prepare data for event list
         if(!SharedPreferencesUtil.isSharedKeyEmpty(ConstantUtil.CLASS_ORDER_ITEM)){
@@ -84,16 +88,67 @@ class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
         }
 
         btn_activity_cart_checkout.setOnClickListener {
-            btn_activity_cart_checkout.startAnimation();
-            handler.postDelayed(Runnable {
-                var isSuccessful: Boolean = true
-                if(isSuccessful){
-                    btn_activity_cart_checkout.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND, TransitionButton.OnAnimationStopEndListener {
-                        //Start Activity here
-                        Toast.makeText(context, getText(R.string.checkout_successful), Toast.LENGTH_SHORT).show()
-                    })
+            if(null == LoginStateUtil.getUser()){
+                val intent = Intent(context, ResultActivity::class.java)
+                intent.putExtra(ConstantUtil.STRING_RESULT_ACTIVITY, ConstantUtil.RESULT_INCORRECT)
+                Toast.makeText(context, R.string.hint_no_login, Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+                return@setOnClickListener
+            }
+            btn_activity_cart_checkout.startAnimation()
+            // TODO: to be fixed - upload the whole order list, rather than one by one
+            Thread{
+                var result = ""
+                val orders = SharedPreferencesUtil.getOrder(ConstantUtil.CLASS_ORDER_ITEM)
+                for(i in 0 until orders.size){
+                    result = HttpJavaUtil.AddOrderByPost(i, (1..200000).random(), LoginStateUtil.getUser()!!.id, orders[i].item!!.restaurantId, orders[i].item!!.id, orders[i].count)
                 }
-            }, 1000)
+                val bundle = Bundle()
+                val message = Message()
+                bundle.putString(ConstantUtil.SERVER_RESULT, result)
+                message.data = bundle
+                message.what = ConstantUtil.HANDLER_ORDER
+//                handler.sendMessage(message)
+            }.start()
+//            handler.postDelayed(Runnable {
+//                var isSuccessful: Boolean = true
+//                if(isSuccessful){
+//                    btn_activity_cart_checkout.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND, TransitionButton.OnAnimationStopEndListener {
+//                        //Start Activity here
+//                        Toast.makeText(context, getText(R.string.checkout_successful), Toast.LENGTH_SHORT).show()
+//                    })
+//                }
+//            }, 1000)
+        }
+    }
+
+    //TODO memory leak here
+    private var handler: Handler = object : Handler() {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            when (msg.what) {
+                ConstantUtil.HANDLER_ORDER -> {
+                    var bundle = msg.data
+                    val result = bundle.getString(ConstantUtil.SERVER_RESULT).toString()
+                    try {
+                        Log.e("JSONTAG", result)
+                        if (!TextUtil.isEmpty(result)) {
+                            Log.e("JSONTAG", result)
+                            LoginStateUtil.setIsLogin(true)
+                            val user = EntityUtil.jsonToUser(result)
+                            LoginStateUtil.setUser(user)
+                            context!!.startActivity(Intent(context, MainActivity::class.java))
+                        } else {
+                            // Login unsuccessfully
+                            val intent = Intent(context, ResultActivity::class.java)
+                            intent.putExtra(ConstantUtil.STRING_RESULT_ACTIVITY, ConstantUtil.RESULT_INCORRECT)
+                            context!!.startActivity(intent)
+                        }
+                    } catch (e: java.lang.NullPointerException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
         }
     }
 }
