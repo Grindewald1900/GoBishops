@@ -16,10 +16,10 @@
     <string name="all">all</string>
     <string-array name="home_search_type">
         <item>All</item>
-        <item>Event</item>
-        <item>Deal</item>
-        <item>Reservation</item>
-        <item>Team</item>
+        <item>Price low to high</item>
+        <item>Price low to high</item>
+        <item>A - Z</item>
+        <item>Random</item>
     </string-array>
 
 
@@ -137,6 +137,7 @@
     <string name="hint_no_login">Please log in before checkout!</string>
     <string name="hint_collect">Restaurant marked!</string>
     <string name="hint_collect_cancel">Restaurant unmarked!</string>
+    <string name="hint_no_perm">Please agree with the permission request!</string>
 
 
 

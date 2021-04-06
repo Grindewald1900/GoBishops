@@ -2,6 +2,9 @@ package com.example.gobishops.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,14 +13,19 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gobishops.R
 import com.example.gobishops.adapter.EventAdapter
+import com.example.gobishops.adapter.NormalCardAdapter
 import com.example.gobishops.contract.BaseContract
 import com.example.gobishops.entity.Event
-import com.example.gobishops.utils.TypeUtil
+import com.example.gobishops.entity.Order
+import com.example.gobishops.entity.OrderItem
+import com.example.gobishops.entity.Store
+import com.example.gobishops.utils.*
 import com.example.gobishops.view.AddEventActivity
 import com.example.gobishops.view.EventSearchActivity
 import kotlinx.android.synthetic.main.fragment_appointment.*
 import kotlinx.android.synthetic.main.fragment_event.*
 import kotlinx.android.synthetic.main.fragment_event.rv_activity_event
+import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  * Created by Yee on 2020/12/26.
@@ -62,19 +70,20 @@ class ReservationFragment : Fragment(), BaseContract.OnDataRetrieved {
      */
     private fun initView(){
         // Initialize recycle view of activities
-        val data: ArrayList<Event> = ArrayList()
-        val fakeEvent = Event()
+        if(!LoginStateUtil.getIsLogin()){
+            return
+        }
+        // Prepare data for event list
+        Thread{
+            val result = HttpJavaUtil.OrderByPost(LoginStateUtil.getUser()!!.id, 1,1,1,1,1,2)
+            val bundle = Bundle()
+            val message = Message()
+            bundle.putString(ConstantUtil.SERVER_RESULT, result)
+            message.data = bundle
+            message.what = ConstantUtil.HANDLER_STORE
+            handler.sendMessage(message)
+        }.start()
 
-        for (i in 0..10){
-            data.add(fakeEvent)
-        }
-        linearLayoutManager = LinearLayoutManager(context)
-        orderAdapter = EventAdapter(data)
-        rv_activity_order.layoutManager = linearLayoutManager
-        rv_activity_order.itemAnimator = DefaultItemAnimator()
-        rv_activity_order.adapter = orderAdapter
-        rv_activity_order.setOnClickListener {
-        }
 
         swipe_activity_order.setOnRefreshListener {
 //            DBUtil.getEntity(
@@ -88,9 +97,35 @@ class ReservationFragment : Fragment(), BaseContract.OnDataRetrieved {
         }
     }
 
-    private fun refreshView(data: ArrayList<Event>){
-        orderAdapter = EventAdapter(data)
-        rv_activity_event.adapter = orderAdapter
-        swipe_activity_event.isRefreshing = false
+
+    private fun initRecyclerView(orders: ArrayList<Order>){
+        rv_activity_order.layoutManager = LinearLayoutManager(context)
+        rv_activity_order.itemAnimator = DefaultItemAnimator()
+        rv_activity_order.adapter = EventAdapter(orders)
+    }
+
+    //TODO memory leak here
+    private var handler: Handler = object : Handler() {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            when (msg.what) {
+                ConstantUtil.HANDLER_STORE -> {
+                    var bundle = msg.data
+                    var stores: ArrayList<Order>
+                    val result = bundle.getString(ConstantUtil.SERVER_RESULT).toString()
+                    try {
+                        if (!TextUtil.isEmpty(result)) {
+                            stores = EntityUtil.jsonToOrderList(result)
+                            initRecyclerView(stores)
+                        } else {
+                            // Login unsuccessfully
+
+                        }
+                    } catch (e: java.lang.NullPointerException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
     }
 }

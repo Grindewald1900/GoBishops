@@ -32,7 +32,7 @@ class StoreDetailActivity : AppCompatActivity() {
 
         if(LoginStateUtil.getIsLogin()){
             tv_activity_store_detail_initiator.text = LoginStateUtil.getUser()!!.userName
-            Glide.with(this).asBitmap().load(R.drawable.img_portrait).into(iv_activity_dish_portrait)
+            Glide.with(this).asBitmap().load(R.drawable.img_portrait).into(iv_activity_store_detail_portrait)
         }else{
             Glide.with(this).asBitmap().load(R.drawable.ic_male_user_30).into(iv_activity_store_detail_portrait)
         }

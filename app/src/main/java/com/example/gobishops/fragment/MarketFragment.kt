@@ -23,6 +23,7 @@ import com.example.gobishops.view.MainActivity
 import com.example.gobishops.view.ResultActivity
 import com.google.android.gms.maps.model.LatLng
 import com.royrodriguez.transitionbutton.TransitionButton
+import kotlinx.android.synthetic.main.activity_dish.*
 import kotlinx.android.synthetic.main.activity_login_v2.*
 import kotlinx.android.synthetic.main.fragment_market.*
 import kotlin.random.Random
@@ -78,6 +79,7 @@ class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
      */
     private fun initView(){
         val data: ArrayList<OrderItem>?
+        val handler: Handler = Handler()
 
         // Prepare data for event list
         if(!SharedPreferencesUtil.isSharedKeyEmpty(ConstantUtil.CLASS_ORDER_ITEM)){
@@ -100,12 +102,28 @@ class MarketFragment : Fragment(), BaseContract.OnAdapterCHanged {
             Thread{
                 val orders = SharedPreferencesUtil.getOrder(ConstantUtil.CLASS_ORDER_ITEM)
                 val orderId = (1..200000).random()
-                for(i in 0 until orders.size){
-                    HttpJavaUtil.AddOrderByPost(i, orderId, LoginStateUtil.getUser()!!.id, orders[i].item!!.restaurantId, orders[i].item!!.id, orders[i].count)
+                if(orders.size > 0){
+                    for(i in 0 until orders.size){
+                        HttpJavaUtil.OrderByPost(i, orderId, LoginStateUtil.getUser()!!.id, orders[i].item!!.restaurantId, orders[i].item!!.id, orders[i].count, 1)
+                    }
                 }
                 SharedPreferencesUtil.releaseOrder()
-
+                handler.postDelayed(Runnable {
+                    btn_activity_cart_checkout.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND) {
+                        //Start Activity here
+                        val intent = Intent(context, ResultActivity::class.java)
+                        if(orders.size > 0){
+                            intent.putExtra(ConstantUtil.STRING_RESULT_ACTIVITY, ConstantUtil.RESULT_CORRECT)
+                        }else{
+                            intent.putExtra(ConstantUtil.STRING_RESULT_ACTIVITY, ConstantUtil.RESULT_INCORRECT)
+                        }
+                        startActivity(intent)
+                    }
+                }, 1000)
             }.start()
+
+
+
 //            handler.postDelayed(Runnable {
 //                var isSuccessful: Boolean = true
 //                if(isSuccessful){

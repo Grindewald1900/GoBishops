@@ -5,21 +5,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Message
+import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
 import com.example.gobishops.contract.DishContract
 import com.example.gobishops.entity.Item
 import com.example.gobishops.entity.OrderItem
+import com.example.gobishops.entity.Store
 import com.example.gobishops.presenter.DishPresenter
-import com.example.gobishops.utils.ConstantUtil
-import com.example.gobishops.utils.LoginStateUtil
-import com.example.gobishops.utils.SharedPreferencesUtil
-import com.example.gobishops.utils.TextUtil
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapView
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.example.gobishops.utils.*
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.royrodriguez.transitionbutton.TransitionButton
@@ -30,6 +27,7 @@ class DishActivity : AppCompatActivity(),  OnMapReadyCallback, DishContract.View
     private var presenter: DishContract.Presenter? = null
     private var dish: Item? = null
     private lateinit var mContext: Context
+    private var mGoogleMap: GoogleMap? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dish)
@@ -96,14 +94,18 @@ class DishActivity : AppCompatActivity(),  OnMapReadyCallback, DishContract.View
      * Set maps when initialized
      */
     override fun onMapReady(googleMap: GoogleMap?) {
-        googleMap?.apply {
-            val sydney = LatLng(-33.852, 151.211)
-            addMarker(
-                MarkerOptions()
-                    .position(sydney)
-                    .title("Marker in Sydney")
-            )
-        }
+        mGoogleMap = googleMap
+        Thread{
+            val result = HttpJavaUtil.GetStoreByPost(dish!!.restaurantId, 2)
+            val bundle = Bundle()
+            val message = Message()
+            bundle.putString(ConstantUtil.SERVER_RESULT, result)
+            message.data = bundle
+            message.what = ConstantUtil.HANDLER_STORE
+            handler.sendMessage(message)
+
+        }.start()
+
     }
 
     /**
@@ -111,5 +113,44 @@ class DishActivity : AppCompatActivity(),  OnMapReadyCallback, DishContract.View
      */
     override fun showToast(str: String) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showMark(store: Store){
+        mGoogleMap?.apply {
+            val sydney = LatLng(store.lat.toDouble(), store.long.toDouble())
+            addMarker(
+                MarkerOptions()
+                    .position(sydney)
+                    .title(store.name)
+                    .snippet("${store.genre}: ${store.averagePrice}$")
+            )
+            mGoogleMap!!.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            mGoogleMap!!.setMinZoomPreference(7f)
+            mGoogleMap!!.setMaxZoomPreference(20f)
+        }
+    }
+
+    //TODO memory leak here
+    private var handler: Handler = object : Handler() {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            when (msg.what) {
+                ConstantUtil.HANDLER_STORE -> {
+                    var bundle = msg.data
+                    var store: Store
+                    val result = bundle.getString(ConstantUtil.SERVER_RESULT).toString()
+                    try {
+                        if (!TextUtil.isEmpty(result)) {
+                            store = EntityUtil.jsonToStoreList(result)[0]
+                            showMark(store)
+                        } else {
+                            // Login unsuccessfully
+                        }
+                    } catch (e: java.lang.NullPointerException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
     }
 }
