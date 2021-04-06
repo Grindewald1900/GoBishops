@@ -15,6 +15,8 @@ import com.bumptech.glide.Glide
 import com.example.gobishops.R
 import com.example.gobishops.entity.NormalCard
 import com.example.gobishops.entity.Store
+import com.example.gobishops.utils.HttpJavaUtil
+import com.example.gobishops.utils.LoginStateUtil
 import com.example.gobishops.utils.TextUtil
 import com.example.gobishops.view.StoreDetailActivity
 import com.joooonho.SelectableRoundedImageView
@@ -43,10 +45,16 @@ class NormalCardAdapter(var date: ArrayList<Store>): RecyclerView.Adapter<Normal
                 holder.heart.background = mContext.getDrawable(R.drawable.ic_md_favorite_border_color1)
                 date[position].isCollect = false
                 Toast.makeText(mContext, R.string.hint_collect_cancel, Toast.LENGTH_SHORT).show()
+                Thread{
+                    HttpJavaUtil.EventByPost((1..100000).random(), LoginStateUtil.getUserId(), cardData.id, "STORE", 2)
+                }.start()
             }else{
                 holder.heart.background = mContext.getDrawable(R.drawable.ic_antfill_heart)
                 date[position].isCollect = true
                 Toast.makeText(mContext, R.string.hint_collect, Toast.LENGTH_SHORT).show()
+                Thread{
+                    HttpJavaUtil.EventByPost((1..100000).random(), LoginStateUtil.getUserId(), cardData.id, "STORE", 1)
+                }.start()
             }
 
         }

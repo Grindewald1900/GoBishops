@@ -132,7 +132,7 @@ public class HttpJavaUtil {
      * @param amount: Amount
      * @return: Result
      */
-    public static String AddOrderByPost(int sequenceId, int orderId, int userId, int storeId, int itemId, int amount){
+    public static String OrderByPost(int sequenceId, int orderId, int userId, int storeId, int itemId, int amount, int daoType){
         String address = ConstantUtil.SERVER_URL + ConstantUtil.SERVLET_ADD_ORDER;
         String result = "";
         Log.d("AddOrderByPost", "address" + address);
@@ -152,9 +152,9 @@ public class HttpJavaUtil {
                     "&user_id="+ URLEncoder.encode(String.valueOf(userId),"UTF-8")+
                     "&store_id="+ URLEncoder.encode(String.valueOf(storeId),"UTF-8")+
                     "&item_id="+ URLEncoder.encode(String.valueOf(itemId),"UTF-8")+
-                    "&item_amount="+ URLEncoder.encode(String.valueOf(amount),"UTF-8");
-
-            Log.d("AddOrderByPost", "data" + data);
+                    "&item_amount="+ URLEncoder.encode(String.valueOf(amount),"UTF-8")+
+                    // dao_type - 1 : save order 2 - : search order
+                    "&dao_type="+ URLEncoder.encode(String.valueOf(daoType),"UTF-8");
 
             OutputStream out = conn.getOutputStream();
 
@@ -209,18 +209,13 @@ public class HttpJavaUtil {
             conn.setUseCaches(false);
             // request for dishes by id
             String data = "&id="+ URLEncoder.encode(String.valueOf(id),"UTF-8");
-            Log.d("AddOrderByPost", "data" + data);
             OutputStream out = conn.getOutputStream();
             out.write(data.getBytes());
             out.flush();
             out.close();
             conn.connect();
-            Log.d("AddOrderByPost", "msg :" + conn.getResponseMessage());
-            Log.d("AddOrderByPost - conn", String.valueOf(conn.getResponseCode()));
-
 
             if (conn.getResponseCode() == 200) {
-                Log.d("AddOrderByPost","getResponseCode 200");
                 InputStream is = conn.getInputStream();
                 ByteArrayOutputStream message = new ByteArrayOutputStream();
                 int len = 0;
@@ -237,7 +232,6 @@ public class HttpJavaUtil {
         } catch (IOException e){
             e.printStackTrace();
             Log.d("AddOrderByPost - e",e.getMessage());
-
         }
         return result;
     }
@@ -246,7 +240,7 @@ public class HttpJavaUtil {
      * GetDish: get store list from server
      * @return: JSONArray in a string (dish info)
      */
-    public static String GetStoreByPost(){
+    public static String GetStoreByPost(int id, int daoType){
         String address = ConstantUtil.SERVER_URL + ConstantUtil.SERVLET_STORE;
         String result = "";
 
@@ -260,7 +254,64 @@ public class HttpJavaUtil {
             conn.setConnectTimeout(5000);
             conn.setUseCaches(false);
 
+            String data = "&id="+ URLEncoder.encode(String.valueOf(id),"UTF-8")+
+                    "&dao_type="+ URLEncoder.encode(String.valueOf(daoType),"UTF-8");
+
             OutputStream out = conn.getOutputStream();
+            out.write(data.getBytes());
+            out.flush();
+            out.close();
+            conn.connect();
+
+            if (conn.getResponseCode() == 200) {
+                InputStream is = conn.getInputStream();
+                ByteArrayOutputStream message = new ByteArrayOutputStream();
+                int len = 0;
+                byte[] buffer = new byte[1024];
+                while ((len = is.read(buffer)) != -1) {
+                    message.write(buffer, 0, len);
+                }
+                is.close();
+                message.close();
+                result = new String(message.toByteArray());
+                return result;
+            }
+
+        } catch (IOException e){
+            e.printStackTrace();
+            Log.d("AddOrderByPost - e",e.getMessage());
+        }
+        return result;
+    }
+
+    /**
+     * EventByPost: add event or get a list of event
+     * @return: JSONArray in a string (dish info)
+     */
+    public static String EventByPost(int eventId, int userId, int storeId, String eventType, int daoType){
+        String address = ConstantUtil.SERVER_URL + ConstantUtil.SERVLET_EVENT;
+        String result = "";
+
+        try{
+            URL url = new URL(address);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+
+            //Set up timeout
+            conn.setReadTimeout(5000);
+            conn.setConnectTimeout(5000);
+            conn.setUseCaches(false);
+
+            String data = "&event_id="+ URLEncoder.encode(String.valueOf(eventId),"UTF-8")+
+                    "&user_id="+ URLEncoder.encode(String.valueOf(userId),"UTF-8")+
+                    "&store_id="+ URLEncoder.encode(String.valueOf(storeId),"UTF-8")+
+                    "&event_type="+ URLEncoder.encode(eventType,"UTF-8")+
+                    "&dao_type="+ URLEncoder.encode(String.valueOf(daoType),"UTF-8");
+
+            OutputStream out = conn.getOutputStream();
+            out.write(data.getBytes());
+            out.flush();
+            out.close();
             conn.connect();
 
             if (conn.getResponseCode() == 200) {

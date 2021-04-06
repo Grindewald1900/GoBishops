@@ -39,4 +39,15 @@ object LoginStateUtil {
     fun setIsLogin(isLogin: Boolean){
         this.isLogin = isLogin
     }
+
+    /**
+     * Return user id if logged in, otherwise return 0
+     */
+    fun getUserId(): Int{
+        return if(isLogin){
+            user!!.id
+        }else{
+            0
+        }
+    }
 }

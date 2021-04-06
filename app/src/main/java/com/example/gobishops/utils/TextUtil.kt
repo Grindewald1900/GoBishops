@@ -30,6 +30,14 @@ class TextUtil {
             return (100 - promo*100).toInt().toString() + "% \nOff"
         }
 
+        fun getOrderId(id: Int): String{
+            return if(LoginStateUtil.getIsLogin()){
+                "#0002020"+LoginStateUtil.getUser()!!.id + id.toString()
+            }else{
+                "#0002020$id"
+            }
+        }
+
         fun isEmpty(string: String): Boolean{
             if(string.isNullOrEmpty()) return false
             if (string.compareTo("[]") != 0) return false

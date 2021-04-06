@@ -88,6 +88,31 @@ object EntityUtil {
     }
 
     /**
+     * Convert json to Store list
+     */
+    fun jsonToOrderList(string: String): ArrayList<Order>{
+        val result: ArrayList<Order> = ArrayList()
+        val jsonArray = JSONArray(string)
+        for (i in 0 until jsonArray.length()){
+            val jsonObject = jsonArray.getJSONObject(i)
+            result.add(
+                Order(
+                    jsonObject.getString("order_id").toInt(),
+                    jsonObject.getString("user_name"),
+                    jsonObject.getString("user_id").toInt(),
+                    jsonObject.getString("upload_time"),
+                    jsonObject.getString("order_price").toFloat(),
+                    jsonObject.getString("store_tel"),
+                    jsonObject.getString("order_content"),
+                    // fake score
+                    3,3,3
+                )
+            )
+        }
+        return result
+    }
+
+    /**
      * Convert json to OrderItem
      */
     fun jsonToOrderItem(string: String): OrderItem {

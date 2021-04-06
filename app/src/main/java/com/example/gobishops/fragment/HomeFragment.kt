@@ -73,7 +73,7 @@ class HomeFragment : Fragment() {
 
         // Prepare data for event list
         Thread{
-            val result = HttpJavaUtil.GetStoreByPost()
+            val result = HttpJavaUtil.GetStoreByPost(0, 1)
             val bundle = Bundle()
             val message = Message()
             bundle.putString(ConstantUtil.SERVER_RESULT, result)
