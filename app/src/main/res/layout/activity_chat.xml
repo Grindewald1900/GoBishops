@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ChatActivity">
+
+    <ListView
+        android:id="@+id/list_activity_chat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/dimen_20"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll_activity_chat_bottom"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_activity_chat_bottom"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_50"
+        android:background="@color/gray_5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+        <EditText
+            android:id="@+id/et_activity_chat_input"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:hint="@string/hint_input_msg"
+            android:inputType="text"
+            android:background="@drawable/shape_board"
+            android:paddingLeft="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_5"
+            android:layout_marginBottom="@dimen/dimen_5"
+            android:layout_marginStart="@dimen/dimen_10"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btn_activity_chat_send_msg"/>
+
+        <com.example.gobishops.myview.mButtonView
+            android:id="@+id/btn_activity_chat_send_msg"
+            android:layout_width="@dimen/button_width_small"
+            android:layout_height="@dimen/button_length_middle"
+            android:layout_marginEnd="@dimen/dimen_10"
+            android:text="@string/send"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/et_activity_chat_input"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

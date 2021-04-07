@@ -1,7 +1,6 @@
 package com.example.gobishops.adapter
 
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -10,7 +9,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
-import com.example.gobishops.entity.Event
 import com.example.gobishops.entity.Schedule
 import com.joooonho.SelectableRoundedImageView
 
@@ -37,7 +35,7 @@ class ScheduleCardAdapter(var schedules: ArrayList<Schedule>): RecyclerView.Adap
             holder.tvTitle.text = schedule.title
             Glide.with(holder.itemView)
                 .asBitmap()
-                .load(R.drawable.img_portrait)
+                .load(R.drawable.img_portrait1)
                 .into(holder.ivPortrait)
         }
         // This is the month

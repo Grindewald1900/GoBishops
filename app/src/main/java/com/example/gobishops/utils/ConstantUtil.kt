@@ -18,11 +18,14 @@ object ConstantUtil {
 
     // Ordinary String
     const val STRING_RESULT_ACTIVITY = "RESULT_ACTIVITY"
+    const val STRING_CONTACT = "CONTACT"
+    const val STRING_IMAGE = "IMAGE"
+    const val STRING_CHAT_SYSTEM_INIT = "Welcome"
 
     // Connection - Local test
-    const val SERVER_URL_MOBILE: String = "http://192.168.1.110:8080/BU_war_exploded/"
+    const val SERVER_URL: String = "http://192.168.1.110:8080/BU_war_exploded/"
+    const val SERVER_URL_MOBILE: String = "http://10.0.2.2:8080/BU_war_exploded/"
 
-    const val SERVER_URL: String = "http://10.0.2.2:8080/BU_war_exploded/"
     const val SERVLET_REGISTER: String = "Servlet.RegisterServlet.do"
     const val SERVLET_LOGIN: String = "Servlet.LoginServlet.do"
     const val SERVLET_ADD_ORDER: String = "Servlet.OrderServlet.do"

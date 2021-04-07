@@ -1,23 +1,16 @@
 package com.example.gobishops.view
 
-import `in`.galaxyofandroid.awesometablayout.AwesomeTabBar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
-import com.example.gobishops.adapter.ScheduleCardAdapter
 import com.example.gobishops.adapter.UserInfoPagerAdapter
 import com.example.gobishops.contract.UserInfoContract
-import com.example.gobishops.entity.Event
 import com.example.gobishops.entity.Schedule
 import com.example.gobishops.entity.User
 import com.example.gobishops.presenter.UserInfoPresenter
 import com.example.gobishops.utils.LoginStateUtil
-import com.example.gobishops.utils.TypeUtil
-import kotlinx.android.synthetic.main.activity_dish.*
 import kotlinx.android.synthetic.main.activity_user_info.*
 
 class UserInfoActivity : AppCompatActivity(), UserInfoContract.View{
@@ -35,7 +28,7 @@ class UserInfoActivity : AppCompatActivity(), UserInfoContract.View{
     override fun initView() {
         val data: ArrayList<Schedule> = ArrayList()
         mUser = LoginStateUtil.getUser()!!
-        Glide.with(this).asBitmap().load(R.drawable.img_portrait).into(btn_activity_user_info_portrait)
+        Glide.with(this).asBitmap().load(R.drawable.img_portrait1).into(btn_activity_user_info_portrait)
 
         // Github style list
 
