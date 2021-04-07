@@ -138,8 +138,7 @@
     <string name="hint_collect">Restaurant marked!</string>
     <string name="hint_collect_cancel">Restaurant unmarked!</string>
     <string name="hint_no_perm">Please agree with the permission request!</string>
-
-
+    <string name="hint_input_msg">Input message here</string>
 
 
     <!-- Fake data -->
@@ -164,6 +163,7 @@
     <string name="try_again">Please try again!</string>
     <string name="request_upload">We\'re processing your request.</string>
     <string name="visitor">Visitor</string>
+    <string name="send">Send</string>
 
 
 </resources>

@@ -11,15 +11,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
 import com.example.gobishops.adapter.DishAdapter
-import com.example.gobishops.adapter.NormalCardAdapter
 import com.example.gobishops.entity.Item
 import com.example.gobishops.utils.*
-import kotlinx.android.synthetic.main.activity_dish.*
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_store_detail.*
-import kotlinx.android.synthetic.main.fragment_event.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
-class StoreDetailActivity : AppCompatActivity() {
+class StoreDetailActivity : AppCompatActivity(), OnMapReadyCallback {
+    private var mGoogleMap: GoogleMap? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store_detail)
@@ -32,7 +36,7 @@ class StoreDetailActivity : AppCompatActivity() {
 
         if(LoginStateUtil.getIsLogin()){
             tv_activity_store_detail_initiator.text = LoginStateUtil.getUser()!!.userName
-            Glide.with(this).asBitmap().load(R.drawable.img_portrait).into(iv_activity_store_detail_portrait)
+            Glide.with(this).asBitmap().load(R.drawable.img_portrait1).into(iv_activity_store_detail_portrait)
         }else{
             Glide.with(this).asBitmap().load(R.drawable.ic_male_user_30).into(iv_activity_store_detail_portrait)
         }
@@ -57,6 +61,8 @@ class StoreDetailActivity : AppCompatActivity() {
             message.what = ConstantUtil.HANDLER_DISH
             handler.sendMessage(message)
         }.start()
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.fragment_activity_dish_map) as? SupportMapFragment
+        mapFragment?.getMapAsync(this)
     }
 
     private fun initRecyclerView(dishes: ArrayList<Item>){
@@ -88,6 +94,22 @@ class StoreDetailActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    override fun onMapReady(p0: GoogleMap?) {
+        TODO("Not yet implemented")
+        mGoogleMap?.apply {
+            val sydney = LatLng(intent.getDoubleExtra("lat", 45.366316), intent.getDoubleExtra("long", -71.856581))
+            addMarker(
+                MarkerOptions()
+                    .position(sydney)
+                    .title(intent.getStringExtra("Location"))
+                    .snippet("Avg price:}: ${intent.getStringExtra("Price")}$")
+            )
+            mGoogleMap!!.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            mGoogleMap!!.setMinZoomPreference(7f)
+            mGoogleMap!!.setMaxZoomPreference(20f)
         }
     }
 }

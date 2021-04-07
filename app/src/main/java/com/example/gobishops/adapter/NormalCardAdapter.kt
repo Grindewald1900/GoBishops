@@ -9,15 +9,14 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
-import com.example.gobishops.entity.NormalCard
 import com.example.gobishops.entity.Store
 import com.example.gobishops.utils.HttpJavaUtil
 import com.example.gobishops.utils.LoginStateUtil
 import com.example.gobishops.utils.TextUtil
+import com.example.gobishops.view.LoginActivity
 import com.example.gobishops.view.StoreDetailActivity
 import com.joooonho.SelectableRoundedImageView
 
@@ -26,6 +25,10 @@ import com.joooonho.SelectableRoundedImageView
  * Created by Yee on 2021/2/3.
  * Github: Grindewald1900
  * Email: grindewald1504@gmail.com
+ */
+
+/**
+ * Implemented for listview in store list
  */
 class NormalCardAdapter(var date: ArrayList<Store>): RecyclerView.Adapter<NormalCardAdapter.NormalCardHolder>() {
     private lateinit var mContext: Context
@@ -40,7 +43,12 @@ class NormalCardAdapter(var date: ArrayList<Store>): RecyclerView.Adapter<Normal
         holder.title.text = cardData.name
         holder.location.text = cardData.address
         holder.time.text = TextUtil.getItemPrice(cardData.averagePrice)
+        // when heart clicked, upload event to server and change the shape of heart
         holder.heart.setOnClickListener {
+            if (!LoginStateUtil.getIsLogin()){
+                mContext.startActivity(Intent(mContext, LoginActivity::class.java))
+                return@setOnClickListener
+            }
             if(cardData.isCollect){
                 holder.heart.background = mContext.getDrawable(R.drawable.ic_md_favorite_border_color1)
                 date[position].isCollect = false
@@ -60,13 +68,15 @@ class NormalCardAdapter(var date: ArrayList<Store>): RecyclerView.Adapter<Normal
         }
         Glide.with(holder.itemView)
             .asBitmap()
-            .load(R.drawable.img_portrait)
+            .load(R.drawable.img_portrait1)
             .into(holder.portrait)
         holder.layout.setOnClickListener {
             val intent = Intent(mContext, StoreDetailActivity::class.java)
             intent.putExtra("Location", cardData.address)
             intent.putExtra("Price", TextUtil.getItemPrice(cardData.averagePrice))
             intent.putExtra("id", cardData.id)
+            intent.putExtra("lat", cardData.lat)
+            intent.putExtra("long", cardData.long)
             mContext.startActivity(intent)
         }
 

@@ -9,7 +9,7 @@
         android:id="@+id/iv_item_search"
         android:layout_width="@dimen/dimen_100"
         android:layout_height="@dimen/dimen_100"
-        android:src="@drawable/img_portrait"
+        android:src="@drawable/img_portrait1"
         android:layout_marginTop="@dimen/dimen_10"
         android:layout_marginStart="@dimen/dimen_10"
         android:layout_marginBottom="@dimen/dimen_10"

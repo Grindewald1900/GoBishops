@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.gobishops.R
@@ -63,7 +62,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View, BaseContract.OnDa
         }
         Glide.with(this)
             .asBitmap()
-            .load(R.drawable.img_portrait)
+            .load(R.drawable.img_portrait1)
             .into(iv_login_portrait_v2)
     }
 

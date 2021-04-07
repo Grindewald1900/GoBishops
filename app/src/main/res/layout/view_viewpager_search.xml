@@ -22,7 +22,7 @@
         android:id="@+id/iv_viewpager_search"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/img_portrait"
+        android:src="@drawable/img_portrait1"
         android:scaleType="centerCrop"
         app:mCornerRadius="50"
         app:layout_constraintTop_toBottomOf="@+id/tv_viewpager_title"

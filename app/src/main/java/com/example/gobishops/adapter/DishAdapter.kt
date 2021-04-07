@@ -33,8 +33,13 @@ import com.joooonho.SelectableRoundedImageView
  * Github: Grindewald1900
  * Email: grindewald1504@gmail.com
  */
+
+/**
+ * Implemented for listview in dish list
+ */
 class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.Adapter<DishAdapter.DishHolder>() {
     val mContext: Context? = context
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_dishes, parent, false)
         return DishHolder(itemView)
@@ -44,8 +49,6 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
         val dish = dishes[position]
         var starCount = dish.rate
         holder.title.text = dish.name
-//        holder.restaurant.text = dish.id.toString()
-
         holder.background.setOnClickListener {
             var intent = Intent(it.context, DishActivity::class.java)
             intent.putExtra(ConstantUtil.CLASS_ITEM, dish)
@@ -69,8 +72,6 @@ class DishAdapter(var dishes: ArrayList<Item>, context: Context?): RecyclerView.
         // Remove all views when initializing
         holder.rateLayout.removeAllViews()
         for (i in 1..5){
-            Log.d("Dish_tag", "pos: $position")
-            Log.d("Dish_tag", "starCount: $starCount")
             starCount -= 1
             if (starCount >= 0.75) {
                 holder.rateLayout.addView(addStar(3))

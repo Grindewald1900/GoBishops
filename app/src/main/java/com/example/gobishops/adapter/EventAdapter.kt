@@ -27,6 +27,9 @@ import com.yanzhenjie.permission.runtime.Permission
  * Email: grindewald1504@gmail.com
  */
 
+/**
+ * Implemented for listview in order list
+ */
 class EventAdapter(var orders: ArrayList<Order>): RecyclerView.Adapter<EventAdapter.ActivityHolder>(){
     private lateinit var mContext: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityHolder {
@@ -47,6 +50,7 @@ class EventAdapter(var orders: ArrayList<Order>): RecyclerView.Adapter<EventAdap
         holder.addtional.text = "Placed by ${order.userName} at ${order.date}"
         holder.contact.setOnClickListener {
             Toast.makeText(mContext, "Click", Toast.LENGTH_SHORT).show()
+            // Request for Permission.CALL_PHONE at runtime
             AndPermission.with(mContext)
                 .runtime()
                 .permission(Permission.CALL_PHONE)
@@ -80,10 +84,6 @@ class EventAdapter(var orders: ArrayList<Order>): RecyclerView.Adapter<EventAdap
         var content: TextView = view.findViewById(R.id.tv_item_activity_content)
         var addtional: TextView = view.findViewById(R.id.tv_item_activity_info)
         var contact: mButtonView = view.findViewById(R.id.btn_item_activity_contact)
-
-        init{
-            // Set listener for each element in the activity item
-        }
 
         companion object{
             private val ACTIVITY_KEY = "ACTIVITY"
